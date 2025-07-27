@@ -1,0 +1,23 @@
+# Exclude sensitive files
+secrets.yaml
+known_devices.yaml
+*.log
+*.log.*
+*.db
+*.db-shm
+*.db-wal
+
+# Exclude temporary files
+*.pyc
+__pycache__/
+.storage/
+.cloud/
+tts/
+www/
+deps/
+
+# Exclude boilerplate and personal info
+custom_components
+blueprints
+configuration.yaml
+.HA_VERSION

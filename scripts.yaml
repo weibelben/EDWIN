@@ -1,0 +1,232 @@
+custom_bedroom_lamps_on:
+  alias: Primary Bedroom Lamps On
+  description: Control bedroom lights with customizable RGB color components and brightness
+  fields:
+    red:
+      name: Red
+      description: Red color component (0-255)
+      example: 255
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+    green:
+      name: Green
+      description: Green color component (0-255)
+      example: 197
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+    blue:
+      name: Blue
+      description: Blue color component (0-255)
+      example: 143
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 255
+          step: 1
+    brightness:
+      name: Brightness
+      description: Brightness percentage (0-100)
+      example: 30
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 100
+          unit_of_measurement: '%'
+    transition:
+      name: Transition
+      description: Transition seconds
+      example: 2
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 60
+          unit_of_measurement: seconds
+  sequence:
+  - action: retry.call
+    metadata: {}
+    data:
+      service: light.turn_on
+      retries: 25
+      rgb_color:
+      - '{{ red }}'
+      - '{{ green }}'
+      - '{{ blue }}'
+      brightness_pct: '{{ brightness }}'
+      transition: '{{ transition }}'
+    target:
+      entity_id:
+      - light.bedside_lamp_south
+      - light.bedside_lamp_north
+      - light.floor_lamp
+      - light.bookshelf_light
+  mode: single
+primary_bedroom_lamp_color_selector:
+  alias: Primary Bedroom Lamp Color Selector
+  description: Based on time of day and location of sun, sets color and brightness
+    of lamps
+  sequence:
+  - choose:
+    - conditions:
+      - condition: time
+        before: 05:00:00
+      sequence:
+      - data:
+          red: 139
+          green: 0
+          blue: 0
+          brightness: 1
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: time
+          before: 07:00:00
+        - condition: sun
+          before: sunrise
+      sequence:
+      - data:
+          red: 139
+          green: 0
+          blue: 0
+          brightness: 50
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: time
+          before: 08:00:00
+        - condition: sun
+          before: sunrise
+          after_offset: 01:00:00
+      sequence:
+      - data:
+          red: 255
+          green: 140
+          blue: 50
+          brightness: 40
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: time
+          before: 09:00:00
+        - condition: sun
+          before: sunrise
+          after_offset: 02:00:00
+      sequence:
+      - data:
+          red: 255
+          green: 220
+          blue: 180
+          brightness: 60
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: time
+          before: '20:00:00'
+        - condition: sun
+          after: sunset
+      sequence:
+      - data:
+          red: 255
+          green: 140
+          blue: 50
+          brightness: 50
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: time
+        after: '20:00:00'
+        before: '21:00:00'
+      sequence:
+      - data:
+          red: 139
+          green: 0
+          blue: 0
+          brightness: 50
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: time
+        after: '21:00:00'
+        before: '22:00:00'
+      sequence:
+      - data:
+          red: 139
+          green: 0
+          blue: 0
+          brightness: 33
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    - conditions:
+      - condition: time
+        after: '22:00:00'
+      sequence:
+      - data:
+          red: 139
+          green: 0
+          blue: 0
+          brightness: 10
+          transition: 0.5
+        action: script.custom_bedroom_lamps_on
+    default:
+    - data:
+        red: 255
+        green: 220
+        blue: 180
+        brightness: 90
+        transition: 0.5
+      action: script.custom_bedroom_lamps_on
+android_tts_notification:
+  alias: Android TTS Notification
+  description: Sends TTS notifications to Android devices with customizable text,
+    media stream, and notification service
+  fields:
+    tts_text:
+      description: The text to be spoken via TTS
+      example: Water leak detected in the kitchen
+      required: true
+    media_stream:
+      description: The media stream to use for TTS
+      example: alarm_stream
+      default: alarm_stream
+    notify_service:
+      description: The notification service to use for TTS
+      example: mobile_app_benss22
+      default: mobile_app_benss22
+  sequence:
+  - action: notify.{{ notify_service }}
+    metadata: {}
+    data:
+      message: TTS
+      data:
+        tts_text: ' '
+        media_stream: '{{ media_stream }}'
+  - if:
+    - condition: template
+      value_template: '{{ tts_text | trim | length > 0 }}'
+    then:
+    - action: notify.{{ notify_service }}
+      metadata: {}
+      data:
+        message: TTS
+        data:
+          tts_text: '{{ tts_text }}'
+          media_stream: '{{ media_stream }}'
+  mode: queued

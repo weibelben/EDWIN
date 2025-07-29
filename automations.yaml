@@ -1032,7 +1032,6 @@
   - action: input_boolean.turn_off
     target:
       entity_id: input_boolean.water_alarm_active
-    data: {}
   - action: notify.mobile_app_benss22
     metadata: {}
     data:
@@ -1040,7 +1039,7 @@
         is defined else 'Test Sensor' }} \nTriggered {{ trigger.event.data.triggered_time
         if trigger.event.data.triggered_time is defined else (now() | as_local).strftime('%m/%d/%Y
         at %I:%M %p') }}\nAcknowledged {{ (now() | as_local).strftime('%m/%d/%Y at
-        %I:%M %p') }} - TTS alerts silenced"
+        %I:%M %p') }}"
       title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
       data:
         priority: normal

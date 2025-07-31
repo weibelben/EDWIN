@@ -33,6 +33,12 @@
     target:
       entity_id: switch.driveway_lights_switch
     action: retry.call
+  - data:
+      service: homeassistant.turn_on
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
+    action: retry.call
   mode: single
 - id: '1707096114972'
   alias: 2200 Lights OFF
@@ -84,6 +90,12 @@
     target:
       entity_id: switch.driveway_lights_switch
     action: retry.call
+  - data:
+      service: homeassistant.turn_on
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
+    action: retry.call
   - action: retry.call
     metadata: {}
     data:
@@ -125,6 +137,12 @@
       retries: 10
     target:
       entity_id: switch.driveway_lights_switch
+    action: retry.call
+  - data:
+      service: homeassistant.turn_off
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1707181435220'
@@ -318,7 +336,7 @@
       retries: 25
     target:
       entity_id: switch.china_hutch_socket_1, switch.tv_armoire_lamp, switch.kitchen_tree_light,
-        switch.driveway_lights_switch
+        switch.driveway_lights_switch, switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1718500808554'
@@ -334,7 +352,7 @@
       retries: 25
     target:
       entity_id: switch.china_hutch_socket_1, switch.driveway_lights_switch, switch.garage_lights_switch,
-        switch.tv_armoire_lamp, switch.kitchen_tree_light
+        switch.tv_armoire_lamp, switch.kitchen_tree_light, switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1718501833646'
@@ -1032,7 +1050,6 @@
   - action: input_boolean.turn_off
     target:
       entity_id: input_boolean.water_alarm_active
-    data: {}
   - action: notify.mobile_app_benss22
     metadata: {}
     data:
@@ -1040,7 +1057,7 @@
         is defined else 'Test Sensor' }} \nTriggered {{ trigger.event.data.triggered_time
         if trigger.event.data.triggered_time is defined else (now() | as_local).strftime('%m/%d/%Y
         at %I:%M %p') }}\nAcknowledged {{ (now() | as_local).strftime('%m/%d/%Y at
-        %I:%M %p') }} - TTS alerts silenced"
+        %I:%M %p') }}"
       title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
       data:
         priority: normal

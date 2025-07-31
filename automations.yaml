@@ -951,8 +951,7 @@
             is defined else (now() | as_local).strftime(''%m/%d/%Y at %I:%M %p'')
             }}
 
-            Cleared {{ (now() | as_local).strftime(''%m/%d/%Y at %I:%M %p'') }} -
-            TTS alerts silenced'
+            Cleared {{ (now() | as_local).strftime(''%m/%d/%Y at %I:%M %p'') }}'
           title: ✅ Water Alarm Cleared
           data:
             tag: water_alarm_cleared

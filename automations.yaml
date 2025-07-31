@@ -33,6 +33,12 @@
     target:
       entity_id: switch.driveway_lights_switch
     action: retry.call
+  - data:
+      service: homeassistant.turn_on
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
+    action: retry.call
   mode: single
 - id: '1707096114972'
   alias: 2200 Lights OFF
@@ -84,6 +90,12 @@
     target:
       entity_id: switch.driveway_lights_switch
     action: retry.call
+  - data:
+      service: homeassistant.turn_on
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
+    action: retry.call
   - action: retry.call
     metadata: {}
     data:
@@ -125,6 +137,12 @@
       retries: 10
     target:
       entity_id: switch.driveway_lights_switch
+    action: retry.call
+  - data:
+      service: homeassistant.turn_off
+      retries: 10
+    target:
+      entity_id: switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1707181435220'
@@ -318,7 +336,7 @@
       retries: 25
     target:
       entity_id: switch.china_hutch_socket_1, switch.tv_armoire_lamp, switch.kitchen_tree_light,
-        switch.driveway_lights_switch
+        switch.driveway_lights_switch, switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1718500808554'
@@ -334,7 +352,7 @@
       retries: 25
     target:
       entity_id: switch.china_hutch_socket_1, switch.driveway_lights_switch, switch.garage_lights_switch,
-        switch.tv_armoire_lamp, switch.kitchen_tree_light
+        switch.tv_armoire_lamp, switch.kitchen_tree_light, switch.mudroom_outside_lights
     action: retry.call
   mode: single
 - id: '1718501833646'

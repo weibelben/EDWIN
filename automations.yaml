@@ -1,1074 +1,1090 @@
-- id: '1706156931652'
+- id: "1706156931652"
   alias: Backup Failure Notification
-  description: Sends a notification to Ben's S22 if a backup fails to upload to Google
+  description:
+    Sends a notification to Ben's S22 if a backup fails to upload to Google
     Drive
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.backups_stale
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.backups_stale
+      to: "on"
   condition: []
   action:
-  - service: notify.mobile_app_benss22
-    data:
-      message: Backup Failed
-  - service: notify.gmail
-    metadata: {}
-    data:
-      message: A backup failed to upload to Google Drive
-      title: Home Assistant Backup Failure
+    - service: notify.mobile_app_benss22
+      data:
+        message: Backup Failed
+    - service: notify.gmail
+      metadata: {}
+      data:
+        message: A backup failed to upload to Google Drive
+        title: Home Assistant Backup Failure
   mode: single
-- id: '1707096019689'
+- id: "1707096019689"
   alias: 11 Sunset Minus 120 Driveway Lights On
   description: Turns on lights 120 mins before the sun sets
   triggers:
-  - event: sunset
-    offset: -02:00
-    trigger: sun
+    - event: sunset
+      offset: -02:00
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.driveway_lights_switch
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.mudroom_outside_lights
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.driveway_lights_switch
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.mudroom_outside_lights
+      action: retry.action
   mode: single
-- id: '1707096114972'
+- id: "1707096114972"
   alias: 2200 Lights OFF
   description: Turns off lights at 10PM
   trigger:
-  - platform: time
-    at: '22:00:00'
+    - platform: time
+      at: "22:00:00"
   condition: []
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.discus_tank_lights, switch.basement_aquarium_sump_light, switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_overflow_light
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.discus_tank_lights, switch.basement_aquarium_sump_light, switch.basement_aquarium_pendant_nook_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_center_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
-- id: '1707096432929'
+- id: "1707096432929"
   alias: 0530 Lights ON Fans OFF Weekday
   description: At 6AM, turn on driveway lights and turn off bedroom fans
   triggers:
-  - at: 05:30:00
-    trigger: time
+    - at: 05:30:00
+      trigger: time
   conditions:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.driveway_lights_switch
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.mudroom_outside_lights
-    action: retry.call
-  - action: retry.call
-    metadata: {}
-    data:
-      service: light.turn_on
-      retries: 25
-      rgb_color:
-      - 139
-      - 0
-      - 0
-      brightness_pct: 1
-      transition: 0.5
-    target:
-      entity_id:
-      - light.bedside_lamp_south
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: fan.upstairs_bedroom_fan
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.driveway_lights_switch
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.mudroom_outside_lights
+      action: retry.action
+    - action: retry.action
+      metadata: {}
+      data:
+        service: light.turn_on
+        retries: 25
+        rgb_color:
+          - 139
+          - 0
+          - 0
+        brightness_pct: 1
+        transition: 0.5
+      target:
+        entity_id:
+          - light.bedside_lamp_south
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: fan.upstairs_bedroom_fan
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: fan.primary_bedroom_fan
+      action: retry.action
   mode: single
-- id: '1707096741057'
+- id: "1707096741057"
   alias: 10 Sunrise Plus 120 Driveway Lights Off
   description: Turn off lights 120mins after the sun rises
   triggers:
-  - event: sunrise
-    offset: '2:00'
-    trigger: sun
+    - event: sunrise
+      offset: "2:00"
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.driveway_lights_switch
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.mudroom_outside_lights
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.driveway_lights_switch
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.mudroom_outside_lights
+      action: retry.action
   mode: single
-- id: '1707181435220'
+- id: "1707181435220"
   alias: 00 Sunrise
-  description: ''
+  description: ""
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: -00:00
+    - platform: sun
+      event: sunrise
+      offset: -00:00
   condition: []
   action:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light,
-        switch.basement_aquarium_sump_light
-    action: retry.action
-  - delay: 00:02:00
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_center_light
-    action: retry.action
-  - delay: 00:02:00
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_overflow_light
-    action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id:
+          switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light,
+          switch.basement_aquarium_sump_light
+      action: retry.action
+    - delay: 00:02:00
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_center_light
+      action: retry.action
+    - delay: 00:02:00
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_overflow_light
+      action: retry.action
   mode: single
-- id: '1707181482752'
+- id: "1707181482752"
   alias: Sunset + 30 Off
-  description: ''
+  description: ""
   trigger:
-  - platform: sun
-    event: sunset
-    offset: +00:30
+    - platform: sun
+      event: sunset
+      offset: +00:30
   condition: []
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.fountain_plug_all_sockets
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.fountain_plug_all_sockets
   mode: single
-- id: '1707671112803'
+- id: "1707671112803"
   alias: 0530 ON
-  description: ''
+  description: ""
   triggers:
-  - at: 05:30:00
-    trigger: time
+    - at: 05:30:00
+      trigger: time
   conditions:
-  - condition: numeric_state
-    entity_id: weather.forecast_home
-    attribute: temperature
-    above: 35
-    below: 70
+    - condition: numeric_state
+      entity_id: weather.forecast_home
+      attribute: temperature
+      above: 35
+      below: 70
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.fountain_plug_all_sockets
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.fountain_plug_all_sockets
+      action: retry.action
   mode: single
-- id: '1712943242825'
+- id: "1712943242825"
   alias: Back Deck Motion
   description: Turn on back deck light for 2 mins if there is motion
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.back_deck_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.back_deck_light
-    state: 'off'
-  action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
+  triggers:
+    - entity_id: binary_sensor.back_deck_motion
+      to: "on"
+      trigger: state
+  conditions:
+    - condition: state
       entity_id: switch.back_deck_light
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.back_deck_light
-- id: '1714941753435'
+      state: "off"
+  actions:
+    - data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.back_deck_light
+      action: retry.action
+    - delay:
+        hours: 0
+        minutes: 2
+        seconds: 0
+        milliseconds: 0
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.back_deck_light
+      action: retry.action
+- id: "1714941753435"
   alias: Recycle Poor Quality Air
   description: Turn on exhaust fans when ecobee reports high CO2 and VOCs
   triggers:
-  - entity_id:
-    - sensor.living_room_air_quality_index
-    above: 150
-    trigger: numeric_state
+    - entity_id:
+        - sensor.living_room_air_quality_index
+      above: 150
+      trigger: numeric_state
   conditions:
-  - condition: numeric_state
-    entity_id: sensor.se_12th_st_bellevue_washington_usa_air_quality_index
-    below: 50
-  - condition: numeric_state
-    entity_id: weather.forecast_home
-    attribute: temperature
-    above: 45
-    below: 85
+    - condition: numeric_state
+      entity_id: sensor.se_12th_st_bellevue_washington_usa_air_quality_index
+      below: 50
+    - condition: numeric_state
+      entity_id: weather.forecast_home
+      attribute: temperature
+      above: 45
+      below: 85
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.upstairs_hall_bath_fan_switch_1
-    action: retry.call
-  - delay: 01:00:00
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.upstairs_hall_bath_fan_switch_1
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.upstairs_hall_bath_fan_switch_1
+      action: retry.action
+    - delay: 01:00:00
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.upstairs_hall_bath_fan_switch_1
+      action: retry.action
   mode: single
-- id: '1718499911399'
+- id: "1718499911399"
   alias: 0700 Weekdays Off
-  description: ''
+  description: ""
   trigger:
-  - platform: time
-    at: 07:00:00
+    - platform: time
+      at: 07:00:00
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.fountain_plug_all_sockets
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.fountain_plug_all_sockets
   mode: single
-- id: '1718500151513'
+- id: "1718500151513"
   alias: 1420 Weekdays On
-  description: ''
+  description: ""
   triggers:
-  - at: '14:20:00'
-    trigger: time
+    - at: "14:20:00"
+      trigger: time
   conditions:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - condition: numeric_state
-    entity_id: weather.forecast_home
-    attribute: temperature
-    above: 45
-    below: 75
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: numeric_state
+      entity_id: weather.forecast_home
+      attribute: temperature
+      above: 45
+      below: 75
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.fountain_plug_all_sockets
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.fountain_plug_all_sockets
+      action: retry.action
   mode: single
-- id: '1718500514596'
+- id: "1718500514596"
   alias: 00 Sunrise Minus 30 Lights On
-  description: ''
+  description: ""
   triggers:
-  - event: sunrise
-    offset: -00:30
-    trigger: sun
+    - event: sunrise
+      offset: -00:30
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.china_hutch_socket_1, switch.tv_armoire_lamp, switch.kitchen_tree_light,
-        switch.driveway_lights_switch, switch.mudroom_outside_lights
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id:
+          switch.china_hutch_socket_1, switch.tv_armoire_lamp, switch.kitchen_tree_light,
+          switch.driveway_lights_switch, switch.mudroom_outside_lights
+      action: retry.action
   mode: single
-- id: '1718500808554'
+- id: "1718500808554"
   alias: 2200 Lights Off
   description: Turns off lights at 10PM
   triggers:
-  - at: '22:00:00'
-    trigger: time
+    - at: "22:00:00"
+      trigger: time
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.china_hutch_socket_1, switch.driveway_lights_switch, switch.garage_lights_switch,
-        switch.tv_armoire_lamp, switch.kitchen_tree_light, switch.mudroom_outside_lights
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id:
+          switch.china_hutch_socket_1, switch.driveway_lights_switch, switch.garage_lights_switch,
+          switch.tv_armoire_lamp, switch.kitchen_tree_light, switch.mudroom_outside_lights
+      action: retry.action
   mode: single
-- id: '1718501833646'
+- id: "1718501833646"
   alias: 1800 Lights On
-  description: ''
+  description: ""
   trigger:
-  - platform: time
-    at: '18:00:00'
+    - platform: time
+      at: "18:00:00"
   condition: []
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_on
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_overflow_light
+    - service: retry.action
+      data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_center_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_on
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
-- id: '1718502183475'
+- id: "1718502183475"
   alias: 01 Sunrise Plus 120 Lights Off
   description: Turn off lights 120mins after the sun rises
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: '2:00'
+    - platform: sun
+      event: sunrise
+      offset: "2:00"
   condition: []
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.basement_aquarium_pendant_overflow_light
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_center_light
+    - delay: 00:02:00
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
-- id: '1718503016252'
+- id: "1718503016252"
   alias: Sunset Kitchen Grow Light Off
-  description: ''
+  description: ""
   trigger:
-  - platform: sun
-    event: sunset
-    offset: +00:30
+    - platform: sun
+      event: sunset
+      offset: +00:30
   condition: []
   action:
-  - service: retry.call
-    data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.kitchen_tree_light
+    - service: retry.action
+      data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.kitchen_tree_light
   mode: single
-- id: '1726704984503'
+- id: "1726704984503"
   alias: Primary Bedroom Fan On
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: light.primary_bedroom_fan
-    to: 'on'
+    - platform: state
+      entity_id: light.primary_bedroom_fan
+      to: "on"
   action:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: fan.primary_bedroom_fan
+      action: retry.action
   mode: single
-- id: '1726705675996'
+- id: "1726705675996"
   alias: Primary Bedroom Fan Off
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: light.primary_bedroom_fan
-    to: 'off'
+    - platform: state
+      entity_id: light.primary_bedroom_fan
+      to: "off"
   action:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: fan.primary_bedroom_fan
+      action: retry.action
   mode: single
-- id: '1726706188958'
+- id: "1726706188958"
   alias: Record Player Off After 2h
-  description: ''
+  description: ""
   triggers:
-  - entity_id: switch.tv_armoire_record_player
-    to: 'on'
-    trigger: state
+    - entity_id: switch.tv_armoire_record_player
+      to: "on"
+      trigger: state
   conditions: []
   actions:
-  - delay: 02:00:00
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.tv_armoire_record_player
-    action: retry.call
+    - delay: 02:00:00
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.tv_armoire_record_player
+      action: retry.action
   mode: single
-- id: '1734038582274'
+- id: "1734038582274"
   alias: 0800 Fans off weekends
   description: At 8AM, turn off bedroom fans
   triggers:
-  - at: 08:00:00
-    trigger: time
+    - at: 08:00:00
+      trigger: time
   conditions:
-  - condition: time
-    weekday:
-    - sat
-    - sun
+    - condition: time
+      weekday:
+        - sat
+        - sun
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: fan.upstairs_bedroom_fan
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 10
-    target:
-      entity_id: switch.primary_bedroom_fan
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: fan.upstairs_bedroom_fan
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: fan.primary_bedroom_fan
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 10
+      target:
+        entity_id: switch.primary_bedroom_fan
+      action: retry.action
   mode: single
-- id: '1734040916464'
+- id: "1734040916464"
   alias: Attic Vents On
-  description: ''
+  description: ""
   triggers:
-  - event: sunset
-    offset: -00:30
-    trigger: sun
+    - event: sunset
+      offset: -00:30
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.attic_vents
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.attic_vents
+      action: retry.action
   mode: single
-- id: '1734041025094'
+- id: "1734041025094"
   alias: Attic Vents Off
-  description: ''
+  description: ""
   triggers:
-  - event: sunrise
-    offset: +00:30
-    trigger: sun
+    - event: sunrise
+      offset: +00:30
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.attic_vents
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.attic_vents
+      action: retry.action
   mode: single
-- id: '1734041461065'
+- id: "1734041461065"
   alias: Switch Outdoor Sockets On
-  description: ''
+  description: ""
   triggers:
-  - entity_id: switch.top_of_stairs
-    to: 'on'
-    trigger: state
+    - entity_id: switch.top_of_stairs
+      to: "on"
+      trigger: state
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
   mode: single
-- id: '1734042146922'
+- id: "1734042146922"
   alias: Switch Outdoor Sockets Off
-  description: ''
+  description: ""
   triggers:
-  - entity_id: switch.top_of_stairs
-    to: 'off'
-    trigger: state
+    - entity_id: switch.top_of_stairs
+      to: "off"
+      trigger: state
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
   mode: single
-- id: '1734044661267'
+- id: "1734044661267"
   alias: 00 Christmas Lights On Weekday Mornings
-  description: ''
+  description: ""
   triggers:
-  - at: 05:30:00
-    trigger: time
+    - at: 05:30:00
+      trigger: time
   conditions:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.top_of_stairs
+      action: retry.action
   mode: single
-- id: '1734044914295'
+- id: "1734044914295"
   alias: 02 Christmas Lights Off Mornings
-  description: ''
+  description: ""
   triggers:
-  - event: sunrise
-    offset: +01:00
-    trigger: sun
+    - event: sunrise
+      offset: +01:00
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.top_of_stairs
+      action: retry.action
   mode: single
-- id: '1734045064180'
+- id: "1734045064180"
   alias: 01 Christmas Lights On Weekend Mornings
-  description: ''
+  description: ""
   triggers:
-  - at: 06:30:00
-    trigger: time
+    - at: 06:30:00
+      trigger: time
   conditions:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.top_of_stairs
+      action: retry.action
   mode: single
-- id: '1734045226921'
+- id: "1734045226921"
   alias: 03 Christmas Lights On Evenings
-  description: ''
+  description: ""
   triggers:
-  - event: sunset
-    offset: -01:00
-    trigger: sun
+    - event: sunset
+      offset: -01:00
+      trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.call
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
+    - data:
+        service: homeassistant.turn_on
+        retries: 25
+      target:
+        entity_id: switch.top_of_stairs
+      action: retry.action
   mode: single
-- id: '1734045312680'
+- id: "1734045312680"
   alias: 04 Christmas Lights Off Evenings
-  description: ''
+  description: ""
   triggers:
-  - at: '22:30:00'
-    trigger: time
+    - at: "22:30:00"
+      trigger: time
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.call
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.north_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: light.rear_garage_entrance
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_bar_lights
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.back_deck_splitter_socket_3
+      action: retry.action
+    - data:
+        service: homeassistant.turn_off
+        retries: 25
+      target:
+        entity_id: switch.top_of_stairs
+      action: retry.action
   mode: single
-- id: '1741997911192'
+- id: "1741997911192"
   alias: Primary Bedroom Lamps Switch Off
-  description: ''
+  description: ""
   triggers:
-  - entity_id: switch.primary_bedroom_lamps
-    to: 'off'
-    trigger: state
+    - entity_id: switch.primary_bedroom_lamps
+      to: "off"
+      trigger: state
   conditions: []
   actions:
-  - data:
-      service: light.turn_off
-      retries: 25
-    target:
-      entity_id: light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
-        light.bookshelf_light
-    action: retry.call
+    - data:
+        service: light.turn_off
+        retries: 25
+      target:
+        entity_id:
+          light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
+          light.bookshelf_light
+      action: retry.action
   mode: single
-- id: '1742261495447'
+- id: "1742261495447"
   alias: Primary Bedroom Lamp Settings
   description: Changes light colors and brightnesses according to the time of day
   triggers:
-  - minutes: /1
-    trigger: time_pattern
+    - minutes: /1
+      trigger: time_pattern
   actions:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: light.bedside_lamp_south
-      state: 'on'
-    - condition: state
-      entity_id: light.bedside_lamp_north
-      state: 'on'
-    - condition: state
-      entity_id: light.floor_lamp
-      state: 'on'
-    - condition: state
-      entity_id: light.bookshelf_light
-      state: 'on'
-  - target:
-      entity_id: script.primary_bedroom_lamp_color_selector
-    action: script.turn_on
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: light.bedside_lamp_south
+          state: "on"
+        - condition: state
+          entity_id: light.bedside_lamp_north
+          state: "on"
+        - condition: state
+          entity_id: light.floor_lamp
+          state: "on"
+        - condition: state
+          entity_id: light.bookshelf_light
+          state: "on"
+    - target:
+        entity_id: script.primary_bedroom_lamp_color_selector
+      action: script.turn_on
   mode: single
-- id: '1742312770194'
+- id: "1742312770194"
   alias: Primary Bedroom Lamps Switch On
-  description: Sets different colors based on time of day when primary bedroom switch
+  description:
+    Sets different colors based on time of day when primary bedroom switch
     is turned on
   triggers:
-  - entity_id: switch.primary_bedroom_lamps
-    from: 'off'
-    to: 'on'
-    trigger: state
+    - entity_id: switch.primary_bedroom_lamps
+      from: "off"
+      to: "on"
+      trigger: state
   conditions: []
   actions:
-  - target:
-      entity_id: script.primary_bedroom_lamp_color_selector
-    action: script.turn_on
+    - target:
+        entity_id: script.primary_bedroom_lamp_color_selector
+      action: script.turn_on
   mode: single
-- id: '1752081892642'
+- id: "1752081892642"
   alias: Bedside Clicker Lamp Control
-  description: ''
+  description: ""
   triggers:
-  - device_id: 4f36e7aa614370e3891d01120fd1a39b
-    domain: zha
-    type: remote_button_short_press
-    subtype: remote_button_short_press
-    trigger: device
-  - device_id: 83a1e8a55f28b87fd08f8b3a65586c5e
-    domain: zha
-    type: remote_button_short_press
-    subtype: remote_button_short_press
-    trigger: device
+    - device_id: 4f36e7aa614370e3891d01120fd1a39b
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+      trigger: device
+    - device_id: 83a1e8a55f28b87fd08f8b3a65586c5e
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+      trigger: device
   conditions: []
   actions:
-  - type: toggle
-    device_id: fef9aceb3d770bb4fddd92d9e338f590
-    entity_id: f48672987a86357f7b6767c98f540dc6
-    domain: switch
+    - type: toggle
+      device_id: fef9aceb3d770bb4fddd92d9e338f590
+      entity_id: f48672987a86357f7b6767c98f540dc6
+      domain: switch
   mode: single
-- id: '1753414170752'
+- id: "1753414170752"
   alias: Water Alarm Notifications
   description: Detects water leaks and sends notifications with acknowledgment button
   triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.third_reality_inc_3rws18bz
-    from:
-    to: 'on'
-  - trigger: state
-    entity_id:
-    - binary_sensor.third_reality_inc_3rws18bz_2
-    from:
-    to: 'on'
-  - trigger: state
-    entity_id:
-    - binary_sensor.third_reality_inc_3rws18bz_3
-    from:
-    to: 'on'
-  - trigger: state
-    entity_id:
-    - binary_sensor.third_reality_inc_3rws18bz_4
-    from:
-    to: 'on'
-  - trigger: event
-    event_type: mobile_app_notification_cleared
-    event_data:
-      tag: water_alarm
+    - trigger: state
+      entity_id:
+        - binary_sensor.third_reality_inc_3rws18bz
+      from:
+      to: "on"
+    - trigger: state
+      entity_id:
+        - binary_sensor.third_reality_inc_3rws18bz_2
+      from:
+      to: "on"
+    - trigger: state
+      entity_id:
+        - binary_sensor.third_reality_inc_3rws18bz_3
+      from:
+      to: "on"
+    - trigger: state
+      entity_id:
+        - binary_sensor.third_reality_inc_3rws18bz_4
+      from:
+      to: "on"
+    - trigger: event
+      event_type: mobile_app_notification_cleared
+      event_data:
+        tag: water_alarm
   conditions: []
   actions:
-  - if:
-    - condition: template
-      value_template: '{{ trigger.event.event_type == ''mobile_app_notification_cleared''
-        }}'
-    then:
     - if:
-      - condition: state
-        entity_id: input_boolean.water_alarm_active
-        state: 'on'
+        - condition: template
+          value_template:
+            "{{ trigger.event.event_type == 'mobile_app_notification_cleared'
+            }}"
       then:
-      - action: input_boolean.turn_off
-        target:
-          entity_id: input_boolean.water_alarm_active
-        data: {}
-      - action: notify.mobile_app_benss22
-        metadata: {}
-        data:
-          message: 'Associated Sensor: {{ trigger.event.data.triggered_device if trigger.event.data.triggered_device
-            is defined else ''Test Sensor'' }}
+        - if:
+            - condition: state
+              entity_id: input_boolean.water_alarm_active
+              state: "on"
+          then:
+            - action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.water_alarm_active
+              data: {}
+            - action: notify.mobile_app_benss22
+              metadata: {}
+              data:
+                message:
+                  "Associated Sensor: {{ trigger.event.data.triggered_device if trigger.event.data.triggered_device
+                  is defined else 'Test Sensor' }}
 
-            Triggered {{ trigger.event.data.triggered_time if trigger.event.data.triggered_time
-            is defined else (now() | as_local).strftime(''%m/%d/%Y at %I:%M %p'')
-            }}
+                  Triggered {{ trigger.event.data.triggered_time if trigger.event.data.triggered_time
+                  is defined else (now() | as_local).strftime('%m/%d/%Y at %I:%M %p')
+                  }}
 
-            Cleared {{ (now() | as_local).strftime(''%m/%d/%Y at %I:%M %p'') }}'
-          title: ✅ Water Alarm Cleared
-          data:
-            tag: water_alarm_cleared
-            priority: normal
-            notification_icon: mdi:check-circle
-            color: orange
-      - action: notify.mobile_app_benss22
-        metadata: {}
-        data:
-          message: TTS
-          data:
-            tts_text: <speak> The water alarm notification has been cleared. <break
-              strength="medium"/> I will silence related alerts. </speak>
-            media_stream: alarm_stream
+                  Cleared {{ (now() | as_local).strftime('%m/%d/%Y at %I:%M %p') }}"
+                title: ✅ Water Alarm Cleared
+                data:
+                  tag: water_alarm_cleared
+                  priority: normal
+                  notification_icon: mdi:check-circle
+                  color: orange
+            - action: notify.mobile_app_benss22
+              metadata: {}
+              data:
+                message: TTS
+                data:
+                  tts_text:
+                    <speak> The water alarm notification has been cleared. <break
+                    strength="medium"/> I will silence related alerts. </speak>
+                  media_stream: alarm_stream
+          else:
       else:
-    else:
-    - action: notify.mobile_app_benss22
-      metadata: {}
-      data:
-        message: "Associated Sensor: {{ (trigger.to_state.attributes.friendly_name
-          if  trigger is defined and trigger.to_state is defined  else 'Test Sensor')
-          }} \nTriggered {{ ((trigger.to_state.last_changed if trigger is defined
-          and  trigger.to_state is defined else now()) | as_local).strftime('%m/%d/%Y
-          at %I:%M %p') }}"
-        title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
-        data:
-          priority: high
-          ttl: 0
-          importance: max
-          channel: water_alarms
-          notification_icon: mdi:water-alert
-          color: red
-          vibrationPattern: 100, 1000, 100, 1000, 100
-          ledColor: red
-          alert_once: false
-          sticky: true
-          persistent: true
-          when: '{{ ((trigger.to_state.last_changed if trigger is defined and  trigger.to_state
-            is defined else now()) | as_timestamp) | int }}'
-          visibility: public
-          fullScreenIntent: true
-          tag: water_alarm
-          actions:
-          - action: acknowledge_water_alarm
-            title: Acknowledge
-            icon: sli:bell
-          triggered_device: '{{ trigger.to_state.attributes.friendly_name if trigger
-            is defined and trigger.to_state is defined else ''Test Sensor'' }}'
-          triggered_time: '{{ ((trigger.to_state.last_changed if trigger is defined
-            and trigger.to_state is defined else now()) | as_local).strftime(''%m/%d/%Y
-            at %I:%M %p'') }}'
-    - action: notify.mobile_app_benss22
-      metadata: {}
-      data:
-        message: TTS
-        data:
-          tts_text: ' '
-          media_stream: alarm_stream
-    - action: input_boolean.turn_on
-      target:
-        entity_id: input_boolean.water_alarm_active
-      data: {}
-    - repeat:
-        while:
-        - condition: state
-          entity_id: input_boolean.water_alarm_active
-          state: 'on'
-        sequence:
+        - action: notify.mobile_app_benss22
+          metadata: {}
+          data:
+            message:
+              "Associated Sensor: {{ (trigger.to_state.attributes.friendly_name
+              if  trigger is defined and trigger.to_state is defined  else 'Test Sensor')
+              }} \nTriggered {{ ((trigger.to_state.last_changed if trigger is defined
+              and  trigger.to_state is defined else now()) | as_local).strftime('%m/%d/%Y
+              at %I:%M %p') }}"
+            title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
+            data:
+              priority: high
+              ttl: 0
+              importance: max
+              channel: water_alarms
+              notification_icon: mdi:water-alert
+              color: red
+              vibrationPattern: 100, 1000, 100, 1000, 100
+              ledColor: red
+              alert_once: false
+              sticky: true
+              persistent: true
+              when:
+                "{{ ((trigger.to_state.last_changed if trigger is defined and  trigger.to_state
+                is defined else now()) | as_timestamp) | int }}"
+              visibility: public
+              fullScreenIntent: true
+              tag: water_alarm
+              actions:
+                - action: acknowledge_water_alarm
+                  title: Acknowledge
+                  icon: sli:bell
+              triggered_device:
+                "{{ trigger.to_state.attributes.friendly_name if trigger
+                is defined and trigger.to_state is defined else 'Test Sensor' }}"
+              triggered_time:
+                "{{ ((trigger.to_state.last_changed if trigger is defined
+                and trigger.to_state is defined else now()) | as_local).strftime('%m/%d/%Y
+                at %I:%M %p') }}"
         - action: notify.mobile_app_benss22
           metadata: {}
           data:
             message: TTS
             data:
-              tts_text: '{% if trigger is defined and trigger.to_state is defined
-                %} Sir, a water leak has been detected by the {{ trigger.to_state.attributes.friendly_name
-                }}. Please check immediately! {% else %}
-
-                <speak> Sir, there hasn''t been a water leak detection. This is a
-                test alert.  <break strength="x-strong"/> All TTS capabilities are
-                functioning properly. </speak> {% endif %}'
+              tts_text: " "
               media_stream: alarm_stream
-        - delay:
-            seconds: 30
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.water_alarm_active
+          data: {}
+        - repeat:
+            while:
+              - condition: state
+                entity_id: input_boolean.water_alarm_active
+                state: "on"
+            sequence:
+              - action: notify.mobile_app_benss22
+                metadata: {}
+                data:
+                  message: TTS
+                  data:
+                    tts_text:
+                      '{% if trigger is defined and trigger.to_state is defined
+                      %} Sir, a water leak has been detected by the {{ trigger.to_state.attributes.friendly_name
+                      }}. Please check immediately! {% else %}
+
+                      <speak> Sir, there hasn''t been a water leak detection. This is a
+                      test alert.  <break strength="x-strong"/> All TTS capabilities are
+                      functioning properly. </speak> {% endif %}'
+                    media_stream: alarm_stream
+              - delay:
+                  seconds: 30
   mode: restart
-- id: '1753550624378'
+- id: "1753550624378"
   alias: Water Alarm Acknowledgment Handler
   description: Handles acknowledgment button clicks from water alarm notifications
   triggers:
-  - trigger: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: acknowledge_water_alarm
+    - trigger: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: acknowledge_water_alarm
   conditions: []
   actions:
-  - action: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.water_alarm_active
-  - action: notify.mobile_app_benss22
-    metadata: {}
-    data:
-      message: "Associated Sensor: {{ trigger.event.data.triggered_device if trigger.event.data.triggered_device
-        is defined else 'Test Sensor' }} \nTriggered {{ trigger.event.data.triggered_time
-        if trigger.event.data.triggered_time is defined else (now() | as_local).strftime('%m/%d/%Y
-        at %I:%M %p') }}\nAcknowledged {{ (now() | as_local).strftime('%m/%d/%Y at
-        %I:%M %p') }}"
-      title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
+    - action: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.water_alarm_active
+    - action: notify.mobile_app_benss22
+      metadata: {}
       data:
-        priority: normal
-        notification_icon: mdi:water-check
-        color: orange
-        tag: water_alarm
-  - action: notify.mobile_app_benss22
-    metadata: {}
-    data:
-      message: TTS
+        message:
+          "Associated Sensor: {{ trigger.event.data.triggered_device if trigger.event.data.triggered_device
+          is defined else 'Test Sensor' }} \nTriggered {{ trigger.event.data.triggered_time
+          if trigger.event.data.triggered_time is defined else (now() | as_local).strftime('%m/%d/%Y
+          at %I:%M %p') }}\nAcknowledged {{ (now() | as_local).strftime('%m/%d/%Y at
+          %I:%M %p') }}"
+        title: "\U0001F6A8 WATER LEAK DETECTED \U0001F6A8"
+        data:
+          priority: normal
+          notification_icon: mdi:water-check
+          color: orange
+          tag: water_alarm
+    - action: notify.mobile_app_benss22
+      metadata: {}
       data:
-        tts_text: <speak> The water alarm has been acknowledged. <break strength="medium"/>
-          I will silence related alerts. </speak>
-        media_stream: alarm_stream
+        message: TTS
+        data:
+          tts_text:
+            <speak> The water alarm has been acknowledged. <break strength="medium"/>
+            I will silence related alerts. </speak>
+          media_stream: alarm_stream
   mode: single

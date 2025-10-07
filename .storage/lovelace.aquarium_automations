@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.aquarium_automations",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Aquarium Automations",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading_style": "title",
+                  "heading": "Discus Tank",
+                  "icon": "mdi:fish"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.discus_tank_lights",
+                  "name": "Lights"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.discus_tank_ato",
+                  "name": "ATO",
+                  "icon": "mdi:water-pump",
+                  "show_state": false
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Endlers Tank",
+                  "heading_style": "title",
+                  "icon": "mdi:fishbowl-outline"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_nook_light",
+                  "name": "Left",
+                  "show_state": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_center_light",
+                  "name": "Center",
+                  "show_state": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_overflow_light",
+                  "name": "Right"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.third_reality_inc_3rsp02028bz",
+                  "icon": "mdi:water-pump",
+                  "name": "ATO"
+                }
+              ],
+              "column_span": 1
+            }
+          ],
+          "type": "sections",
+          "max_columns": 4,
+          "cards": []
+        }
+      ]
+    }
+  }
+}

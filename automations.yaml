@@ -32,13 +32,13 @@
       retries: 10
     target:
       entity_id: switch.driveway_lights_switch
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 10
     target:
       entity_id: switch.mudroom_outside_lights
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1707096114972'
   alias: 2200 Lights OFF
@@ -48,21 +48,21 @@
     at: '22:00:00'
   condition: []
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.discus_tank_lights, switch.basement_aquarium_sump_light, switch.basement_aquarium_pendant_nook_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.basement_aquarium_pendant_center_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
@@ -89,14 +89,14 @@
       retries: 10
     target:
       entity_id: switch.driveway_lights_switch
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 10
     target:
       entity_id: switch.mudroom_outside_lights
-    action: retry.call
-  - action: retry.call
+    action: retry.action
+  - action: retry.action
     metadata: {}
     data:
       service: light.turn_on
@@ -115,13 +115,13 @@
       retries: 10
     target:
       entity_id: fan.upstairs_bedroom_fan
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1707096741057'
   alias: 10 Sunrise Plus 120 Driveway Lights Off
@@ -137,13 +137,13 @@
       retries: 10
     target:
       entity_id: switch.driveway_lights_switch
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.mudroom_outside_lights
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1707181435220'
   alias: 00 Sunrise
@@ -185,7 +185,7 @@
     offset: +00:30
   condition: []
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
@@ -210,37 +210,37 @@
       retries: 10
     target:
       entity_id: switch.fountain_plug_all_sockets
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1712943242825'
   alias: Back Deck Motion
   description: Turn on back deck light for 2 mins if there is motion
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.back_deck_motion
+  triggers:
+  - entity_id: binary_sensor.back_deck_motion
     to: 'on'
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: switch.back_deck_light
     state: 'off'
-  action:
-  - service: retry.call
-    data:
+  actions:
+  - data:
       service: homeassistant.turn_on
       retries: 10
     target:
       entity_id: switch.back_deck_light
+    action: retry.action
   - delay:
       hours: 0
       minutes: 2
       seconds: 0
       milliseconds: 0
-  - service: retry.call
-    data:
+  - data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.back_deck_light
+    action: retry.action
 - id: '1714941753435'
   alias: Recycle Poor Quality Air
   description: Turn on exhaust fans when ecobee reports high CO2 and VOCs
@@ -264,14 +264,14 @@
       retries: 25
     target:
       entity_id: switch.upstairs_hall_bath_fan_switch_1
-    action: retry.call
+    action: retry.action
   - delay: 01:00:00
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.upstairs_hall_bath_fan_switch_1
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1718499911399'
   alias: 0700 Weekdays Off
@@ -288,7 +288,7 @@
     - thu
     - fri
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
@@ -320,7 +320,7 @@
       retries: 25
     target:
       entity_id: switch.fountain_plug_all_sockets
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1718500514596'
   alias: 00 Sunrise Minus 30 Lights On
@@ -337,7 +337,7 @@
     target:
       entity_id: switch.china_hutch_socket_1, switch.tv_armoire_lamp, switch.kitchen_tree_light,
         switch.driveway_lights_switch, switch.mudroom_outside_lights
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1718500808554'
   alias: 2200 Lights Off
@@ -353,7 +353,7 @@
     target:
       entity_id: switch.china_hutch_socket_1, switch.driveway_lights_switch, switch.garage_lights_switch,
         switch.tv_armoire_lamp, switch.kitchen_tree_light, switch.mudroom_outside_lights
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1718501833646'
   alias: 1800 Lights On
@@ -363,21 +363,21 @@
     at: '18:00:00'
   condition: []
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_on
       retries: 10
     target:
       entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_on
       retries: 10
     target:
       entity_id: switch.basement_aquarium_pendant_center_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_on
       retries: 10
@@ -393,21 +393,21 @@
     offset: '2:00'
   condition: []
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.basement_aquarium_pendant_center_light
   - delay: 00:02:00
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 10
@@ -423,7 +423,7 @@
     offset: +00:30
   condition: []
   action:
-  - service: retry.call
+  - service: retry.action
     data:
       service: homeassistant.turn_off
       retries: 25
@@ -443,7 +443,7 @@
       retries: 25
     target:
       entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1726705675996'
   alias: Primary Bedroom Fan Off
@@ -458,7 +458,7 @@
       retries: 25
     target:
       entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1726706188958'
   alias: Record Player Off After 2h
@@ -475,7 +475,7 @@
       retries: 25
     target:
       entity_id: switch.tv_armoire_record_player
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734038582274'
   alias: 0800 Fans off weekends
@@ -494,19 +494,19 @@
       retries: 10
     target:
       entity_id: fan.upstairs_bedroom_fan
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: fan.primary_bedroom_fan
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 10
     target:
       entity_id: switch.primary_bedroom_fan
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734040916464'
   alias: Attic Vents On
@@ -522,7 +522,7 @@
       retries: 25
     target:
       entity_id: switch.attic_vents
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734041025094'
   alias: Attic Vents Off
@@ -538,10 +538,10 @@
       retries: 25
     target:
       entity_id: switch.attic_vents
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734041461065'
-  alias: Switch Outdoor Sockets On
+  alias: Switch Holiday Lights
   description: ''
   triggers:
   - entity_id: switch.top_of_stairs
@@ -554,25 +554,25 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734042146922'
   alias: Switch Outdoor Sockets Off
@@ -588,25 +588,25 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734044661267'
   alias: 00 Christmas Lights On Weekday Mornings
@@ -628,31 +628,31 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.top_of_stairs
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734044914295'
   alias: 02 Christmas Lights Off Mornings
@@ -668,31 +668,31 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.top_of_stairs
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734045064180'
   alias: 01 Christmas Lights On Weekend Mornings
@@ -714,31 +714,31 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.top_of_stairs
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734045226921'
   alias: 03 Christmas Lights On Evenings
@@ -754,31 +754,31 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_on
       retries: 25
     target:
       entity_id: switch.top_of_stairs
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1734045312680'
   alias: 04 Christmas Lights Off Evenings
@@ -793,31 +793,31 @@
       retries: 25
     target:
       entity_id: light.north_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: light.rear_garage_entrance
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.back_deck_splitter_socket_3
-    action: retry.call
+    action: retry.action
   - data:
       service: homeassistant.turn_off
       retries: 25
     target:
       entity_id: switch.top_of_stairs
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1741997911192'
   alias: Primary Bedroom Lamps Switch Off
@@ -834,7 +834,7 @@
     target:
       entity_id: light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
         light.bookshelf_light
-    action: retry.call
+    action: retry.action
   mode: single
 - id: '1742261495447'
   alias: Primary Bedroom Lamp Settings

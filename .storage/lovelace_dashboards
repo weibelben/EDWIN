@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_dashboards",
+  "data": {
+    "items": [
+      {
+        "id": "map",
+        "icon": "mdi:map",
+        "title": "Map",
+        "url_path": "map",
+        "mode": "storage",
+        "show_in_sidebar": true,
+        "require_admin": false
+      },
+      {
+        "id": "aquarium_automations",
+        "show_in_sidebar": true,
+        "icon": "mdi:fishbowl",
+        "title": "Aquarium Automations",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "aquarium-automations"
+      },
+      {
+        "id": "dashboard_pennyworth",
+        "show_in_sidebar": true,
+        "icon": "mdi:chart-areaspline",
+        "title": "Metrics Overview",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-pennyworth"
+      },
+      {
+        "id": "primary_suite_controls",
+        "show_in_sidebar": true,
+        "icon": "mdi:bed",
+        "title": "Primary Suite Controls",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "primary-suite-controls"
+      }
+    ]
+  }
+}

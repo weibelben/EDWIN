@@ -10,11 +10,16 @@ known_devices.yaml
 # Exclude temporary files
 *.pyc
 __pycache__/
-.storage/
+
 .cloud/
 tts/
 www/
 deps/
+.storage/
+
+# track all lovelace-related files
+!.storage/lovelace
+!.storage/lovelace.*
 
 # Exclude boilerplate and personal info
 custom_components

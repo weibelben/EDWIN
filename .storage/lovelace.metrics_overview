@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.metrics_overview",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Humidity",
+                  "heading_style": "title",
+                  "icon": "mdi:water"
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_humidity_3"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_humidity"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_humidity_4"
+                    },
+                    {
+                      "entity": "sensor.living_room_humidity"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_humidity_2"
+                    }
+                  ],
+                  "title": "Indoor",
+                  "hours_to_show": 48
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.se_12th_st_bellevue_washington_usa_humidity"
+                    }
+                  ],
+                  "hours_to_show": 48
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Temperature",
+                  "heading_style": "title",
+                  "icon": "mdi:thermometer"
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.basement_temperature"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_temperature"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_temperature_4"
+                    },
+                    {
+                      "entity": "sensor.living_room_temperature"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_temperature_2"
+                    }
+                  ],
+                  "title": "Indoor",
+                  "hours_to_show": 48
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.se_12th_st_bellevue_washington_usa_temperature"
+                    }
+                  ],
+                  "title": "Outdoor Temperature",
+                  "hours_to_show": 48
+                }
+              ]
+            }
+          ],
+          "header": {}
+        }
+      ]
+    }
+  }
+}

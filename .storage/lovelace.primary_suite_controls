@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.primary_suite_controls",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.primary_bedroom_lamps",
+                  "name": "Primary Bedroom Lamps",
+                  "icon": "mdi:light-switch",
+                  "show_state": true,
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.primary_bedroom_fan",
+                  "name": "Primary Bedroom Fan",
+                  "icon": "mdi:light-switch",
+                  "show_state": true,
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "White",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(255, 220, 180)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "Black"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 255,
+                      "green": 220,
+                      "blue": 180,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 6
+                  }
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.primary_bedroom_lamps_group",
+                  "name": "Bedroom Lamps",
+                  "show_brightness_control": true,
+                  "use_light_color": true,
+                  "layout": "vertical",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": 3
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Warm White",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(255, 140, 50)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "black"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 255,
+                      "green": 140,
+                      "blue": 50,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 6
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Red",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(139, 0, 0)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "white"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 139,
+                      "green": 0,
+                      "blue": 0,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 6
+                  }
+                }
+              ],
+              "column_span": 1
+            }
+          ],
+          "header": {
+            "card": {
+              "type": "markdown",
+              "text_only": true,
+              "content": "## Primary Suite Controls"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

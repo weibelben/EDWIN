@@ -1072,3 +1072,17 @@
           I will silence related alerts. </speak>
         media_stream: alarm_stream
   mode: single
+- id: '1760146508549'
+  alias: Top Of Stairs 4 Button Controller
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - switch.top_of_stairs_controller
+    to: 'on'
+    trigger: state
+    from:
+  actions:
+  - target:
+      entity_id: switch.mudroom_deck_lights
+    action: homeassistant.turn_on
+  mode: single

@@ -24,5 +24,4 @@ deps/
 # Exclude boilerplate and personal info
 custom_components
 blueprints
-configuration.yaml
 .HA_VERSION

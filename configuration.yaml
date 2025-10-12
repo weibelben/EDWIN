@@ -8,3 +8,9 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+retry: default_attempts 5
+
+# Enable HACS
+hacs:
+  token: !secret github_token

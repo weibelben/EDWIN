@@ -23,13 +23,13 @@
         "url_path": "aquarium-automations"
       },
       {
-        "id": "dashboard_pennyworth",
+        "id": "metrics_overview",
         "show_in_sidebar": true,
         "icon": "mdi:chart-areaspline",
         "title": "Metrics Overview",
         "require_admin": false,
         "mode": "storage",
-        "url_path": "dashboard-pennyworth"
+        "url_path": "metrics_overview"
       },
       {
         "id": "primary_suite_controls",

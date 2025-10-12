@@ -1078,11 +1078,9 @@
   triggers:
   - entity_id:
     - switch.top_of_stairs_controller
-    to: 'on'
     trigger: state
-    from:
   actions:
   - target:
       entity_id: switch.mudroom_deck_lights
-    action: homeassistant.turn_on
+    action: switch.toggle
   mode: single

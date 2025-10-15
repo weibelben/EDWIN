@@ -70,10 +70,10 @@
       entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1707096432929'
-  alias: 0530 Lights ON Fans OFF Weekday
-  description: At 6AM, turn on driveway lights and turn off bedroom fans
+  alias: 0700 Lights ON Fans OFF Weekday
+  description: At 7AM, turn on driveway lights and turn off bedroom fans
   triggers:
-  - at: 05:30:00
+  - at: 07:00:00
     trigger: time
   conditions:
   - condition: time
@@ -148,30 +148,31 @@
 - id: '1707181435220'
   alias: 00 Sunrise
   description: ''
-  trigger:
-  - platform: sun
-    event: sunrise
+  triggers:
+  - event: sunrise
     offset: -00:00
-  condition: []
-  action:
+    trigger: sun
+  conditions: []
+  actions:
   - data:
       service: homeassistant.turn_on
-      retries: 25
     target:
-      entity_id: switch.discus_tank_lights, switch.basement_aquarium_pendant_nook_light,
-        switch.basement_aquarium_sump_light
+      entity_id: switch.discus_tank_lights
+    action: retry.action
+  - data:
+      service: homeassistant.turn_on
+    target:
+      entity_id: switch.basement_aquarium_pendant_nook_light
     action: retry.action
   - delay: 00:02:00
   - data:
       service: homeassistant.turn_on
-      retries: 10
     target:
       entity_id: switch.basement_aquarium_pendant_center_light
     action: retry.action
   - delay: 00:02:00
   - data:
       service: homeassistant.turn_on
-      retries: 10
     target:
       entity_id: switch.basement_aquarium_pendant_overflow_light
     action: retry.action
@@ -430,35 +431,36 @@
     target:
       entity_id: switch.kitchen_tree_light
   mode: single
-- id: '1726704984503'
-  alias: Primary Bedroom Fan On
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.primary_bedroom_fan
-    to: 'on'
-  action:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.action
-  mode: single
 - id: '1726705675996'
-  alias: Primary Bedroom Fan Off
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.primary_bedroom_fan
-    to: 'off'
-  action:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: fan.primary_bedroom_fan
-    action: retry.action
+  alias: Primary Bedroom Fan Control Switch
+  description: Turn the primary bedroom fan on or off depending on switch state
+  triggers:
+  - entity_id: light.primary_bedroom_fan
+    trigger: state
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: light.primary_bedroom_fan
+        state: 'on'
+      sequence:
+      - data:
+          service: homeassistant.turn_on
+          retries: 25
+        target:
+          entity_id: fan.primary_bedroom_fan
+        action: retry.action
+    - conditions:
+      - condition: state
+        entity_id: light.primary_bedroom_fan
+        state: 'off'
+      sequence:
+      - data:
+          service: homeassistant.turn_off
+          retries: 25
+        target:
+          entity_id: fan.primary_bedroom_fan
+        action: retry.action
   mode: single
 - id: '1726706188958'
   alias: Record Player Off After 2h
@@ -819,65 +821,39 @@
       entity_id: switch.top_of_stairs
     action: retry.action
   mode: single
-- id: '1741997911192'
-  alias: Primary Bedroom Lamps Switch Off
-  description: ''
-  triggers:
-  - entity_id: switch.primary_bedroom_lamps
-    to: 'off'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      service: light.turn_off
-      retries: 25
-    target:
-      entity_id: light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
-        light.bookshelf_light
-    action: retry.action
-  mode: single
-- id: '1742261495447'
-  alias: Primary Bedroom Lamp Settings
-  description: Changes light colors and brightnesses according to the time of day
-  triggers:
-  - minutes: /1
-    trigger: time_pattern
-  actions:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: light.bedside_lamp_south
-      state: 'on'
-    - condition: state
-      entity_id: light.bedside_lamp_north
-      state: 'on'
-    - condition: state
-      entity_id: light.floor_lamp
-      state: 'on'
-    - condition: state
-      entity_id: light.bookshelf_light
-      state: 'on'
-  - target:
-      entity_id: script.primary_bedroom_lamp_color_selector
-    action: script.turn_on
-  mode: single
 - id: '1742312770194'
-  alias: Primary Bedroom Lamps Switch On
+  alias: Primary Bedroom Lamps Control Switch
   description: Sets different colors based on time of day when primary bedroom switch
-    is turned on
+    is turned on, turns off lamps when switch is turned off
   triggers:
   - entity_id: switch.primary_bedroom_lamps
-    from: 'off'
-    to: 'on'
     trigger: state
   conditions: []
   actions:
-  - target:
-      entity_id: script.primary_bedroom_lamp_color_selector
-    action: script.turn_on
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.primary_bedroom_lamps
+        state: 'on'
+      sequence:
+      - target:
+          entity_id: script.primary_bedroom_lamp_color_selector
+        action: script.turn_on
+    - conditions:
+      - condition: state
+        entity_id: switch.primary_bedroom_lamps
+        state: 'off'
+      sequence:
+      - data:
+          service: light.turn_off
+          retries: 25
+        target:
+          entity_id: light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
+            light.bookshelf_light
+        action: retry.action
   mode: single
 - id: '1752081892642'
-  alias: Bedside Clicker Lamp Control
+  alias: Primary Bedroom Lamps Control Clicker
   description: ''
   triggers:
   - device_id: 4f36e7aa614370e3891d01120fd1a39b
@@ -1077,10 +1053,136 @@
   description: Different actions for each button
   triggers:
   - entity_id:
+    - event.levds_scnctl_b2ed_stateless_programmable_switch_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.levds_scnctl_b2ed_stateless_programmable_switch_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.levds_scnctl_b2ed_stateless_programmable_switch_3
+    trigger: state
+    id: button_3
+  - entity_id:
     - switch.top_of_stairs_controller
     trigger: state
+    id: button_4
   actions:
-  - target:
-      entity_id: switch.mudroom_deck_lights
-    action: switch.toggle
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id: switch.mudroom_deck_lights, switch.rear_garage_outlet, switch.garage_north_man_door_outlet,
+            switch.garage_lights_switch, light.back_deck
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.mudroom_lights
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - target:
+          entity_id: switch.discus_tank_lights
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_4
+      sequence:
+      - target:
+          entity_id:
+          - switch.landing_chandelier
+        action: switch.toggle
+        data: {}
+  mode: single
+- id: '1760330473466'
+  alias: Guest Bedroom Lamps Control Switch
+  description: Control the bedside lamps in the guest bedroom
+  triggers:
+  - entity_id: switch.guest_bedroom_lamps
+    trigger: state
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.guest_bedroom_lamps
+        state: 'on'
+      sequence:
+      - target:
+          entity_id:
+          - switch.left_guest_bedside_lamp
+          - switch.right_guest_bedside_lamp
+        action: homeassistant.turn_on
+    - conditions:
+      - condition: state
+        entity_id: switch.guest_bedroom_lamps
+        state: 'off'
+      sequence:
+      - target:
+          entity_id:
+          - switch.left_guest_bedside_lamp
+          - switch.right_guest_bedside_lamp
+        action: homeassistant.turn_off
+  mode: single
+- id: '1760566808355'
+  alias: Landing 4 Button Controller
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - event.levds_scnctl_36c6_stateless_programmable_switch_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.levds_scnctl_36c6_stateless_programmable_switch_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.levds_scnctl_36c6_stateless_programmable_switch_3
+    trigger: state
+    id: button_3
+  - entity_id:
+    - switch.top_of_stairs_controller
+    trigger: state
+    id: button_4
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id: switch.mudroom_deck_lights, switch.rear_garage_outlet, switch.garage_north_man_door_outlet,
+            switch.garage_lights_switch, light.back_deck
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.mudroom_lights
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - action: switch.toggle
+        data: {}
+        target:
+          entity_id: switch.downstairs_hallway
   mode: single

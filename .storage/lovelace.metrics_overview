@@ -34,6 +34,9 @@
                     },
                     {
                       "entity": "sensor.third_reality_inc_3rths0224z_humidity_2"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_humidity"
                     }
                   ],
                   "title": "Indoor",
@@ -76,6 +79,9 @@
                     },
                     {
                       "entity": "sensor.third_reality_inc_3rths0224z_temperature_2"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_temperature"
                     }
                   ],
                   "title": "Indoor",

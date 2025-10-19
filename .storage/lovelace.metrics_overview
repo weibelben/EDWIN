@@ -37,6 +37,12 @@
                     },
                     {
                       "entity": "sensor.attic_humidity_sensor_humidity"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_north_humidity"
+                    },
+                    {
+                      "entity": "sensor.primary_closet_humidity_sensor_humidity"
                     }
                   ],
                   "title": "Indoor",
@@ -47,9 +53,16 @@
                   "entities": [
                     {
                       "entity": "sensor.se_12th_st_bellevue_washington_usa_humidity"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_north_humidity"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_humidity"
                     }
                   ],
-                  "hours_to_show": 48
+                  "hours_to_show": 48,
+                  "title": "Outdoor"
                 }
               ]
             },
@@ -82,6 +95,12 @@
                     },
                     {
                       "entity": "sensor.attic_humidity_sensor_temperature"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_north_temperature"
+                    },
+                    {
+                      "entity": "sensor.primary_closet_humidity_sensor_temperature"
                     }
                   ],
                   "title": "Indoor",
@@ -92,9 +111,15 @@
                   "entities": [
                     {
                       "entity": "sensor.se_12th_st_bellevue_washington_usa_temperature"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_temperature"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_north_temperature"
                     }
                   ],
-                  "title": "Outdoor Temperature",
+                  "title": "Outdoor",
                   "hours_to_show": 48
                 }
               ]

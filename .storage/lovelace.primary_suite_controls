@@ -12,32 +12,6 @@
               "type": "grid",
               "cards": [
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.primary_bedroom_lamps",
-                  "name": "Primary Bedroom Lamps",
-                  "icon": "mdi:light-switch",
-                  "show_state": true,
-                  "grid_options": {
-                    "columns": 12,
-                    "rows": 2
-                  }
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.primary_bedroom_fan",
-                  "name": "Primary Bedroom Fan",
-                  "icon": "mdi:light-switch",
-                  "show_state": true,
-                  "grid_options": {
-                    "columns": 12,
-                    "rows": 2
-                  }
-                },
-                {
                   "type": "custom:button-card",
                   "name": "White",
                   "styles": {
@@ -64,19 +38,7 @@
                     }
                   },
                   "grid_options": {
-                    "columns": 6
-                  }
-                },
-                {
-                  "type": "custom:mushroom-light-card",
-                  "entity": "light.primary_bedroom_lamps_group",
-                  "name": "Bedroom Lamps",
-                  "show_brightness_control": true,
-                  "use_light_color": true,
-                  "layout": "vertical",
-                  "grid_options": {
-                    "columns": 6,
-                    "rows": 3
+                    "columns": 12
                   }
                 },
                 {
@@ -106,7 +68,7 @@
                     }
                   },
                   "grid_options": {
-                    "columns": 6
+                    "columns": 12
                   }
                 },
                 {
@@ -136,7 +98,45 @@
                     }
                   },
                   "grid_options": {
-                    "columns": 6
+                    "columns": 12
+                  }
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.primary_bedroom_lamps_group",
+                  "name": "Bedroom Lamps",
+                  "show_brightness_control": true,
+                  "use_light_color": true,
+                  "layout": "vertical",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 3
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.primary_bedroom_lamps",
+                  "name": "Primary Bedroom Lamps",
+                  "icon": "mdi:light-switch",
+                  "show_state": true,
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.primary_bedroom_fan",
+                  "name": "Primary Bedroom Fan",
+                  "icon": "mdi:light-switch",
+                  "show_state": true,
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
                   }
                 }
               ],

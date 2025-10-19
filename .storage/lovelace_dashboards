@@ -39,6 +39,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "primary-suite-controls"
+      },
+      {
+        "id": "usage_overview",
+        "show_in_sidebar": true,
+        "icon": "mdi:chart-bar",
+        "title": "Utilities Overview",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "usage-overview"
       }
     ]
   }

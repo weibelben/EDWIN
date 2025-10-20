@@ -1,0 +1,105 @@
+# Command line sensor to read CSV file
+command_line:
+  - sensor:
+      name: Water Usage CSV Raw
+      command: "cat /config/.storage/water_usage.csv"
+      scan_interval: 300 # Update every 5 minutes
+
+# Template sensors to parse and calculate water usage from CSV
+template:
+  - sensor:
+      # Current meter reading
+      - name: "Water Meter Reading"
+        unique_id: water_meter_reading
+        unit_of_measurement: "CCF"
+        state_class: total_increasing
+        device_class: water
+        state: >
+          {% set csv = states('sensor.water_usage_csv_raw') %}
+          {% if csv not in ['unknown', 'unavailable', ''] %}
+            {% set lines = csv.split('\n') %}
+            {% set data_lines = lines[1:] | reject('equalto', '') | list %}
+            {% if data_lines | length > 0 %}
+              {% set last_line = data_lines[-1] %}
+              {% set values = last_line.split(',') %}
+              {{ (values[1] | float(0) / 100) | round(2) }}
+            {% else %}
+              0
+            {% endif %}
+          {% else %}
+            0
+          {% endif %}
+
+      # Current bill amount
+      - name: "Water Current Bill"
+        unique_id: water_current_bill
+        unit_of_measurement: "$"
+        state: >
+          {% set csv = states('sensor.water_usage_csv_raw') %}
+          {% if csv not in ['unknown', 'unavailable', ''] %}
+            {% set lines = csv.split('\n') %}
+            {% set data_lines = lines[1:] | reject('equalto', '') | list %}
+            {% if data_lines | length > 0 %}
+              {% set last_line = data_lines[-1] %}
+              {% set values = last_line.split(',') %}
+              {{ values[2] | float(0) }}
+            {% else %}
+              0
+            {% endif %}
+          {% else %}
+            0
+          {% endif %}
+        icon: mdi:currency-usd
+
+      # Last reading date
+      - name: "Water Last Reading Date"
+        unique_id: water_last_reading_date
+        state: >
+          {% set csv = states('sensor.water_usage_csv_raw') %}
+          {% if csv not in ['unknown', 'unavailable', ''] %}
+            {% set lines = csv.split('\n') %}
+            {% set data_lines = lines[1:] | reject('equalto', '') | list %}
+            {% if data_lines | length > 0 %}
+              {% set last_line = data_lines[-1] %}
+              {% set values = last_line.split(',') %}
+              {{ values[0] }}
+            {% else %}
+              'No data'
+            {% endif %}
+          {% else %}
+            'No data'
+          {% endif %}
+        icon: mdi:calendar
+
+      # Average daily usage (last period)
+      - name: "Water Average Daily Usage"
+        unique_id: water_average_daily_usage
+        unit_of_measurement: "CCF"
+        state: >
+          {% set csv = states('sensor.water_usage_csv_raw') %}
+          {% if csv not in ['unknown', 'unavailable', ''] %}
+            {% set lines = csv.split('\n') %}
+            {% set data_lines = lines[1:] | reject('equalto', '') | list %}
+            {% if data_lines | length > 1 %}
+              {% set last_line = data_lines[-1] %}
+              {% set prev_line = data_lines[-2] %}
+              {% set last_values = last_line.split(',') %}
+              {% set prev_values = prev_line.split(',') %}
+              {% set current_reading = last_values[1] | float(0) / 100 %}
+              {% set previous_reading = prev_values[1] | float(0) / 100 %}
+              {% set usage = current_reading - previous_reading %}
+              {% set last_date = strptime(last_values[0], '%Y-%m-%d') %}
+              {% set prev_date = strptime(prev_values[0], '%Y-%m-%d') %}
+              {% set days = (last_date - prev_date).days %}
+              {% if days > 0 %}
+                {{ (usage / days) | round(3) }}
+              {% else %}
+                0
+              {% endif %}
+            {% else %}
+              0
+            {% endif %}
+          {% else %}
+            0
+          {% endif %}
+        icon: mdi:water-percent

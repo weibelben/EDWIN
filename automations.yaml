@@ -562,40 +562,6 @@
       entity_id: switch.attic_vents
     action: retry.action
   mode: single
-- id: '1734041461065'
-  alias: Switch Holiday Lights
-  description: ''
-  triggers:
-  - entity_id: switch.top_of_stairs
-    to: 'on'
-    trigger: state
-  conditions: []
-  actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  mode: single
 - id: '1734042146922'
   alias: Switch Outdoor Sockets Off
   description: ''
@@ -631,7 +597,7 @@
     action: retry.action
   mode: single
 - id: '1734044661267'
-  alias: 00 Christmas Lights On Weekday Mornings
+  alias: 0530 Christmas Lights On Weekday Mornings
   description: ''
   triggers:
   - at: 05:30:00
@@ -645,39 +611,18 @@
     - thu
     - fri
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
+  - action: homeassistant.turn_on
     target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.action
+      entity_id:
+      - switch.mudroom_deck_lights
+      - switch.rear_garage_outlet
+      - switch.garage_north_man_door_outlet
+      - switch.driveway_lights
+      - switch.back_deck_outlet
+      - switch.north_bay_ceiling_outlet
   mode: single
 - id: '1734044914295'
-  alias: 02 Christmas Lights Off Mornings
+  alias: Sunrise+1h Christmas Lights Off Mornings
   description: ''
   triggers:
   - event: sunrise
@@ -685,39 +630,18 @@
     trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
+  - action: homeassistant.turn_off
     target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.action
+      entity_id:
+      - switch.mudroom_deck_lights
+      - switch.rear_garage_outlet
+      - switch.garage_north_man_door_outlet
+      - switch.driveway_lights
+      - switch.back_deck_outlet
+      - switch.north_bay_ceiling_outlet
   mode: single
 - id: '1734045064180'
-  alias: 01 Christmas Lights On Weekend Mornings
+  alias: 0630 Christmas Lights On Weekend Mornings
   description: ''
   triggers:
   - at: 06:30:00
@@ -725,45 +649,21 @@
   conditions:
   - condition: time
     weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - sat
+    - sun
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
+  - action: homeassistant.turn_on
     target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.action
+      entity_id:
+      - switch.mudroom_deck_lights
+      - switch.rear_garage_outlet
+      - switch.garage_north_man_door_outlet
+      - switch.driveway_lights
+      - switch.back_deck_outlet
+      - switch.north_bay_ceiling_outlet
   mode: single
 - id: '1734045226921'
-  alias: 03 Christmas Lights On Evenings
+  alias: Sunset-1h Christmas Lights On Evenings
   description: ''
   triggers:
   - event: sunset
@@ -771,75 +671,33 @@
     trigger: sun
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
+  - action: homeassistant.turn_on
     target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  - data:
-      service: homeassistant.turn_on
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.action
+      entity_id:
+      - switch.mudroom_deck_lights
+      - switch.rear_garage_outlet
+      - switch.garage_north_man_door_outlet
+      - switch.driveway_lights
+      - switch.back_deck_outlet
+      - switch.north_bay_ceiling_outlet
   mode: single
 - id: '1734045312680'
-  alias: 04 Christmas Lights Off Evenings
+  alias: 2230 Christmas Lights Off Evenings
   description: ''
   triggers:
   - at: '22:30:00'
     trigger: time
   conditions: []
   actions:
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
+  - action: homeassistant.turn_off
     target:
-      entity_id: light.north_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: light.rear_garage_entrance
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_bar_lights
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.back_deck_splitter_socket_3
-    action: retry.action
-  - data:
-      service: homeassistant.turn_off
-      retries: 25
-    target:
-      entity_id: switch.top_of_stairs
-    action: retry.action
+      entity_id:
+      - switch.mudroom_deck_lights
+      - switch.rear_garage_outlet
+      - switch.garage_north_man_door_outlet
+      - switch.driveway_lights
+      - switch.back_deck_outlet
+      - switch.north_bay_ceiling_outlet
   mode: single
 - id: '1742312770194'
   alias: Primary Bedroom Lamps Control Switch

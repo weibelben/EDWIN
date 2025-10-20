@@ -486,6 +486,12 @@
   actions:
   - data:
       service: homeassistant.turn_off
+      retries: 10
+    target:
+      entity_id: switch.primary_bedroom_fan
+    action: retry.action
+  - data:
+      service: homeassistant.turn_off
       retries: 50
     target:
       entity_id: fan.upstairs_bedroom_fan

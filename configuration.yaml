@@ -15,34 +15,7 @@ retry: default_attempts 5
 hacs:
   token: !secret github_token
 
-sensor:
-  - platform: sql
-    db_url: "sqlite:////config/home-assistant_v2.db"
-    queries:
-      - name: "PSE Gas Consumption Daily"
-        query: >
-          SELECT COALESCE(SUM(state), 0) as value
-          FROM statistics_short_term
-          WHERE metadata_id = (
-            SELECT id FROM statistics_meta 
-            WHERE statistic_id = 'opower:pse_gas_4103225046_energy_consumption'
-          )
-          AND start_ts >= strftime('%s', 'now', 'start of day')
-        column: "value"
-        unit_of_measurement: "therms"
+homeassistant:
+  packages:
+    water_usage: !include water_usage_parser.yaml
 
-# Template sensor to calculate cost
-template:
-  - sensor:
-      - name: "PSE Gas Cost"
-        unique_id: pse_gas_cost
-        unit_of_measurement: "USD"
-        device_class: monetary
-        state_class: total_increasing
-        state: >
-          {% set consumption = states('opower:pse_gas_4103225046_energy_consumption') | float(0) %}
-          {% set rate = 1.38 %}
-          {{ (consumption * rate) | round(2) }}
-        attributes:
-          rate_per_therm: 1.38
-          last_updated: "{{ now().isoformat() }}"

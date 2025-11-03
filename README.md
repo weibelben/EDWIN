@@ -1,10 +1,10 @@
-## EDWIN
+# EDWIN
 
 Everything is achievable through technology; better living, robust health, and for the first time in human history, ~~the possibility of world peace~~ overly complex home automation and domotics.
 
 -- Howard Stark
 
-### Backup and Restore
+## Backup and Restore
 
 An automated backup of Edwin's consciousness is generated once per week. 
 5 rolling copies are saved locally and uploaded to Google Drive.
@@ -14,7 +14,7 @@ can be performed by following
 [these instructions](https://support.nabucasa.com/hc/en-us/articles/25162566451485-Resetting-Home-Assistant-Green-using-an-SD-card).
 A 128GB SD card is taped to the top of Edwin's case in my server room.
 
-#### GitHub Version Control
+### GitHub Version Control
 
 Edwin's configuration, automations, dashboards and some other custom
 code are backed up to [my GitHub](https://github.com/weibelben/EDWIN).
@@ -25,9 +25,9 @@ and referenced by `config/configuration.yaml`.
 github_token: "ghp_abc123"
 ```
 
-### Problem Child Integrations
+## Problem Child Integrations
 
-#### Custom CSV Parser
+### Custom CSV Parser
 
 I wrote a CSV parser and attached it as a homeassistant project to my
 configuration.yaml. It reads manually entered water usage and cost
@@ -41,7 +41,7 @@ local water provider upload data to BEACON Advanced Metering
 Analytics via a Badger Meter smart meter. I emailed CCUD Oct 2025.
 So far no response.
 
-#### Opower
+### Opower
 
 [Opower](https://www.home-assistant.io/integrations/opower/) is
 used in tandem with my Puget Sound Energy (PSE) credentials to
@@ -52,7 +52,7 @@ The API endpoint that returns gas and electricity cost per month changed
 in October of 2022 and Opower has not updated to match, rendering the
 data incomplete.
 
-#### World Air Quality Index (WAQI)
+### World Air Quality Index (WAQI)
 
 [WAQI](https://www.home-assistant.io/integrations/waqi/) 
 is used to determine the AQI of the air local to my home.

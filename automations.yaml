@@ -76,28 +76,26 @@
     action: retry.action
   mode: single
 - id: '1707096432929'
-  alias: 0530 Wakeup Light On Weekdays
-  description: At 5:30AM, turn on driveway lights and turn off bedroom fans
+  alias: Morning Wakeup Lamp
+  description: Turns on south bedroom lamp for 30m when alarm goes off
   triggers:
-  - at: 05:30:00
-    trigger: time
+  - entity_id: sensor.benss22_next_alarm
+    trigger: state
   conditions:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - condition: sun
-    after: sunrise
-    after_offset: -01:00:00
+  - condition: and
+    conditions:
+    - condition: time
+      after: 00:00:00
+      before: '10:00:00'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
   actions:
   - action: retry.action
     metadata: {}
     data:
       service: light.turn_on
-      retries: 25
+      retries: 10
       rgb_color:
       - 139
       - 0
@@ -107,6 +105,14 @@
     target:
       entity_id:
       - light.bedside_lamp_south
+  - delay:
+      minutes: 30
+  - action: light.turn_off
+    target:
+      entity_id:
+      - light.bedside_lamp_south
+    data:
+      transition: 0.5
   mode: single
 - id: '1707096741057'
   alias: 10 Sunrise Plus 120 Driveway Lights Off
@@ -1153,4 +1159,43 @@
         target:
           entity_id: switch.driveway_lights
         action: retry.action
+  mode: single
+- id: '1761104471498'
+  alias: Waste Management Pickup Day Moved Notification
+  description: Alerts you the night before if Monday pickup is moved to another day
+  triggers:
+  - at: '19:00:00'
+    trigger: time
+  conditions:
+  - condition: template
+    value_template: '{{ now().weekday() == 6 }}'
+  - condition: template
+    value_template: "{% set trash_date = states('sensor.waste_management_trash') |
+      as_datetime %} {% if trash_date %}\n  {% set tomorrow = (now() + timedelta(days=1)).date()
+      %}\n  {# If tomorrow is Monday but trash isn't scheduled for tomorrow, notify
+      #}\n  {{ trash_date.date() != tomorrow }}\n{% else %}\n  false\n{% endif %}\n"
+  actions:
+  - data:
+      title: ⚠️ Monday Pickup Changed!
+      message: '{% set trash_date = states(''sensor.waste_management_trash'') | as_datetime
+        %} Your regular Monday garbage pickup has been rescheduled.
+
+        New pickup date: {{ trash_date.strftime(''%A, %B %d'') }}
+
+        {% if trash_date.date() == (now() + timedelta(days=2)).date() %} (Moved to
+        Tuesday - likely due to holiday) {% elif trash_date.date() > (now() + timedelta(days=2)).date()
+        %} (Delayed by {{ (trash_date.date() - (now() + timedelta(days=1)).date()).days
+        }} days) {% endif %}
+
+        '
+      data:
+        push:
+          category: pickup_alert
+          sound: default
+        notification_icon: mdi:calendar-alert
+        color: red
+        tag: monday_pickup_changed
+        sticky: true
+        priority: high
+    action: notify.mobile_app_your_phone_name
   mode: single

@@ -117,22 +117,9 @@
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "switch.primary_bedroom_lamps",
-                  "name": "Primary Bedroom Lamps",
-                  "icon": "mdi:light-switch",
-                  "show_state": true,
-                  "grid_options": {
-                    "columns": 12,
-                    "rows": 2
-                  }
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
                   "entity": "switch.primary_bedroom_fan",
                   "name": "Primary Bedroom Fan",
-                  "icon": "mdi:light-switch",
+                  "icon": "mdi:ceiling-fan",
                   "show_state": true,
                   "grid_options": {
                     "columns": 12,
@@ -141,6 +128,101 @@
                 }
               ],
               "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "entities",
+                  "title": "Molly Wake Up Schedule",
+                  "entities": [
+                    {
+                      "type": "section",
+                      "label": "Monday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_monday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_monday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Tuesday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_tuesday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_tuesday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Wednesday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_wednesday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_wednesday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Thursday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_thursday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_thursday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Friday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_friday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_friday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Saturday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_saturday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_saturday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Sunday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_sunday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_sunday",
+                      "name": "Time"
+                    }
+                  ]
+                }
+              ]
             }
           ],
           "header": {

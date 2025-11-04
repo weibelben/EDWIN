@@ -21,6 +21,9 @@ deps/
 !.storage/lovelace
 !.storage/lovelace.*
 
+# track helpers
+!.storage/input_*
+
 # Exclude boilerplate and personal info
 custom_components
 blueprints

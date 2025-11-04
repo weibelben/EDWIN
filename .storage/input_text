@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_text",
+  "data": {
+    "items": [
+      {
+        "id": "water_alarm_run_id",
+        "name": "Water Alarm Run ID",
+        "icon": "mdi:alarm-bell",
+        "max": 255,
+        "min": 0,
+        "mode": "text"
+      }
+    ]
+  }
+}

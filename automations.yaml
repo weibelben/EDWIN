@@ -76,7 +76,7 @@
     action: retry.action
   mode: single
 - id: '1707096432929'
-  alias: Morning Wakeup Lamp
+  alias: Ben Wakeup Lamp
   description: Turns on south bedroom lamp for 30m when alarm goes off
   triggers:
   - entity_id: sensor.benss22_next_alarm
@@ -1198,4 +1198,66 @@
         sticky: true
         priority: high
     action: notify.mobile_app_your_phone_name
+  mode: single
+- id: '1762210855802'
+  alias: Molly Wakeup Lamp
+  description: Turns on north bedroom lamp for 30m depending on helpers updated in
+    primary suite controls
+  triggers:
+  - at: input_datetime.wake_monday
+    id: monday
+    trigger: time
+  - at: input_datetime.wake_tuesday
+    id: tuesday
+    trigger: time
+  - at: input_datetime.wake_wednesday
+    id: wednesday
+    trigger: time
+  - at: input_datetime.wake_thursday
+    id: thursday
+    trigger: time
+  - at: input_datetime.wake_friday
+    id: friday
+    trigger: time
+  - at: input_datetime.wake_saturday
+    id: saturday
+    trigger: time
+  - at: input_datetime.wake_sunday
+    id: sunday
+    trigger: time
+  conditions:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.wake_'' ~ trigger.id ~ ''_enabled'',
+        ''on'') }}'
+    - condition: time
+      after: 00:00:00
+      before: '10:00:00'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+  actions:
+  - action: retry.action
+    metadata: {}
+    data:
+      service: light.turn_on
+      retries: 10
+      rgb_color:
+      - 139
+      - 0
+      - 0
+      brightness_pct: 1
+      transition: 0.5
+    target:
+      entity_id:
+      - light.bedside_lamp_north
+  - delay:
+      minutes: 30
+  - action: light.turn_off
+    target:
+      entity_id:
+      - light.bedside_lamp_north
+    data:
+      transition: 0.5
   mode: single

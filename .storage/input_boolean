@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_boolean",
+  "data": {
+    "items": [
+      {
+        "id": "water_alarm_active",
+        "name": "Water Alarm Active",
+        "icon": "mdi:alarm-bell"
+      },
+      {
+        "id": "wake_monday_enabled",
+        "icon": "mdi:clock-check",
+        "name": "wake_monday_enabled"
+      },
+      {
+        "id": "wake_tuesday_enabled",
+        "name": "wake_tuesday_enabled",
+        "icon": "mdi:clock-check"
+      },
+      {
+        "id": "wake_wednesday_enabled",
+        "name": "wake_wednesday_enabled",
+        "icon": "mdi:clock-check"
+      },
+      {
+        "id": "wake_thursday_enabled",
+        "name": "wake_thursday_enabled",
+        "icon": "mdi:clock-check"
+      },
+      {
+        "id": "wake_friday_enabled",
+        "name": "wake_friday_enabled",
+        "icon": "mdi:clock-check"
+      },
+      {
+        "id": "wake_saturday_enabled",
+        "name": "wake_saturday_enabled",
+        "icon": "mdi:clock-check"
+      },
+      {
+        "id": "wake_sunday_enabled",
+        "name": "wake_sunday_enabled",
+        "icon": "mdi:clock-check"
+      }
+    ]
+  }
+}

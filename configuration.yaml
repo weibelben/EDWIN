@@ -18,4 +18,3 @@ hacs:
 homeassistant:
   packages:
     water_usage: !include water_usage_parser.yaml
-

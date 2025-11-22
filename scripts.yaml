@@ -53,23 +53,24 @@ custom_bedroom_lamps_on:
           max: 60
           unit_of_measurement: seconds
   sequence:
-  - action: retry.call
-    metadata: {}
+  - action: retry.actions
     data:
-      service: light.turn_on
       retries: 25
-      rgb_color:
-      - '{{ red }}'
-      - '{{ green }}'
-      - '{{ blue }}'
-      brightness_pct: '{{ brightness }}'
-      transition: '{{ transition }}'
-    target:
-      entity_id:
-      - light.bedside_lamp_south
-      - light.bedside_lamp_north
-      - light.floor_lamp
-      - light.bookshelf_light
+      sequence:
+      - action: light.turn_on
+        data:
+          rgb_color:
+          - '{{ red }}'
+          - '{{ green }}'
+          - '{{ blue }}'
+          brightness_pct: '{{ brightness }}'
+          transition: '{{ transition }}'
+        target:
+          entity_id:
+          - light.bedside_lamp_south
+          - light.bedside_lamp_north
+          - light.floor_lamp
+          - light.bookshelf_light
   mode: single
 primary_bedroom_lamp_color_selector:
   alias: Primary Bedroom Lamp Color Selector

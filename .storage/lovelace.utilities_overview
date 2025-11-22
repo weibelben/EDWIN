@@ -13,10 +13,6 @@
               "type": "grid",
               "cards": [
                 {
-                  "type": "heading",
-                  "heading": "New section"
-                },
-                {
                   "type": "vertical-stack",
                   "cards": [
                     {
@@ -57,10 +53,6 @@
               "type": "grid",
               "cards": [
                 {
-                  "type": "heading",
-                  "heading": "New section"
-                },
-                {
                   "chart_type": "bar",
                   "period": "month",
                   "type": "statistics-graph",
@@ -86,6 +78,41 @@
                   "entities": [
                     {
                       "entity": "opower:pse_elec_4103225045_energy_consumption"
+                    }
+                  ],
+                  "days_to_show": 2000
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "chart_type": "bar",
+                  "period": "month",
+                  "type": "statistics-graph",
+                  "title": "Monthly Gas Cost",
+                  "stat_types": [
+                    "change"
+                  ],
+                  "entities": [
+                    {
+                      "entity": "opower:pse_gas_4103225046_energy_cost"
+                    }
+                  ],
+                  "days_to_show": 2000
+                },
+                {
+                  "chart_type": "bar",
+                  "period": "month",
+                  "type": "statistics-graph",
+                  "title": "Monthly Gas Cost",
+                  "stat_types": [
+                    "change"
+                  ],
+                  "entities": [
+                    {
+                      "entity": "opower:pse_elec_4103225045_energy_cost"
                     }
                   ],
                   "days_to_show": 2000

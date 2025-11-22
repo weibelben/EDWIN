@@ -695,9 +695,12 @@
           action: light.turn_off
           retries: 25
         target:
-          entity_id: light.bedside_lamp_south, light.bedside_lamp_north, light.floor_lamp,
-            light.bookshelf_light
-        action: retry.action
+          entity_id:
+          - light.bedside_lamp_south
+          - light.bedside_lamp_north
+          - light.floor_lamp
+          - light.bookshelf_light
+        action: retry.actions
   mode: single
 - id: '1752081892642'
   alias: Primary Bedroom Lamps Control Clicker

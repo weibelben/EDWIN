@@ -25,6 +25,44 @@ and referenced by `config/configuration.yaml`.
 github_token: "ghp_abc123"
 ```
 
+## Remote Access
+
+### VPN Route to Internal HA URL
+
+Home Assistant is reachable via its internal URL http://192.168.0.x:8123,
+assuming one is connected to the same network as the HA server. This can be
+achieved remotely via any VPN connection.
+
+### Tailscale
+
+Using the [Tailscale Home Assistant Community Add-on](https://github.com/hassio-addons/addon-tailscale)
+one is able to conect to Home Assistant directly, without a VPN. The creation of
+a tailnet and inclusion of Home Assistant as one of the machines allows access
+to HA from any of the other connected machines via the External machine URL
+exposed by HA on the tailnet http://100.x.x.x:8123/.
+
+### Remote Location Sharing
+
+For continuous location sharing, the Home Assistant Companion App requires
+constant access to the Home Assistant server and mobile location access at all
+times. Location permissions are granted through mobile device app permissions.
+Constant access to HA is achievable using Tailscale. 
+
+Maintain a persistent mobile connection to the HA tailnet. Toggle `Use Tailscale DNS`
+off so only traffic intended for Home Assistant passes through the Tailscale
+connection. Here is the HA Companion App Server Connection Info
+
+```yaml
+# Remote Tailscale URL
+Home Assistant URL: http://100.x.x.x:8123/
+
+# Home Network WiFi SSID
+Home Network: <Name of home WiFi network>
+
+# HA Internal URL (could be http://homeassistant.local:8123)
+Internal Connection URL: http://192.168.0.x:8123
+```
+
 ## Problem Child Integrations
 
 ### Custom CSV Parser
@@ -33,7 +71,8 @@ I wrote a CSV parser and attached it as a homeassistant project to my
 configuration.yaml. It reads manually entered water usage and cost
 data from a csv. The file itself can only contain 10 lines due
 to a limitation in the `custom:apexcharts-card`. All historical water
-use data is maintainted separately. I update these files every time I receive a bill from Coal Creek Utility District. 
+use data is maintainted separately. I update these files every time I
+receive a bill from Coal Creek Utility District. 
 
 [EyeOnWater](https://github.com/kdeyev/eyeonwater) is a common
 integration to gather water usage metrics but it requires that your
@@ -50,7 +89,8 @@ inception of my utility contract with PSE.
 
 The API endpoint that returns gas and electricity cost per month changed
 in October of 2022 and Opower has not updated to match, rendering the
-data incomplete.
+data incomplete. Here is a relevant 
+[github issue](https://github.com/tronikos/opower/issues/56).
 
 ### World Air Quality Index (WAQI)
 

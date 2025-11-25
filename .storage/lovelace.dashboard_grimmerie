@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_grimmerie",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "picture-elements",
+                  "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzNTAiIGZpbGw9IiMxYTFhMmUiLz4KICAKICA8IS0tIEdyb3VuZCAtLT4KICA8cmVjdCB4PSIwIiB5PSIyNzAiIHdpZHRoPSI0MDAiIGhlaWdodD0iODAiIGZpbGw9IiMyYTRhM2EiLz4KICAKICA8IS0tIEhvdXNlIGJvZHkgLSBkYXJrIGV2ZXJncmVlbiBncmVlbiAtLT4KICA8cmVjdCB4PSIxMDAiIHk9IjE1MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMyZDUwMTYiLz4KICAKICA8IS0tIFJvb2YgLSBkYXJrIGdyZXkgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIyMDAsNzAgOTAsMTUwIDMxMCwxNTAiIGZpbGw9IiMzYTNhM2EiLz4KICAKICA8IS0tIERvb3Igd2l0aCB3YXJtIHdoaXRlIHRyaW0gKHNpZGVzIGFuZCB0b3Agb25seSkgLS0+CiAgPCEtLSBMZWZ0IHRyaW0gLS0+CiAgPHJlY3QgeD0iMTc1IiB5PSIxOTcuNSIgd2lkdGg9IjIuNSIgaGVpZ2h0PSI3NSIgZmlsbD0iI2Y1ZjNlOCIvPgogIDwhLS0gUmlnaHQgdHJpbSAtLT4KICA8cmVjdCB4PSIyMjIuNSIgeT0iMTk3LjUiIHdpZHRoPSIyLjUiIGhlaWdodD0iNzUiIGZpbGw9IiNmNWYzZTgiLz4KICA8IS0tIFRvcCB0cmltIC0tPgogIDxyZWN0IHg9IjE3NSIgeT0iMTk3LjUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyLjUiIGZpbGw9IiNmNWYzZTgiLz4KICA8IS0tIERvb3IgLS0+CiAgPHJlY3QgeD0iMTc3LjUiIHk9IjIwMCIgd2lkdGg9IjQ1IiBoZWlnaHQ9IjcwIiBmaWxsPSIjNzE3MDZlIi8+CiAgPGNpcmNsZSBjeD0iMjEwIiBjeT0iMjM1IiByPSIzIiBmaWxsPSIjZmZkNzAwIi8+CiAgCiAgPCEtLSBXaW5kb3dzIHdpdGggd2FybSB3aGl0ZSB0cmltIC0gcG9zaXRpb25lZCBoaWdoZXIgLS0+CiAgPHJlY3QgeD0iMTE3LjUiIHk9IjE2Mi41IiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNmNWYzZTgiLz4KICA8cmVjdCB4PSIxMjAiIHk9IjE2NSIgd2lkdGg9IjM1IiBoZWlnaHQ9IjM1IiBmaWxsPSIjODdjZWViIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSIyNDIuNSIgeT0iMTYyLjUiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iI2Y1ZjNlOCIvPgogIDxyZWN0IHg9IjI0NSIgeT0iMTY1IiB3aWR0aD0iMzUiIGhlaWdodD0iMzUiIGZpbGw9IiM4N2NlZWIiIG9wYWNpdHk9IjAuNyIvPgogIAogIDwhLS0gV2luZG93IGRpdmlkZXJzIC0gd2FybSB3aGl0ZSAtLT4KICA8bGluZSB4MT0iMTM3IiB5MT0iMTY1IiB4Mj0iMTM3IiB5Mj0iMjAwIiBzdHJva2U9IiNmNWYzZTgiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSIxMjAiIHkxPSIxODIiIHgyPSIxNTUiIHkyPSIxODIiIHN0cm9rZT0iI2Y1ZjNlOCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGxpbmUgeDE9IjI2MiIgeTE9IjE2NSIgeDI9IjI2MiIgeTI9IjIwMCIgc3Ryb2tlPSIjZjVmM2U4IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8bGluZSB4MT0iMjQ1IiB5MT0iMTgyIiB4Mj0iMjgwIiB5Mj0iMTgyIiBzdHJva2U9IiNmNWYzZTgiIHN0cm9rZS13aWR0aD0iMiIvPgogIAogIDwhLS0gQ2hpbW5leSAtIHJlZCBicmljayAtLT4KICA8cmVjdCB4PSIyNDAiIHk9IjkwIiB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIGZpbGw9IiM4YjNhM2EiLz4KICA8IS0tIEJyaWNrIHBhdHRlcm4gLS0+CiAgPGxpbmUgeDE9IjI0MCIgeTE9IjEwMCIgeDI9IjI3MCIgeTI9IjEwMCIgc3Ryb2tlPSIjNmEyYTJhIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iMjQwIiB5MT0iMTEwIiB4Mj0iMjcwIiB5Mj0iMTEwIiBzdHJva2U9IiM2YTJhMmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIyNDAiIHkxPSIxMjAiIHgyPSIyNzAiIHkyPSIxMjAiIHN0cm9rZT0iIzZhMmEyYSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPGxpbmUgeDE9IjI1NSIgeTE9IjkwIiB4Mj0iMjU1IiB5Mj0iMTAwIiBzdHJva2U9IiM2YTJhMmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSIyNDgiIHkxPSIxMDAiIHgyPSIyNDgiIHkyPSIxMTAiIHN0cm9rZT0iIzZhMmEyYSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPGxpbmUgeDE9IjI2MiIgeTE9IjExMCIgeDI9IjI2MiIgeTI9IjEyMCIgc3Ryb2tlPSIjNmEyYTJhIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8bGluZSB4MT0iMjUyIiB5MT0iMTIwIiB4Mj0iMjUyIiB5Mj0iMTMwIiBzdHJva2U9IiM2YTJhMmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIAogIDwhLS0gQ2hyaXN0bWFzIExpZ2h0cyBvbiBSb29mIC0gRElNL09GRiB2ZXJzaW9uIC0tPgogIDxjaXJjbGUgY3g9IjExMCIgY3k9IjE0MCIgcj0iNiIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InhtYXMtbGlnaHQtb2ZmIi8+CiAgPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTIwIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vZmYiLz4KICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDUiIHI9IjYiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJ4bWFzLWxpZ2h0LW9mZiIvPgogIDxjaXJjbGUgY3g9IjE3MCIgY3k9IjkyIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vZmYiLz4KICA8Y2lyY2xlIGN4PSIxOTAiIGN5PSI4MSIgcj0iNiIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InhtYXMtbGlnaHQtb2ZmIi8+CiAgPGNpcmNsZSBjeD0iMjEwIiBjeT0iODEiIHI9IjYiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJ4bWFzLWxpZ2h0LW9mZiIvPgogIDxjaXJjbGUgY3g9IjIzMCIgY3k9IjkyIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vZmYiLz4KICA8Y2lyY2xlIGN4PSIyNTAiIGN5PSIxMDUiIHI9IjYiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJ4bWFzLWxpZ2h0LW9mZiIvPgogIDxjaXJjbGUgY3g9IjI3MCIgY3k9IjEyMCIgcj0iNiIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InhtYXMtbGlnaHQtb2ZmIi8+CiAgPGNpcmNsZSBjeD0iMjkwIiBjeT0iMTQwIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vZmYiLz4KICAKICA8IS0tIFdhbGwgTGFudGVybiBTY29uY2VzIC0gMjAlIGxhcmdlciwgcG9zaXRpb25lZCBjbG9zZXIgdG8gZG9vciAtLT4KICA8IS0tIExlZnQgc2NvbmNlIC0tPgogIDxyZWN0IHg9IjE1OC44IiB5PSIyMDguOCIgd2lkdGg9IjE0LjQiIGhlaWdodD0iMy42IiBmaWxsPSIjMmEyYTJhIi8+CiAgPHJlY3QgeD0iMTYxLjIiIHk9IjIxMi40IiB3aWR0aD0iOS42IiBoZWlnaHQ9IjE5LjIiIGZpbGw9IiMxYTFhMWEiIHN0cm9rZT0iIzJhMmEyYSIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMS4yIi8+CiAgPHJlY3QgeD0iMTYyLjQiIHk9IjIxMy42IiB3aWR0aD0iNy4yIiBoZWlnaHQ9IjcuMiIgZmlsbD0iI2ZmZGI5YSIgb3BhY2l0eT0iMC4zIi8+CiAgPHJlY3QgeD0iMTYyLjQiIHk9IjIyMiIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI4LjQiIGZpbGw9IiNmZmRiOWEiIG9wYWNpdHk9IjAuMyIvPgogIDwhLS0gTGlnaHQgYnVsYnMgc2lkZSBieSBzaWRlIC0gdGFsbGVyIChlbGxpcHNlIGluc3RlYWQgb2YgY2lyY2xlKSAtLT4KICA8ZWxsaXBzZSBjeD0iMTY0LjIiIGN5PSIyMjMuMiIgcng9IjIuNCIgcnk9IjIuOCIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InNjb25jZS1idWxiLW9mZiIvPgogIDxlbGxpcHNlIGN4PSIxNjcuOCIgY3k9IjIyMy4yIiByeD0iMi40IiByeT0iMi44IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ic2NvbmNlLWJ1bGItb2ZmIi8+CiAgPHBvbHlnb24gcG9pbnRzPSIxNjEuMiwyMTIuNCAxNjYsMjA4LjggMTcwLjgsMjEyLjQiIGZpbGw9IiMyYTJhMmEiLz4KICAKICA8IS0tIFJpZ2h0IHNjb25jZSAtLT4KICA8cmVjdCB4PSIyMjYuOCIgeT0iMjA4LjgiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjMuNiIgZmlsbD0iIzJhMmEyYSIvPgogIDxyZWN0IHg9IjIyOS4yIiB5PSIyMTIuNCIgd2lkdGg9IjkuNiIgaGVpZ2h0PSIxOS4yIiBmaWxsPSIjMWExYTFhIiBzdHJva2U9IiMyYTJhMmEiIHN0cm9rZS13aWR0aD0iMSIgcng9IjEuMiIvPgogIDxyZWN0IHg9IjIzMC40IiB5PSIyMTMuNiIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI3LjIiIGZpbGw9IiNmZmRiOWEiIG9wYWNpdHk9IjAuMyIvPgogIDxyZWN0IHg9IjIzMC40IiB5PSIyMjIiIHdpZHRoPSI3LjIiIGhlaWdodD0iOC40IiBmaWxsPSIjZmZkYjlhIiBvcGFjaXR5PSIwLjMiLz4KICA8IS0tIExpZ2h0IGJ1bGJzIHNpZGUgYnkgc2lkZSAtIHRhbGxlciAoZWxsaXBzZSBpbnN0ZWFkIG9mIGNpcmNsZSkgLS0+CiAgPGVsbGlwc2UgY3g9IjIzMi4yIiBjeT0iMjIzLjIiIHJ4PSIyLjQiIHJ5PSIyLjgiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJzY29uY2UtYnVsYi1vZmYiLz4KICA8ZWxsaXBzZSBjeD0iMjM1LjgiIGN5PSIyMjMuMiIgcng9IjIuNCIgcnk9IjIuOCIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InNjb25jZS1idWxiLW9mZiIvPgogIDxwb2x5Z29uIHBvaW50cz0iMjI5LjIsMjEyLjQgMjM0LDIwOC44IDIzOC44LDIxMi40IiBmaWxsPSIjMmEyYTJhIi8+CiAgCiAgPHN0eWxlPgogICAgLnhtYXMtbGlnaHQtb2ZmIHsKICAgICAgYW5pbWF0aW9uOiB0d2lua2xlLW9mZiAzcyBpbmZpbml0ZSBhbHRlcm5hdGU7CiAgICAgIGZpbHRlcjogZHJvcC1zaGFkb3coMCAwIDJweCAjZmZkYjlhKTsKICAgIH0KICAgIEBrZXlmcmFtZXMgdHdpbmtsZS1vZmYgewogICAgICAwJSwgMTAwJSB7IG9wYWNpdHk6IDAuMTU7IH0KICAgICAgNTAlIHsgb3BhY2l0eTogMC4wMjsgfQogICAgfQogICAgLnNjb25jZS1idWxiLW9mZiB7CiAgICAgIGFuaW1hdGlvbjogc2NvbmNlLXB1bHNlLW9mZiAzcyBpbmZpbml0ZSBhbHRlcm5hdGU7CiAgICAgIGZpbHRlcjogZHJvcC1zaGFkb3coMCAwIDJweCAjZmZkYjlhKTsKICAgIH0KICAgIEBrZXlmcmFtZXMgc2NvbmNlLXB1bHNlLW9mZiB7CiAgICAgIDAlLCAxMDAlIHsgb3BhY2l0eTogMC4yOyB9CiAgICAgIDUwJSB7IG9wYWNpdHk6IDAuMDI7IH0KICAgIH0KICA8L3N0eWxlPgo8L3N2Zz4K",
+                  "elements": [
+                    {
+                      "type": "conditional",
+                      "conditions": [
+                        {
+                          "entity": "switch.holiday_lights",
+                          "state": "on"
+                        }
+                      ],
+                      "elements": [
+                        {
+                          "type": "image",
+                          "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIENocmlzdG1hcyBMaWdodHMgb24gUm9vZiAtIEJSSUdIVC9PTiBvbmx5IC0tPgogIDxjaXJjbGUgY3g9IjExMCIgY3k9IjE0MCIgcj0iNiIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InhtYXMtbGlnaHQtb24iLz4KICA8Y2lyY2xlIGN4PSIxMzAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJ4bWFzLWxpZ2h0LW9uIi8+CiAgPGNpcmNsZSBjeD0iMTUwIiBjeT0iMTA1IiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIDxjaXJjbGUgY3g9IjE3MCIgY3k9IjkyIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIDxjaXJjbGUgY3g9IjE5MCIgY3k9IjgxIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIDxjaXJjbGUgY3g9IjIxMCIgY3k9IjgxIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIDxjaXJjbGUgY3g9IjIzMCIgY3k9IjkyIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjEwNSIgcj0iNiIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InhtYXMtbGlnaHQtb24iLz4KICA8Y2lyY2xlIGN4PSIyNzAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJ4bWFzLWxpZ2h0LW9uIi8+CiAgPGNpcmNsZSBjeD0iMjkwIiBjeT0iMTQwIiByPSI2IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ieG1hcy1saWdodC1vbiIvPgogIAogIDxzdHlsZT4KICAgIC54bWFzLWxpZ2h0LW9uIHsKICAgICAgYW5pbWF0aW9uOiB0d2lua2xlLW9uIDEuNXMgaW5maW5pdGUgYWx0ZXJuYXRlOwogICAgICBmaWx0ZXI6IGRyb3Atc2hhZG93KDAgMCA4cHggI2ZmZGI5YSk7CiAgICB9CiAgICBAa2V5ZnJhbWVzIHR3aW5rbGUtb24gewogICAgICAwJSwgMTAwJSB7IG9wYWNpdHk6IDE7IH0KICAgICAgNTAlIHsgb3BhY2l0eTogMC4xOyB9CiAgICB9CiAgPC9zdHlsZT4KPC9zdmc+Cg==",
+                          "style": {
+                            "left": "50%",
+                            "top": "50%",
+                            "width": "100%",
+                            "transform": "translate(-50%, -50%)",
+                            "pointer-events": "none"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "conditional",
+                      "conditions": [
+                        {
+                          "entity": "switch.mudroom_deck_lights",
+                          "state": "on"
+                        }
+                      ],
+                      "elements": [
+                        {
+                          "type": "image",
+                          "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIFNjb25jZSBidWxicyBvbmx5IC0gQlJJR0hUL09OIC0gc2lkZSBieSBzaWRlLCAyMCUgbGFyZ2VyLCB0YWxsZXIsIHdpdGggZHJhbWF0aWMgcHVsc2luZyAtLT4KICA8IS0tIExlZnQgc2NvbmNlIGJ1bGJzIC0tPgogIDxlbGxpcHNlIGN4PSIxNjQuMiIgY3k9IjIyMy4yIiByeD0iMi40IiByeT0iMi44IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ic2NvbmNlLWJ1bGItb24iLz4KICA8ZWxsaXBzZSBjeD0iMTY3LjgiIGN5PSIyMjMuMiIgcng9IjIuNCIgcnk9IjIuOCIgZmlsbD0iI2ZmZGI5YSIgY2xhc3M9InNjb25jZS1idWxiLW9uIi8+CiAgCiAgPCEtLSBSaWdodCBzY29uY2UgYnVsYnMgLS0+CiAgPGVsbGlwc2UgY3g9IjIzMi4yIiBjeT0iMjIzLjIiIHJ4PSIyLjQiIHJ5PSIyLjgiIGZpbGw9IiNmZmRiOWEiIGNsYXNzPSJzY29uY2UtYnVsYi1vbiIvPgogIDxlbGxpcHNlIGN4PSIyMzUuOCIgY3k9IjIyMy4yIiByeD0iMi40IiByeT0iMi44IiBmaWxsPSIjZmZkYjlhIiBjbGFzcz0ic2NvbmNlLWJ1bGItb24iLz4KICAKICA8c3R5bGU+CiAgICAuc2NvbmNlLWJ1bGItb24gewogICAgICBhbmltYXRpb246IHNjb25jZS1wdWxzZS1vbiAzcyBpbmZpbml0ZSBhbHRlcm5hdGU7CiAgICAgIGZpbHRlcjogZHJvcC1zaGFkb3coMCAwIDZweCAjZmZkYjlhKTsKICAgIH0KICAgIEBrZXlmcmFtZXMgc2NvbmNlLXB1bHNlLW9uIHsKICAgICAgMCUsIDEwMCUgeyBvcGFjaXR5OiAxOyB9CiAgICAgIDUwJSB7IG9wYWNpdHk6IDAuMTsgfQogICAgfQogIDwvc3R5bGU+Cjwvc3ZnPgo=",
+                          "style": {
+                            "left": "50%",
+                            "top": "50%",
+                            "width": "100%",
+                            "transform": "translate(-50%, -50%)",
+                            "pointer-events": "none"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "state-icon",
+                      "entity": "switch.mudroom_deck_lights",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "style": {
+                        "top": "64%",
+                        "left": "41.5%",
+                        "width": "5%",
+                        "height": "8%",
+                        "opacity": 0,
+                        "pointer-events": "auto"
+                      }
+                    },
+                    {
+                      "type": "state-icon",
+                      "entity": "switch.mudroom_deck_lights",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "style": {
+                        "top": "64%",
+                        "left": "58.5%",
+                        "width": "5%",
+                        "height": "8%",
+                        "opacity": 0,
+                        "pointer-events": "auto"
+                      }
+                    },
+                    {
+                      "type": "image",
+                      "entity": "switch.holiday_lights",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+                      "style": {
+                        "top": "28%",
+                        "left": "50%",
+                        "width": "70%",
+                        "height": "35%",
+                        "opacity": 0,
+                        "pointer-events": "auto"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

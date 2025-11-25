@@ -48,6 +48,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "utilities-overview"
+      },
+      {
+        "id": "dashboard_grimmerie",
+        "show_in_sidebar": true,
+        "icon": "mdi:book-open-page-variant-outline",
+        "title": "Grimmerie",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-grimmerie"
       }
     ]
   }

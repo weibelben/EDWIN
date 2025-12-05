@@ -7,10 +7,17 @@
       "views": [
         {
           "title": "Home",
-          "sections": [],
+          "sections": [
+            {
+              "type": "grid",
+              "cards": []
+            }
+          ],
           "header": {
             "card": {
-              "type": "vertical-stack",
+              "type": "grid",
+              "columns": 1,
+              "square": false,
               "cards": [
                 {
                   "type": "markdown",
@@ -170,8 +177,13 @@
                   ]
                 }
               ]
-            }
-          }
+            },
+            "layout": "center",
+            "badges_position": "bottom",
+            "badges_wrap": "wrap"
+          },
+          "type": "sections",
+          "cards": []
         }
       ]
     }

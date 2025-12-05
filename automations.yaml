@@ -945,23 +945,13 @@
           sequence:
           - target:
               entity_id:
-              - switch.mudroom_deck_lights
-              - switch.rear_garage_outlet
-              - switch.garage_north_man_door_outlet
-              - switch.driveway_lights
-              - switch.back_deck_outlet
-              - switch.north_bay_ceiling_outlet
+              - switch.holiday_lights
             action: switch.turn_on
             data: {}
         default:
         - target:
             entity_id:
-            - switch.mudroom_deck_lights
-            - switch.rear_garage_outlet
-            - switch.garage_north_man_door_outlet
-            - switch.driveway_lights
-            - switch.back_deck_outlet
-            - switch.north_bay_ceiling_outlet
+            - switch.holiday_lights
           action: switch.turn_off
           data: {}
     - conditions:
@@ -1056,23 +1046,13 @@
           sequence:
           - target:
               entity_id:
-              - switch.mudroom_deck_lights
-              - switch.rear_garage_outlet
-              - switch.garage_north_man_door_outlet
-              - switch.driveway_lights
-              - switch.back_deck_outlet
-              - switch.north_bay_ceiling_outlet
+              - switch.holiday_lights
             action: switch.turn_on
             data: {}
         default:
         - target:
             entity_id:
-            - switch.mudroom_deck_lights
-            - switch.rear_garage_outlet
-            - switch.garage_north_man_door_outlet
-            - switch.driveway_lights
-            - switch.back_deck_outlet
-            - switch.north_bay_ceiling_outlet
+            - switch.holiday_lights
           action: switch.turn_off
           data: {}
     - conditions:

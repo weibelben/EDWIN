@@ -50,7 +50,8 @@ Constant access to HA is achievable using Tailscale.
 
 Maintain a persistent mobile connection to the HA tailnet. Toggle `Use Tailscale DNS`
 off so only traffic intended for Home Assistant passes through the Tailscale
-connection. Here is the HA Companion App Server Connection Info
+connection. Then (android only) ensure that Split Tunneling is enabled for all
+apps other thatn Home Assistant. Here is the HA Companion App Server Connection Info
 
 ```yaml
 # Remote Tailscale URL

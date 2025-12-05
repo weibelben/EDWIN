@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.system_monitor",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "sections": [],
+          "header": {
+            "card": {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "markdown",
+                  "content": "# System Monitor\nReal-time system resource monitoring\n"
+                },
+                {
+                  "type": "history-graph",
+                  "title": "Resource Usage",
+                  "hours_to_show": 24,
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_processor_use",
+                      "name": "CPU"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_memory_usage",
+                      "name": "Memory"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_disk_usage",
+                      "name": "Disk"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_swap_usage",
+                      "name": "Swap"
+                    }
+                  ]
+                },
+                {
+                  "type": "history-graph",
+                  "title": "Processor Temperature",
+                  "hours_to_show": 24,
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_processor_temperature",
+                      "name": "Temperature"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.system_monitor_processor_use",
+                      "name": "CPU Usage",
+                      "unit": "%",
+                      "severity": {
+                        "green": 0,
+                        "yellow": 60,
+                        "red": 80
+                      },
+                      "needle": true,
+                      "min": 0,
+                      "max": 100
+                    },
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.system_monitor_memory_usage",
+                      "name": "Memory Usage",
+                      "unit": "%",
+                      "severity": {
+                        "green": 0,
+                        "yellow": 70,
+                        "red": 85
+                      },
+                      "needle": true,
+                      "min": 0,
+                      "max": 100
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.system_monitor_disk_usage",
+                      "name": "Disk Usage",
+                      "unit": "%",
+                      "severity": {
+                        "green": 0,
+                        "yellow": 70,
+                        "red": 85
+                      },
+                      "needle": true,
+                      "min": 0,
+                      "max": 100
+                    },
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.system_monitor_swap_usage",
+                      "name": "Swap Usage",
+                      "unit": "%",
+                      "severity": {
+                        "green": 0,
+                        "yellow": 50,
+                        "red": 75
+                      },
+                      "needle": true,
+                      "min": 0,
+                      "max": 100
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "title": "System Info",
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_last_boot",
+                      "name": "Last Boot",
+                      "format": "datetime"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "title": "Memory Details",
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_memory_use",
+                      "name": "Used"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_memory_free",
+                      "name": "Free"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "title": "Swap Details",
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_swap_use",
+                      "name": "Used"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_swap_free",
+                      "name": "Free"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "title": "Disk Details",
+                  "entities": [
+                    {
+                      "entity": "sensor.system_monitor_disk_use",
+                      "name": "Used"
+                    },
+                    {
+                      "entity": "sensor.system_monitor_disk_free",
+                      "name": "Free"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

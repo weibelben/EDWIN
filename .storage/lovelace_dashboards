@@ -57,6 +57,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "dashboard-grimmerie"
+      },
+      {
+        "id": "system_monitor",
+        "show_in_sidebar": true,
+        "icon": "mdi:chart-bar-stacked",
+        "title": "System Monitor",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "system-monitor"
       }
     ]
   }

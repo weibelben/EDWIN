@@ -583,10 +583,10 @@
           entity_id: switch.attic_vents
   mode: single
 - id: '1734044661267'
-  alias: 0530 Christmas Lights On Weekday Mornings
+  alias: 0545 Christmas Lights On Weekday Mornings
   description: ''
   triggers:
-  - at: 05:30:00
+  - at: 05:45
     trigger: time
   conditions:
   - condition: time
@@ -600,31 +600,21 @@
   - action: homeassistant.turn_on
     target:
       entity_id:
-      - switch.mudroom_deck_lights
-      - switch.rear_garage_outlet
-      - switch.garage_north_man_door_outlet
-      - switch.driveway_lights
-      - switch.back_deck_outlet
-      - switch.north_bay_ceiling_outlet
+      - switch.holiday_lights
   mode: single
 - id: '1734044914295'
-  alias: Sunrise+1h Christmas Lights Off Mornings
+  alias: Sunrise+30m Christmas Lights Off Mornings
   description: ''
   triggers:
   - event: sunrise
-    offset: +01:00
+    offset: +00:30
     trigger: sun
   conditions: []
   actions:
   - action: homeassistant.turn_off
     target:
       entity_id:
-      - switch.mudroom_deck_lights
-      - switch.rear_garage_outlet
-      - switch.garage_north_man_door_outlet
-      - switch.driveway_lights
-      - switch.back_deck_outlet
-      - switch.north_bay_ceiling_outlet
+      - switch.holiday_lights
   mode: single
 - id: '1734045064180'
   alias: 0630 Christmas Lights On Weekend Mornings
@@ -641,12 +631,7 @@
   - action: homeassistant.turn_on
     target:
       entity_id:
-      - switch.mudroom_deck_lights
-      - switch.rear_garage_outlet
-      - switch.garage_north_man_door_outlet
-      - switch.driveway_lights
-      - switch.back_deck_outlet
-      - switch.north_bay_ceiling_outlet
+      - switch.holiday_lights
   mode: single
 - id: '1734045226921'
   alias: Sunset-1h Christmas Lights On Evenings
@@ -660,12 +645,7 @@
   - action: homeassistant.turn_on
     target:
       entity_id:
-      - switch.mudroom_deck_lights
-      - switch.rear_garage_outlet
-      - switch.garage_north_man_door_outlet
-      - switch.driveway_lights
-      - switch.back_deck_outlet
-      - switch.north_bay_ceiling_outlet
+      - switch.holiday_lights
   mode: single
 - id: '1734045312680'
   alias: 2230 Christmas Lights Off Evenings
@@ -678,12 +658,7 @@
   - action: homeassistant.turn_off
     target:
       entity_id:
-      - switch.mudroom_deck_lights
-      - switch.rear_garage_outlet
-      - switch.garage_north_man_door_outlet
-      - switch.driveway_lights
-      - switch.back_deck_outlet
-      - switch.north_bay_ceiling_outlet
+      - switch.holiday_lights
   mode: single
 - id: '1742312770194'
   alias: Primary Bedroom Lamps Control Switch

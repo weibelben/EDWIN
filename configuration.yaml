@@ -9,11 +9,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-retry: default_attempts 5
-
-# Enable HACS
-hacs:
-  token: !secret github_token
+# HACS now authenticates using OAUTH instead of a hardcoded gh token
+# hacs:
+#   token: !secret github_token
 
 homeassistant:
   packages:

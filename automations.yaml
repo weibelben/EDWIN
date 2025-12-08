@@ -76,8 +76,9 @@
   alias: Ben Wakeup Lamp
   description: Turns on south bedroom lamp for 30m when alarm goes off
   triggers:
-  - entity_id: sensor.benss22_next_alarm
-    trigger: state
+  - trigger: template
+    value_template: "{{ now().replace(second=0, microsecond=0) ==\n   (states('sensor.benss22_next_alarm')
+      | as_datetime | as_local).replace(second=0, microsecond=0) }}"
   conditions:
   - condition: and
     conditions:
@@ -91,22 +92,17 @@
       entity_id: sun.sun
       state: below_horizon
   actions:
-  - action: retry.actions
-    metadata: {}
+  - action: light.turn_on
     data:
-      retries: 10
-      sequence:
-      - action: light.turn_on
-        data:
-          rgb_color:
-          - 139
-          - 0
-          - 0
-          brightness_pct: 1
-          transition: 0.5
-        target:
-          entity_id:
-          - light.bedside_lamp_south
+      rgb_color:
+      - 139
+      - 0
+      - 0
+      brightness_pct: 1
+      transition: 0.5
+    target:
+      entity_id:
+      - light.bedside_lamp_south
   - delay:
       minutes: 30
   - action: light.turn_off
@@ -252,21 +248,16 @@
     above: 45
     below: 85
   actions:
-  - action: retry.actions
-    data:
-      retries: 10
+  - repeat:
+      count: 12
       sequence:
-      - action: homeassistant.turn_on
+      - action: switch.turn_on
         target:
           entity_id: switch.upstairs_hall_bath_fan_switch_1
-  - delay: 01:00:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.upstairs_hall_bath_fan_switch_1
+      - delay: 00:05:00
+  - action: switch.turn_off
+    target:
+      entity_id: switch.upstairs_hall_bath_fan_switch_1
   mode: single
 - id: '1718499911399'
   alias: 0700 Weekdays Off
@@ -634,11 +625,11 @@
       - switch.holiday_lights
   mode: single
 - id: '1734045226921'
-  alias: Sunset-1h Christmas Lights On Evenings
+  alias: Sunset-30m Christmas Lights On Evenings
   description: ''
   triggers:
   - event: sunset
-    offset: -01:00
+    offset: -00:30
     trigger: sun
   conditions: []
   actions:

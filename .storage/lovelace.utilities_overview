@@ -17,7 +17,37 @@
                   "cards": [
                     {
                       "type": "statistics-graph",
-                      "title": "Gas Usage (Last 2 Weeks)",
+                      "title": "Gas Usage (Last 90 Days)",
+                      "stat_types": [
+                        "change"
+                      ],
+                      "entities": [
+                        {
+                          "entity": "opower:pse_gas_4103225046_energy_consumption"
+                        }
+                      ],
+                      "chart_type": "bar",
+                      "period": "day",
+                      "days_to_show": 90
+                    },
+                    {
+                      "type": "statistics-graph",
+                      "title": "Electricity Usage (Last 90 Days)",
+                      "stat_types": [
+                        "change"
+                      ],
+                      "entities": [
+                        {
+                          "entity": "opower:pse_elec_4103225045_energy_consumption"
+                        }
+                      ],
+                      "chart_type": "bar",
+                      "period": "day",
+                      "days_to_show": 90
+                    },
+                    {
+                      "type": "statistics-graph",
+                      "title": "Gas Usage (Last 30 Days)",
                       "stat_types": [
                         "sum"
                       ],
@@ -28,11 +58,11 @@
                       ],
                       "chart_type": "line",
                       "period": "day",
-                      "days_to_show": 14
+                      "days_to_show": 30
                     },
                     {
                       "type": "statistics-graph",
-                      "title": "Electricity Usage (Last 2 Weeks)",
+                      "title": "Electricity Usage (Last 30 Days)",
                       "stat_types": [
                         "sum"
                       ],
@@ -43,7 +73,7 @@
                       ],
                       "chart_type": "line",
                       "period": "day",
-                      "days_to_show": 14
+                      "days_to_show": 30
                     }
                   ]
                 }

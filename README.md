@@ -104,3 +104,15 @@ replace indoor air with clean air from outside.
 
 This integration requires an API token that must be refreshed (recreated)
 every 18 months from [Air Quality Open Data Platform's website](https://aqicn.org/data-platform/token/).
+
+### HZA using SLZB06 ZigBee Coordinator
+
+The Home Assistant side of this integration works excellently! The trouble Edwin
+was hitting was related to power cycling (ex. local power outages). When my
+Synology RT2600ac router rebooted, it would reassign the IP address assigned to
+its ethernet ports, leading to my SLZB06 changing IP addresses. ZHA would then 
+fail to initialze using the previous IP address, leaving my ZigBee devices
+unreachable. To solve this, I added a DHCP reservation on my router, assigning
+the ZigBee coordinator's MAC address the static IP of `192.168.0.40`. 
+
+While I was at it, I added a reservation pinning Home Assistant to `192.168.0.236`.

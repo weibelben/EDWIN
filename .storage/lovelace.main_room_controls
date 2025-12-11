@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.main_room_controls",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Kitchen & Dining",
+          "path": "kitchen-dining",
+          "icon": "mdi:silverware-fork-knife",
+          "type": "sections",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Overhead Lighting"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.back_deck_light",
+                  "name": "Back Deck",
+                  "icon": "mdi:deck-outline",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.attic_vents",
+                  "name": "Attic Vents",
+                  "icon": "mdi:fan",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.discus_tank_lights",
+                  "name": "Discus Lights",
+                  "icon": "mdi:ceiling-light",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.landing_chandelier",
+                  "name": "Chandelier",
+                  "icon": "mdi:chandelier",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Accent Lighting"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.counter_lamp",
+                  "name": "Counter Lamp",
+                  "icon": "mdi:lamp",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.china_hutch_socket_1",
+                  "name": "China Cabinet",
+                  "icon": "mdi:glass-cocktail",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.back_deck_splitter_socket_1",
+                  "name": "Christmas Tree",
+                  "icon": "mdi:pine-tree",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_lamp",
+                  "name": "Armoire Lamp",
+                  "icon": "mdi:lamp-outline",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Electronics"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_tv",
+                  "name": "TV",
+                  "icon": "mdi:television",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_record_player",
+                  "name": "Record Player",
+                  "icon": "mdi:disc-player",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Quick Actions"
+                },
+                {
+                  "type": "button",
+                  "name": "All Lights On",
+                  "icon": "mdi:lightbulb-group",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "homeassistant.turn_on",
+                    "target": {
+                      "entity_id": [
+                        "switch.back_deck_light",
+                        "switch.attic_vents",
+                        "switch.discus_lights",
+                        "switch.stairwell_chandelier",
+                        "switch.counter_lamp",
+                        "switch.china_cabinet_lights",
+                        "switch.christmas_tree_lights",
+                        "switch.armoire_lamp"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "name": "All Lights Off",
+                  "icon": "mdi:lightbulb-group-off",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "homeassistant.turn_off",
+                    "target": {
+                      "entity_id": [
+                        "switch.back_deck_light",
+                        "switch.attic_vents",
+                        "switch.discus_lights",
+                        "switch.stairwell_chandelier",
+                        "switch.counter_lamp",
+                        "switch.china_cabinet_lights",
+                        "switch.christmas_tree_lights",
+                        "switch.armoire_lamp"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "column_span": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

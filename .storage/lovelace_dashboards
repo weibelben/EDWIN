@@ -66,6 +66,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "system-monitor"
+      },
+      {
+        "id": "main_room_controls",
+        "show_in_sidebar": true,
+        "icon": "mdi:table-furniture",
+        "title": "Main Room Controls",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "main-room-controls"
       }
     ]
   }

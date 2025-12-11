@@ -437,17 +437,34 @@
           entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718503016252'
-  alias: Sunset Kitchen Grow Light Off
-  description: ''
+  alias: Rec Room Grow Light
+  description: Controls the state of the grow light in the rec room
   triggers:
-  - event: sunset
+  - event: sunrise
     offset: +00:30
     trigger: sun
+    id: sunrise
+  - event: sunset
+    offset: -00:30
+    trigger: sun
+    id: sunset
   conditions: []
   actions:
-  - action: homeassistant.turn_off
-    target:
-      entity_id: switch.kitchen_tree_light
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: sunrise
+      sequence:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.basement_grow_light
+    - conditions:
+      - condition: trigger
+        id: sunset
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.basement_grow_light
   mode: single
 - id: '1726705675996'
   alias: Primary Bedroom Fan Control Switch

@@ -452,10 +452,9 @@
     offset: +00:30
     trigger: sun
     id: sunrise
-  - event: sunset
-    offset: -00:30
-    trigger: sun
-    id: sunset
+  - trigger: time
+    at: '18:00:00'
+    id: evening_off
   conditions: []
   actions:
   - choose:
@@ -468,7 +467,7 @@
           entity_id: switch.basement_grow_light
     - conditions:
       - condition: trigger
-        id: sunset
+        id: evening_off
       sequence:
       - action: homeassistant.turn_off
         target:
@@ -1219,4 +1218,29 @@
       - light.bedside_lamp_north
     data:
       transition: 0.5
+  mode: single
+- id: '1765930255860'
+  alias: Dim Primary Bedroom Lamps at 2130
+  description: Sets dusk red if primary bedroom switch is turned on and dims to 1%
+  triggers:
+  - trigger: time
+    at: '21:30:00'
+  conditions:
+  - condition: state
+    entity_id: switch.primary_bedroom_lamps
+    state: 'on'
+  actions:
+  - action: script.custom_bedroom_lamps_on
+    data:
+      red: 139
+      green: 0
+      blue: 0
+      brightness: 10
+      transition: 0.5
+    target:
+      entity_id:
+      - light.bedside_lamp_south
+      - light.bedside_lamp_north
+      - light.floor_lamp
+      - light.bookshelf_light
   mode: single

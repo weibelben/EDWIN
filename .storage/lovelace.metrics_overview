@@ -123,6 +123,32 @@
                   "hours_to_show": 48
                 }
               ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "icon": "mdi:gauge",
+                  "heading": "Air Quality Index",
+                  "heading_style": "title"
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.se_12th_st_bellevue_washington_usa_air_quality_index",
+                      "name": "Outdoor"
+                    },
+                    {
+                      "entity": "sensor.living_room_air_quality_index",
+                      "name": "Indoor"
+                    }
+                  ],
+                  "title": "Indoor/Outdoor",
+                  "hours_to_show": 48
+                }
+              ]
             }
           ],
           "header": {}

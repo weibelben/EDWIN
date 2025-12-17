@@ -322,6 +322,7 @@
           - switch.tv_armoire_lamp
           - switch.driveway_lights
           - switch.mudroom_deck_lights
+          - switch.kitchen_counter_lamp
   mode: single
 - id: '1718500808554'
   alias: 2200 Lights Off
@@ -366,6 +367,13 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.mudroom_deck_lights
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.kitchen_counter_lamp
   mode: single
 - id: '1718501833646'
   alias: 1800 Lights On
@@ -659,7 +667,7 @@
   alias: 2230 Christmas Lights Off Evenings
   description: ''
   triggers:
-  - at: '22:30:00'
+  - at: '23:00:00'
     trigger: time
   conditions: []
   actions:

@@ -32,14 +32,6 @@
                   "name": "ATO",
                   "icon": "mdi:water-pump",
                   "show_state": false
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.back_deck_splitter_socket_1",
-                  "name": "Indoor Holiday Lights",
-                  "icon": "mdi:string-lights"
                 }
               ]
             },

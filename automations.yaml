@@ -323,6 +323,7 @@
           - switch.driveway_lights
           - switch.mudroom_deck_lights
           - switch.kitchen_counter_lamp
+          - switch.back_deck_splitter_socket_1
   mode: single
 - id: '1718500808554'
   alias: 2200 Lights Off
@@ -1243,4 +1244,20 @@
       - light.bedside_lamp_north
       - light.floor_lamp
       - light.bookshelf_light
+  mode: single
+- id: '1765931653434'
+  alias: 2300 Xmas Tree Off
+  description: Turns off xmas tree lights at 11PM
+  triggers:
+  - at: '23:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.back_deck_splitter_socket_1
   mode: single

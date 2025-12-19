@@ -75,6 +75,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "main-room-controls"
+      },
+      {
+        "id": "office_controls",
+        "show_in_sidebar": true,
+        "icon": "mdi:sail-boat",
+        "title": "Office Controls",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "office-controls"
       }
     ]
   }

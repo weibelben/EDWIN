@@ -323,7 +323,7 @@
           - switch.driveway_lights
           - switch.mudroom_deck_lights
           - switch.kitchen_counter_lamp
-          - switch.back_deck_splitter_socket_1
+          - switch.ship_lights
   mode: single
 - id: '1718500808554'
   alias: 2200 Lights Off
@@ -375,6 +375,13 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.kitchen_counter_lamp
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.ship_lights
   mode: single
 - id: '1718501833646'
   alias: 1800 Lights On
@@ -617,6 +624,7 @@
     target:
       entity_id:
       - switch.holiday_lights
+      - switch.back_deck_splitter_socket_1
   mode: single
 - id: '1734044914295'
   alias: Sunrise+30m Christmas Lights Off Mornings
@@ -648,6 +656,7 @@
     target:
       entity_id:
       - switch.holiday_lights
+      - switch.back_deck_splitter_socket_1
   mode: single
 - id: '1734045226921'
   alias: Sunset-30m Christmas Lights On Evenings
@@ -1260,4 +1269,19 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.back_deck_splitter_socket_1
+  mode: single
+- id: '1766112696061'
+  alias: 1800 Ben Office Lamps Off
+  description: At 1800, turn off office lamps
+  triggers:
+  - at: 08:00:00
+    trigger: time
+  actions:
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.ben_s_office_lamps
   mode: single

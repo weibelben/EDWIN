@@ -322,6 +322,8 @@
           - switch.tv_armoire_lamp
           - switch.driveway_lights
           - switch.mudroom_deck_lights
+          - switch.kitchen_counter_lamp
+          - switch.ship_lights
   mode: single
 - id: '1718500808554'
   alias: 2200 Lights Off
@@ -366,6 +368,20 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.mudroom_deck_lights
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.kitchen_counter_lamp
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.ship_lights
   mode: single
 - id: '1718501833646'
   alias: 1800 Lights On
@@ -437,17 +453,33 @@
           entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718503016252'
-  alias: Sunset Kitchen Grow Light Off
-  description: ''
+  alias: Rec Room Grow Light
+  description: Controls the state of the grow light in the rec room
   triggers:
-  - event: sunset
+  - event: sunrise
     offset: +00:30
     trigger: sun
+    id: sunrise
+  - trigger: time
+    at: '18:00:00'
+    id: evening_off
   conditions: []
   actions:
-  - action: homeassistant.turn_off
-    target:
-      entity_id: switch.kitchen_tree_light
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: sunrise
+      sequence:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.basement_grow_light
+    - conditions:
+      - condition: trigger
+        id: evening_off
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.basement_grow_light
   mode: single
 - id: '1726705675996'
   alias: Primary Bedroom Fan Control Switch
@@ -592,6 +624,7 @@
     target:
       entity_id:
       - switch.holiday_lights
+      - switch.back_deck_splitter_socket_1
   mode: single
 - id: '1734044914295'
   alias: Sunrise+30m Christmas Lights Off Mornings
@@ -623,6 +656,7 @@
     target:
       entity_id:
       - switch.holiday_lights
+      - switch.back_deck_splitter_socket_1
   mode: single
 - id: '1734045226921'
   alias: Sunset-30m Christmas Lights On Evenings
@@ -642,7 +676,7 @@
   alias: 2230 Christmas Lights Off Evenings
   description: ''
   triggers:
-  - at: '22:30:00'
+  - at: '23:00:00'
     trigger: time
   conditions: []
   actions:
@@ -1194,4 +1228,60 @@
       - light.bedside_lamp_north
     data:
       transition: 0.5
+  mode: single
+- id: '1765930255860'
+  alias: Dim Primary Bedroom Lamps at 2130
+  description: Sets dusk red if primary bedroom switch is turned on and dims to 1%
+  triggers:
+  - trigger: time
+    at: '21:30:00'
+  conditions:
+  - condition: state
+    entity_id: switch.primary_bedroom_lamps
+    state: 'on'
+  actions:
+  - action: script.custom_bedroom_lamps_on
+    data:
+      red: 139
+      green: 0
+      blue: 0
+      brightness: 10
+      transition: 0.5
+    target:
+      entity_id:
+      - light.bedside_lamp_south
+      - light.bedside_lamp_north
+      - light.floor_lamp
+      - light.bookshelf_light
+  mode: single
+- id: '1765931653434'
+  alias: 2300 Xmas Tree Off
+  description: Turns off xmas tree lights at 11PM
+  triggers:
+  - at: '23:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.back_deck_splitter_socket_1
+  mode: single
+- id: '1766112696061'
+  alias: 1800 Ben Office Lamps Off
+  description: At 1800, turn off office lamps
+  triggers:
+  - at: 08:00:00
+    trigger: time
+  actions:
+  - action: retry.actions
+    data:
+      retries: 10
+      sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.ben_s_office_lamps
   mode: single

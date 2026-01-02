@@ -173,7 +173,7 @@ primary_bedroom_lamp_color_selector:
         action: script.custom_bedroom_lamps_on
     - conditions:
       - condition: time
-        after: '22:00:00'
+        after: '21:30:00'
       sequence:
       - data:
           red: 139

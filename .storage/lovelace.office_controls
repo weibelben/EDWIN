@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.office_controls",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Office Controls",
+          "path": "office",
+          "icon": "mdi:desk",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:mushroom-chips-card",
+                  "chips": [
+                    {
+                      "type": "entity",
+                      "entity": "switch.ben_s_office_lamps",
+                      "icon": "mdi:lightbulb-group",
+                      "content_info": "name",
+                      "tap_action": {
+                        "action": "toggle"
+                      }
+                    }
+                  ],
+                  "alignment": "center"
+                },
+                {
+                  "type": "grid",
+                  "columns": 3,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.ship_lights",
+                      "name": "Boat Display",
+                      "icon": "mdi:sail-boat",
+                      "fill_container": true,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "layout": "vertical",
+                      "primary_info": "name",
+                      "secondary_info": "none",
+                      "icon_color": "blue"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.desk_lamps",
+                      "name": "Desk Lamps",
+                      "icon": "mdi:lamps-outline",
+                      "fill_container": true,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "layout": "vertical",
+                      "primary_info": "name",
+                      "secondary_info": "none"
+                    },
+                    {
+                      "type": "custom:mushroom-entity-card",
+                      "entity": "switch.star_destroyer_lamp",
+                      "name": "Star Destroyer",
+                      "icon": "mdi:death-star-variant",
+                      "fill_container": true,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "hold_action": {
+                        "action": "more-info"
+                      },
+                      "layout": "vertical",
+                      "primary_info": "name",
+                      "secondary_info": "none"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

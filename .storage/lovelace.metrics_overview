@@ -36,12 +36,6 @@
                       "entity": "sensor.third_reality_inc_3rths0224z_humidity_2"
                     },
                     {
-                      "entity": "sensor.attic_humidity_sensor_humidity"
-                    },
-                    {
-                      "entity": "sensor.attic_humidity_sensor_north_humidity"
-                    },
-                    {
                       "entity": "sensor.primary_closet_humidity_sensor_humidity"
                     }
                   ],
@@ -92,12 +86,6 @@
                     },
                     {
                       "entity": "sensor.third_reality_inc_3rths0224z_temperature_2"
-                    },
-                    {
-                      "entity": "sensor.attic_humidity_sensor_temperature"
-                    },
-                    {
-                      "entity": "sensor.attic_humidity_sensor_north_temperature"
                     },
                     {
                       "entity": "sensor.primary_closet_humidity_sensor_temperature"

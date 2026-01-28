@@ -10,7 +10,13 @@
           "sections": [
             {
               "type": "grid",
-              "cards": []
+              "cards": [
+                {
+                  "type": "markdown",
+                  "title": "Google Drive Backups",
+                  "content": "type: markdown\ntitle: Google Drive Backups\ncontent: |\n  **Status:** {{ states('sensor.backup_state') }}  \n  **Last Backup:** {{ state_attr('sensor.backup_state', 'last_backup') }}  \n  **Total Backups:** {{ state_attr('sensor.backup_state', 'backups') | length }}\n  \n  ---\n  \n  {% set backups = state_attr('sensor.backup_state', 'backups') %}\n  {% if backups %}\n  {% for backup in backups | sort(attribute='date', reverse=true) %}\n  **{{ loop.index }}.** {{ backup.name }}  \n  └ {{ as_timestamp(backup.date) | timestamp_custom('%b %d, %Y at %I:%M %p') }} · {{ backup.size }}\n  \n  {% endfor %}\n  {% else %}\n  *No backups available*\n  {% endif %}"
+                }
+              ]
             }
           ],
           "header": {

@@ -104,7 +104,7 @@
       entity_id:
       - light.bedside_lamp_south
   - delay:
-      minutes: 30
+      minutes: 29
   - action: light.turn_off
     target:
       entity_id:
@@ -558,14 +558,14 @@
           entity_id: switch.primary_bedroom_fan
   - action: retry.actions
     data:
-      retries: 50
+      retries: 10
       sequence:
       - action: homeassistant.turn_off
         target:
           entity_id: fan.upstairs_bedroom_fan
   - action: retry.actions
     data:
-      retries: 50
+      retries: 10
       sequence:
       - action: homeassistant.turn_off
         target:
@@ -1274,7 +1274,7 @@
   alias: 1800 Ben Office Lamps Off
   description: At 1800, turn off office lamps
   triggers:
-  - at: 08:00:00
+  - at: '18:00:00'
     trigger: time
   actions:
   - action: retry.actions
@@ -1284,4 +1284,62 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.ben_s_office_lamps
+  mode: single
+- id: '1768697294695'
+  alias: Ben's Office 4 Button Controller
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - event.bens_office_button_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.bens_office_button_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.bens_office_button_3
+    trigger: state
+    id: button_3
+  - entity_id:
+    - switch.bens_office_light
+    trigger: state
+    id: button_4
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id:
+          - switch.desk_lamps
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.star_destroyer_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - target:
+          entity_id: switch.ship_lights
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_4
+      sequence:
+      - target:
+          entity_id: {}
+        action: switch.toggle
+        data: {}
   mode: single

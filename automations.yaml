@@ -10,13 +10,16 @@
   conditions: []
   actions:
   - data:
-      message: Backup Failed
-    action: notify.mobile_app_benss22
-  - metadata: {}
-    data:
-      message: A backup failed to upload to Google Drive
       title: Home Assistant Backup Failure
-    action: notify.gmail
+      message: 'Automated home assistant backup to Google Drive failed.
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:content-save
+        tag: ato_low_water
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
   mode: single
 - id: '1707096019689'
   alias: 11 Sunset Minus 120 Driveway Lights On
@@ -104,7 +107,7 @@
       entity_id:
       - light.bedside_lamp_south
   - delay:
-      minutes: 30
+      minutes: 29
   - action: light.turn_off
     target:
       entity_id:
@@ -558,14 +561,7 @@
           entity_id: switch.primary_bedroom_fan
   - action: retry.actions
     data:
-      retries: 50
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: fan.upstairs_bedroom_fan
-  - action: retry.actions
-    data:
-      retries: 50
+      retries: 10
       sequence:
       - action: homeassistant.turn_off
         target:
@@ -1274,7 +1270,7 @@
   alias: 1800 Ben Office Lamps Off
   description: At 1800, turn off office lamps
   triggers:
-  - at: 08:00:00
+  - at: '18:00:00'
     trigger: time
   actions:
   - action: retry.actions
@@ -1284,4 +1280,92 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.ben_s_office_lamps
+  mode: single
+- id: '1768697294695'
+  alias: Ben's Office 4 Button Controller
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - event.bens_office_button_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.bens_office_button_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.bens_office_button_3
+    trigger: state
+    id: button_3
+  - entity_id:
+    - switch.bens_office_light
+    trigger: state
+    id: button_4
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id:
+          - switch.desk_lamps
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.star_destroyer_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - target:
+          entity_id: switch.ship_lights
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_4
+      sequence:
+      - target:
+          entity_id: {}
+        action: switch.toggle
+        data: {}
+  mode: single
+- id: '1771098031194'
+  alias: Discus ATO off when ATO level is low
+  description: Disable ATO pump when water level is low
+  triggers:
+  - entity_id: sensor.me201w_level_sensor_depth
+    below: 2
+    for:
+      minutes: 5
+    trigger: numeric_state
+  actions:
+  - target:
+      entity_id: switch.discus_tank_ato
+    action: switch.turn_off
+  - data:
+      title: Refill Discus Tank ATO
+      message: 'The ATO has been shut off due to low reservoir water level.
+
+        Current Level: {{ states(''sensor.me201w_level_sensor_depth'') | round(2)
+        }} inches
+
+        Threshold: 2 inches
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:fish
+        tag: ato_low_water
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
   mode: single

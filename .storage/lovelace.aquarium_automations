@@ -77,6 +77,29 @@
                 }
               ],
               "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "icon": "mdi:bucket-outline",
+                  "heading": "ATO Depth (Inches)",
+                  "heading_style": "title"
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.me201w_level_sensor_depth"
+                    }
+                  ],
+                  "min_y_axis": 0,
+                  "logarithmic_scale": false,
+                  "hours_to_show": 140,
+                  "fit_y_data": false
+                }
+              ]
             }
           ],
           "type": "sections",

@@ -17,6 +17,46 @@
                   "cards": [
                     {
                       "type": "statistics-graph",
+                      "title": "Hourly Gas Usage (7 Days)",
+                      "stat_types": [
+                        "change"
+                      ],
+                      "entities": [
+                        {
+                          "entity": "opower:pse_gas_4103225046_energy_consumption"
+                        }
+                      ],
+                      "chart_type": "bar",
+                      "period": "hour",
+                      "days_to_show": 7
+                    },
+                    {
+                      "type": "statistics-graph",
+                      "title": "Hourly Electricity Usage (7 Days)",
+                      "stat_types": [
+                        "change"
+                      ],
+                      "entities": [
+                        {
+                          "entity": "opower:pse_elec_4103225045_energy_consumption"
+                        }
+                      ],
+                      "chart_type": "bar",
+                      "period": "hour",
+                      "days_to_show": 7
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": [
+                    {
+                      "type": "statistics-graph",
                       "title": "Gas Usage (Last 90 Days)",
                       "stat_types": [
                         "change"
@@ -136,7 +176,7 @@
                   "chart_type": "bar",
                   "period": "month",
                   "type": "statistics-graph",
-                  "title": "Monthly Gas Cost",
+                  "title": "Monthly Electricity Cost",
                   "stat_types": [
                     "change"
                   ],

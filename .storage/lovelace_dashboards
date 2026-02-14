@@ -5,24 +5,6 @@
   "data": {
     "items": [
       {
-        "id": "map",
-        "icon": "mdi:map",
-        "title": "Map",
-        "url_path": "map",
-        "mode": "storage",
-        "show_in_sidebar": true,
-        "require_admin": false
-      },
-      {
-        "id": "aquarium_automations",
-        "show_in_sidebar": true,
-        "icon": "mdi:fishbowl",
-        "title": "Aquarium Automations",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "aquarium-automations"
-      },
-      {
         "id": "metrics_overview",
         "show_in_sidebar": true,
         "icon": "mdi:chart-areaspline",
@@ -30,15 +12,6 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "metrics_overview"
-      },
-      {
-        "id": "primary_suite_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:bed",
-        "title": "Primary Suite Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "primary-suite-controls"
       },
       {
         "id": "utilities_overview",
@@ -50,15 +23,6 @@
         "url_path": "utilities-overview"
       },
       {
-        "id": "dashboard_grimmerie",
-        "show_in_sidebar": true,
-        "icon": "mdi:book-open-page-variant-outline",
-        "title": "Grimmerie",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "dashboard-grimmerie"
-      },
-      {
         "id": "system_monitor",
         "show_in_sidebar": true,
         "icon": "mdi:chart-bar-stacked",
@@ -66,6 +30,24 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "system-monitor"
+      },
+      {
+        "id": "aquarium_automations",
+        "show_in_sidebar": true,
+        "icon": "mdi:fishbowl",
+        "title": "Aquarium Automations",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "aquarium-automations"
+      },
+      {
+        "id": "primary_suite_controls",
+        "show_in_sidebar": true,
+        "icon": "mdi:bed",
+        "title": "Primary Suite Controls",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "primary-suite-controls"
       },
       {
         "id": "main_room_controls",
@@ -84,6 +66,33 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "office-controls"
+      },
+      {
+        "id": "dashboard_grimmerie",
+        "show_in_sidebar": true,
+        "icon": "mdi:book-open-page-variant-outline",
+        "title": "Grimmerie",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-grimmerie"
+      },
+      {
+        "id": "map",
+        "icon": "mdi:map",
+        "title": "Map",
+        "url_path": "map",
+        "mode": "storage",
+        "show_in_sidebar": true,
+        "require_admin": false
+      },
+      {
+        "id": "historical_map",
+        "show_in_sidebar": true,
+        "icon": "mdi:airplane-clock",
+        "title": "Historical Map",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "historical-map"
       }
     ]
   }

@@ -10,13 +10,16 @@
   conditions: []
   actions:
   - data:
-      message: Backup Failed
-    action: notify.mobile_app_benss22
-  - metadata: {}
-    data:
-      message: A backup failed to upload to Google Drive
       title: Home Assistant Backup Failure
-    action: notify.gmail
+      message: 'Automated home assistant backup to Google Drive failed.
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:content-save
+        tag: ato_low_water
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
   mode: single
 - id: '1707096019689'
   alias: 11 Sunset Minus 120 Driveway Lights On
@@ -556,13 +559,6 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.primary_bedroom_fan
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: fan.upstairs_bedroom_fan
   - action: retry.actions
     data:
       retries: 10
@@ -1342,4 +1338,34 @@
           entity_id: {}
         action: switch.toggle
         data: {}
+  mode: single
+- id: '1771098031194'
+  alias: Discus ATO off when ATO level is low
+  description: Disable ATO pump when water level is low
+  triggers:
+  - entity_id: sensor.me201w_level_sensor_depth
+    below: 2
+    for:
+      minutes: 5
+    trigger: numeric_state
+  actions:
+  - target:
+      entity_id: switch.discus_tank_ato
+    action: switch.turn_off
+  - data:
+      title: Refill Discus Tank ATO
+      message: 'The ATO has been shut off due to low reservoir water level.
+
+        Current Level: {{ states(''sensor.me201w_level_sensor_depth'') | round(2)
+        }} inches
+
+        Threshold: 2 inches
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:fish
+        tag: ato_low_water
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
   mode: single

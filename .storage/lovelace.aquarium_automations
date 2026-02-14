@@ -84,7 +84,7 @@
                 {
                   "type": "heading",
                   "icon": "mdi:bucket-outline",
-                  "heading": "Discus Tank ATO Depth (Inches)",
+                  "heading": "ATO Depth (Inches)",
                   "heading_style": "title"
                 },
                 {
@@ -96,7 +96,8 @@
                   ],
                   "min_y_axis": 0,
                   "logarithmic_scale": false,
-                  "hours_to_show": 360
+                  "hours_to_show": 140,
+                  "fit_y_data": false
                 }
               ]
             }

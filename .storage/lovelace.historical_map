@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.historical_map",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "type": "panel",
+          "title": "Map",
+          "icon": "mdi:map",
+          "cards": [
+            {
+              "type": "map",
+              "auto_fit": true,
+              "show_all": true,
+              "hours_to_show": 168
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

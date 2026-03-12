@@ -97,7 +97,7 @@
                   "min_y_axis": 0,
                   "logarithmic_scale": false,
                   "fit_y_data": false,
-                  "hours_to_show": 230
+                  "hours_to_show": 730
                 }
               ]
             }

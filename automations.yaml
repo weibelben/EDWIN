@@ -1401,3 +1401,16 @@
     data:
       value: 10
   mode: single
+- id: '1773359202861'
+  alias: Rear Basement Entrance Light
+  description: Syncs light.rear_basement_entrance with switch.rear_basement_entrance
+  triggers:
+  - entity_id: switch.basement_back_door
+    trigger: state
+  actions:
+  - target:
+      entity_id: light.rear_basement_entrance
+    action: 'light.turn_{{ trigger.to_state.state }}
+
+      '
+  mode: single

@@ -87,7 +87,7 @@
                     },
                     {
                       "type": "statistics-graph",
-                      "title": "Gas Usage (Last 30 Days)",
+                      "title": "Gas Usage (Last 36 Days)",
                       "stat_types": [
                         "sum"
                       ],
@@ -98,7 +98,7 @@
                       ],
                       "chart_type": "line",
                       "period": "day",
-                      "days_to_show": 30
+                      "days_to_show": 36
                     },
                     {
                       "type": "statistics-graph",

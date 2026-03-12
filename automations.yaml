@@ -1369,3 +1369,35 @@
         sticky: true
     action: notify.mobile_app_benss22
   mode: single
+- id: '1773357882073'
+  alias: Reset Discus ATO Level Config After Power Loss
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id: sensor.me201w_level_sensor_depth
+    from: unavailable
+    to:
+  actions:
+  - delay:
+      seconds: 5
+  - action: number.set_value
+    target:
+      entity_id: number.me201w_level_sensor_installation_height
+    data:
+      value: 0.48
+  - action: number.set_value
+    target:
+      entity_id: number.me201w_level_sensor_maximum_liquid_depth
+    data:
+      value: 0.35
+  - action: number.set_value
+    target:
+      entity_id: number.me201w_level_sensor_alarm_maximum
+    data:
+      value: 95
+  - action: number.set_value
+    target:
+      entity_id: number.me201w_level_sensor_alarm_minimum
+    data:
+      value: 10
+  mode: single

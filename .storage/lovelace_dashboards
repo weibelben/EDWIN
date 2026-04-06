@@ -93,6 +93,14 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "historical-map"
+      },
+      {
+        "id": "dashboard_sprinklers",
+        "show_in_sidebar": true,
+        "title": "Sprinklers",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-sprinklers"
       }
     ]
   }

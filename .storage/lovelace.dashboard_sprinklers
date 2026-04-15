@@ -119,12 +119,12 @@
                     {
                       "type": "custom:button-card",
                       "entity": "switch.1_hydrant_herbs",
-                      "name": "Hydrant Herbs",
+                      "name": "Hydrant",
                       "label": "Zone 1",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:water-pump",
                       "state": [
                         {
                           "value": "on",
@@ -271,7 +271,7 @@
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:close-circle",
                       "state": [
                         {
                           "value": "on",
@@ -409,7 +409,7 @@
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:close-circle",
                       "state": [
                         {
                           "value": "on",
@@ -903,8 +903,8 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.6_blueberry_orchard",
-                      "name": "Blueberry Orchard",
+                      "entity": "switch.6_blueberries",
+                      "name": "Blueberries",
                       "label": "Zone 6",
                       "show_label": true,
                       "show_state": false,
@@ -952,7 +952,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.6_blueberry_orchard",
+                          "entity_id": "switch.6_blueberries",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -1041,8 +1041,8 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.7_currant_elderberries",
-                      "name": "Elderberries Maple",
+                      "entity": "switch.7_elderberries",
+                      "name": "Elderberries",
                       "label": "Zone 7",
                       "show_label": true,
                       "show_state": false,
@@ -1090,7 +1090,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.7_currant_elderberries",
+                          "entity_id": "switch.7_elderberries",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -1403,13 +1403,13 @@
                   "cards": [
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_9",
-                      "name": "Zone 9",
+                      "entity": "switch.9_back_wall",
+                      "name": "Back Wall",
                       "label": "Zone 9",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:leaf-maple",
                       "state": [
                         {
                           "value": "on",
@@ -1452,7 +1452,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_9",
+                          "entity_id": "switch.9_back_wall",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -1541,13 +1541,13 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_10",
-                      "name": "Zone 10",
+                      "entity": "switch.10_aspens",
+                      "name": "Aspens",
                       "label": "Zone 10",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:tree-outline",
                       "state": [
                         {
                           "value": "on",
@@ -1590,7 +1590,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_10",
+                          "entity_id": "switch.10_aspens",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -1679,13 +1679,13 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_11",
-                      "name": "Zone 11",
+                      "entity": "switch.11_salmonberries",
+                      "name": "Salmonberries",
                       "label": "Zone 11",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:fruit-grapes",
                       "state": [
                         {
                           "value": "on",
@@ -1817,8 +1817,8 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_12",
-                      "name": "Zone 12",
+                      "entity": "switch.12_back_beds",
+                      "name": "Back Beds",
                       "label": "Zone 12",
                       "show_label": true,
                       "show_state": false,
@@ -1866,7 +1866,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_12",
+                          "entity_id": "switch.12_back_beds",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -2041,13 +2041,13 @@
                   "cards": [
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.13_raspberry_hydrangea",
-                      "name": "Raspberry Hydrangea",
+                      "entity": "switch.13_raspberries",
+                      "name": "Raspberries",
                       "label": "Zone 13",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:flower",
+                      "icon": "mdi:fruit-cherries",
                       "state": [
                         {
                           "value": "on",
@@ -2090,7 +2090,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.13_raspberry_hydrangea",
+                          "entity_id": "switch.13_raspberries",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -2179,13 +2179,13 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_14",
-                      "name": "Zone 14",
+                      "entity": "switch.14_south_ferns",
+                      "name": "Ferns",
                       "label": "Zone 14",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sprinkler",
+                      "icon": "mdi:spa-outline",
                       "state": [
                         {
                           "value": "on",
@@ -2228,7 +2228,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_14",
+                          "entity_id": "switch.14_south_ferns",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
@@ -2455,8 +2455,8 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.zone_16",
-                      "name": "Mailbox Apple Tree",
+                      "entity": "switch.16_mailbox",
+                      "name": "Mailbox",
                       "label": "Zone 16",
                       "show_label": true,
                       "show_state": false,
@@ -2504,7 +2504,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_16",
+                          "entity_id": "switch.16_mailbox",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },

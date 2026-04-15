@@ -105,6 +105,7 @@
                   "type": "custom:mushroom-light-card",
                   "entity": "light.primary_bedroom_lamps_group",
                   "name": "Bedroom Lamps",
+                  "icon": "mdi:lightbulb-group",
                   "show_brightness_control": true,
                   "use_light_color": true,
                   "layout": "vertical",

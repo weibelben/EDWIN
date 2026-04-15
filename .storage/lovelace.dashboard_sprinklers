@@ -122,7 +122,7 @@
                       "name": "Hydrant Herbs",
                       "label": "Zone 1",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -173,7 +173,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.1_hydrant_herbs",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -269,7 +269,7 @@
                       "name": "Capped",
                       "label": "Zone 2",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -315,7 +315,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.2_capped",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -407,7 +407,7 @@
                       "name": "Capped",
                       "label": "Zone 3",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -453,7 +453,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.3_capped",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -545,7 +545,7 @@
                       "name": "Oak Knoll",
                       "label": "Zone 4",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:tree",
                       "state": [
@@ -591,7 +591,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.4_oak_knoll",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -769,7 +769,7 @@
                       "name": "Fountain",
                       "label": "Zone 5",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:fountain",
                       "state": [
@@ -815,7 +815,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.5_fountain",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -907,7 +907,7 @@
                       "name": "Blueberry Orchard",
                       "label": "Zone 6",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:fruit-cherries",
                       "state": [
@@ -953,7 +953,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.6_blueberry_orchard",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1045,7 +1045,7 @@
                       "name": "Elderberries Maple",
                       "label": "Zone 7",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:tree",
                       "state": [
@@ -1091,7 +1091,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.7_currant_elderberries",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1183,7 +1183,7 @@
                       "name": "Rhubarb",
                       "label": "Zone 8",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:flower",
                       "state": [
@@ -1229,7 +1229,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.8_strawberry_rhubarb",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1407,7 +1407,7 @@
                       "name": "Zone 9",
                       "label": "Zone 9",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -1453,7 +1453,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_9",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1545,7 +1545,7 @@
                       "name": "Zone 10",
                       "label": "Zone 10",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -1591,7 +1591,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_10",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1683,7 +1683,7 @@
                       "name": "Zone 11",
                       "label": "Zone 11",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -1729,7 +1729,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_11",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -1821,7 +1821,7 @@
                       "name": "Zone 12",
                       "label": "Zone 12",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -1867,7 +1867,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_12",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -2045,7 +2045,7 @@
                       "name": "Raspberry Hydrangea",
                       "label": "Zone 13",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:flower",
                       "state": [
@@ -2091,7 +2091,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.13_raspberry_hydrangea",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -2183,7 +2183,7 @@
                       "name": "Zone 14",
                       "label": "Zone 14",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler",
                       "state": [
@@ -2229,7 +2229,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_14",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -2321,7 +2321,7 @@
                       "name": "Driveway Beds",
                       "label": "Zone 15",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:sprinkler-variant",
                       "state": [
@@ -2367,7 +2367,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_15",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -2459,7 +2459,7 @@
                       "name": "Mailbox Apple Tree",
                       "label": "Zone 16",
                       "show_label": true,
-                      "show_state": true,
+                      "show_state": false,
                       "show_icon": true,
                       "icon": "mdi:tree",
                       "state": [
@@ -2505,7 +2505,7 @@
                         "service": "rachio.start_watering",
                         "data": {
                           "entity_id": "switch.zone_16",
-                          "duration": 10
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
                       "hold_action": {
@@ -2587,6 +2587,251 @@
                           },
                           {
                             "justify-self": "start"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Run Duration",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "name": "−",
+                      "show_icon": false,
+                      "show_name": true,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_number.decrement",
+                        "data": {
+                          "entity_id": "input_number.irrigation_duration"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "flex-grow": 0
+                          },
+                          {
+                            "min-width": "60px"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "300"
+                          },
+                          {
+                            "color": "#6b7280"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_number.irrigation_duration",
+                      "show_name": true,
+                      "show_icon": false,
+                      "show_label": true,
+                      "label": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]",
+                      "show_state": false,
+                      "name": "minutes per zone",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "unit": "none",
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"n\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "padding-top": "4px"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "name": "+",
+                      "show_icon": false,
+                      "show_name": true,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_number.increment",
+                        "data": {
+                          "entity_id": "input_number.irrigation_duration"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "flex-grow": 0
+                          },
+                          {
+                            "min-width": "60px"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "300"
+                          },
+                          {
+                            "color": "#6b7280"
                           }
                         ]
                       }

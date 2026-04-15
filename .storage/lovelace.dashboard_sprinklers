@@ -176,11 +176,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -318,11 +313,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -456,11 +446,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -593,11 +578,6 @@
                           "entity_id": "switch.4_oak_knoll",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -818,11 +798,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -955,11 +930,6 @@
                           "entity_id": "switch.6_blueberries",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -1094,11 +1064,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -1231,11 +1196,6 @@
                           "entity_id": "switch.8_strawberry_rhubarb",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -1456,11 +1416,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -1593,11 +1548,6 @@
                           "entity_id": "switch.10_aspens",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -1732,11 +1682,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -1869,11 +1814,6 @@
                           "entity_id": "switch.12_back_beds",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -2094,11 +2034,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -2231,11 +2166,6 @@
                           "entity_id": "switch.14_south_ferns",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [
@@ -2370,11 +2300,6 @@
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
-                      },
                       "styles": {
                         "card": [
                           {
@@ -2507,11 +2432,6 @@
                           "entity_id": "switch.16_mailbox",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
-                      },
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "rachio.stop_watering",
-                        "data": {}
                       },
                       "styles": {
                         "card": [

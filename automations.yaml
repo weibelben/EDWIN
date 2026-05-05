@@ -927,6 +927,12 @@
     - switch.top_of_stairs_controller
     trigger: state
     id: button_4
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:
@@ -1027,7 +1033,12 @@
     - switch.top_of_stairs_controller
     trigger: state
     id: button_4
-  conditions: []
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:
@@ -1301,7 +1312,12 @@
     - switch.bens_office_light
     trigger: state
     id: button_4
-  conditions: []
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:

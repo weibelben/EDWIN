@@ -101,6 +101,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "dashboard-sprinklers"
+      },
+      {
+        "id": "network_overview",
+        "show_in_sidebar": true,
+        "icon": "mdi:web",
+        "title": "Network Overview",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "network-overview"
       }
     ]
   }

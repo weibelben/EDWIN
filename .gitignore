@@ -16,6 +16,7 @@ tts/
 www/
 deps/
 .storage/
+.cache/
 
 # track all lovelace-related files
 !.storage/lovelace

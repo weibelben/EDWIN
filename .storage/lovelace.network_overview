@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.network_overview",
+  "data": {
+    "config": {
+      "title": "Network Overview",
+      "views": [
+        {
+          "title": "Network",
+          "icon": "mdi:network",
+          "cards": [
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "entity": "sensor.speedtest_download",
+                  "name": "Download",
+                  "icon": "mdi:download-network",
+                  "show_state": true,
+                  "show_units": true
+                },
+                {
+                  "type": "custom:button-card",
+                  "entity": "sensor.speedtest_upload",
+                  "name": "Upload",
+                  "icon": "mdi:upload-network",
+                  "show_state": true,
+                  "show_units": true
+                },
+                {
+                  "type": "custom:button-card",
+                  "entity": "sensor.speedtest_ping",
+                  "name": "Ping",
+                  "icon": "mdi:speedometer",
+                  "show_state": false,
+                  "show_units": false,
+                  "label": "[[[ return entity.state + ' ms' ]]]",
+                  "show_label": true
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Run Speedtest",
+                  "icon": "mdi:web",
+                  "tap_action": {
+                    "action": "perform-action",
+                    "perform_action": "homeassistant.update_entity",
+                    "target": {
+                      "entity_id": [
+                        "sensor.speedtest_download",
+                        "sensor.speedtest_upload",
+                        "sensor.speedtest_ping"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "title": "Download / Upload Speed",
+              "hours_to_show": 48,
+              "refresh_interval": 900,
+              "entities": [
+                {
+                  "entity": "sensor.speedtest_download",
+                  "name": "Download"
+                },
+                {
+                  "entity": "sensor.speedtest_upload",
+                  "name": "Upload"
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "title": "Ping",
+              "hours_to_show": 48,
+              "refresh_interval": 900,
+              "entities": [
+                {
+                  "entity": "sensor.speedtest_ping",
+                  "name": "Ping"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

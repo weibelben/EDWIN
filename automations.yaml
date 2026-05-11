@@ -927,6 +927,12 @@
     - switch.top_of_stairs_controller
     trigger: state
     id: button_4
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:
@@ -1027,7 +1033,12 @@
     - switch.top_of_stairs_controller
     trigger: state
     id: button_4
-  conditions: []
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:
@@ -1301,7 +1312,12 @@
     - switch.bens_office_light
     trigger: state
     id: button_4
-  conditions: []
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
   actions:
   - choose:
     - conditions:
@@ -1415,3 +1431,15 @@
       entity_id: light.rear_basement_entrance
     action: light.turn_{{ trigger.to_state.state }}
   mode: single
+- id: '1778515687853'
+  alias: Network Speedtest (15m)
+  triggers:
+  - trigger: time_pattern
+    minutes: /15
+  actions:
+  - action: homeassistant.update_entity
+    target:
+      entity_id:
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping

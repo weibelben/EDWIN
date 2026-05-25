@@ -36,8 +36,10 @@
                   "type": "vertical-stack",
                   "cards": [
                     {
+                      "chart_type": "bar",
+                      "period": "day",
                       "type": "statistics-graph",
-                      "title": "Electricity Usage (Last 90 Days)",
+                      "title": "Daily Electricity Usage (90 Days)",
                       "stat_types": [
                         "change"
                       ],
@@ -46,24 +48,7 @@
                           "entity": "opower:pse_elec_4103225045_energy_consumption"
                         }
                       ],
-                      "chart_type": "bar",
-                      "period": "day",
                       "days_to_show": 90
-                    },
-                    {
-                      "type": "statistics-graph",
-                      "title": "Electricity Usage (Last 30 Days)",
-                      "stat_types": [
-                        "sum"
-                      ],
-                      "entities": [
-                        {
-                          "entity": "opower:pse_elec_4103225045_energy_consumption"
-                        }
-                      ],
-                      "chart_type": "line",
-                      "period": "day",
-                      "days_to_show": 30
                     }
                   ]
                 }
@@ -142,8 +127,10 @@
                   "type": "vertical-stack",
                   "cards": [
                     {
+                      "chart_type": "bar",
+                      "period": "day",
                       "type": "statistics-graph",
-                      "title": "Gas Usage (Last 90 Days)",
+                      "title": "Gas Usage (90 Days)",
                       "stat_types": [
                         "change"
                       ],
@@ -152,24 +139,7 @@
                           "entity": "opower:pse_gas_4103225046_energy_consumption"
                         }
                       ],
-                      "chart_type": "bar",
-                      "period": "day",
                       "days_to_show": 90
-                    },
-                    {
-                      "type": "statistics-graph",
-                      "title": "Gas Usage (Last 30 Days)",
-                      "stat_types": [
-                        "sum"
-                      ],
-                      "entities": [
-                        {
-                          "entity": "opower:pse_gas_4103225046_energy_consumption"
-                        }
-                      ],
-                      "chart_type": "line",
-                      "period": "day",
-                      "days_to_show": 30
                     }
                   ]
                 }

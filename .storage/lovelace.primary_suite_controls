@@ -102,6 +102,36 @@
                   }
                 },
                 {
+                  "type": "custom:button-card",
+                  "name": "Journalling",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(120, 0, 0)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "white"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 100,
+                      "green": 0,
+                      "blue": 0,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 12
+                  }
+                },
+                {
                   "type": "custom:mushroom-light-card",
                   "entity": "light.primary_bedroom_lamps_group",
                   "name": "Bedroom Lamps",

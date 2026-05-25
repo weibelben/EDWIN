@@ -32,17 +32,17 @@
         "url_path": "system-monitor"
       },
       {
-        "id": "room_controls",
+        "id": "aquarium_automations",
         "show_in_sidebar": true,
         "icon": "mdi:remote-tv",
         "title": "Room Controls",
         "require_admin": false,
         "mode": "storage",
-        "url_path": "room-controls"
+        "url_path": "aquarium-automations"
       },
       {
         "id": "dashboard_grimmerie",
-        "show_in_sidebar": true,
+        "show_in_sidebar": false,
         "icon": "mdi:book-open-page-variant-outline",
         "title": "Grimmerie",
         "require_admin": false,

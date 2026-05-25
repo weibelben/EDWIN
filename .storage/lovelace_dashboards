@@ -17,7 +17,7 @@
         "id": "utilities_overview",
         "show_in_sidebar": true,
         "icon": "mdi:chart-bar",
-        "title": "Utilities Overview",
+        "title": "Utilities Monitor",
         "require_admin": false,
         "mode": "storage",
         "url_path": "utilities-overview"
@@ -32,40 +32,13 @@
         "url_path": "system-monitor"
       },
       {
-        "id": "aquarium_automations",
+        "id": "room_controls",
         "show_in_sidebar": true,
-        "icon": "mdi:fishbowl",
-        "title": "Aquarium Automations",
+        "icon": "mdi:remote-tv",
+        "title": "Room Controls",
         "require_admin": false,
         "mode": "storage",
-        "url_path": "aquarium-automations"
-      },
-      {
-        "id": "primary_suite_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:bed",
-        "title": "Primary Suite Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "primary-suite-controls"
-      },
-      {
-        "id": "main_room_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:table-furniture",
-        "title": "Main Room Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "main-room-controls"
-      },
-      {
-        "id": "office_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:sail-boat",
-        "title": "Office Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "office-controls"
+        "url_path": "room-controls"
       },
       {
         "id": "dashboard_grimmerie",
@@ -95,12 +68,13 @@
         "url_path": "historical-map"
       },
       {
-        "id": "dashboard_sprinklers",
+        "id": "system_controls",
         "show_in_sidebar": true,
-        "title": "Sprinklers",
+        "icon": "mdi:water-pump",
+        "title": "System Controls",
         "require_admin": false,
         "mode": "storage",
-        "url_path": "dashboard-sprinklers"
+        "url_path": "system-controls"
       }
     ]
   }

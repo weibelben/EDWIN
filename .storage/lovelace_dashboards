@@ -5,6 +5,15 @@
   "data": {
     "items": [
       {
+        "id": "room_controls",
+        "show_in_sidebar": true,
+        "icon": "mdi:remote-tv",
+        "title": "Room Controls",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "room-controls"
+      },
+      {
         "id": "metrics_overview",
         "show_in_sidebar": true,
         "icon": "mdi:chart-areaspline",
@@ -17,7 +26,7 @@
         "id": "utilities_overview",
         "show_in_sidebar": true,
         "icon": "mdi:chart-bar",
-        "title": "Utilities Overview",
+        "title": "Utilities Monitor",
         "require_admin": false,
         "mode": "storage",
         "url_path": "utilities-overview"
@@ -32,44 +41,8 @@
         "url_path": "system-monitor"
       },
       {
-        "id": "aquarium_automations",
-        "show_in_sidebar": true,
-        "icon": "mdi:fishbowl",
-        "title": "Aquarium Automations",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "aquarium-automations"
-      },
-      {
-        "id": "primary_suite_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:bed",
-        "title": "Primary Suite Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "primary-suite-controls"
-      },
-      {
-        "id": "main_room_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:table-furniture",
-        "title": "Main Room Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "main-room-controls"
-      },
-      {
-        "id": "office_controls",
-        "show_in_sidebar": true,
-        "icon": "mdi:sail-boat",
-        "title": "Office Controls",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "office-controls"
-      },
-      {
         "id": "dashboard_grimmerie",
-        "show_in_sidebar": true,
+        "show_in_sidebar": false,
         "icon": "mdi:book-open-page-variant-outline",
         "title": "Grimmerie",
         "require_admin": false,
@@ -95,21 +68,13 @@
         "url_path": "historical-map"
       },
       {
-        "id": "dashboard_sprinklers",
+        "id": "system_controls",
         "show_in_sidebar": true,
-        "title": "Sprinklers",
+        "icon": "mdi:water-pump",
+        "title": "System Controls",
         "require_admin": false,
         "mode": "storage",
-        "url_path": "dashboard-sprinklers"
-      },
-      {
-        "id": "network_overview",
-        "show_in_sidebar": true,
-        "icon": "mdi:web",
-        "title": "Network Overview",
-        "require_admin": false,
-        "mode": "storage",
-        "url_path": "network-overview"
+        "url_path": "system-controls"
       }
     ]
   }

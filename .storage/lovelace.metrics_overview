@@ -40,7 +40,7 @@
                     }
                   ],
                   "title": "Indoor",
-                  "hours_to_show": 48
+                  "hours_to_show": 168
                 },
                 {
                   "type": "history-graph",
@@ -55,8 +55,8 @@
                       "entity": "sensor.attic_humidity_sensor_humidity"
                     }
                   ],
-                  "hours_to_show": 48,
-                  "title": "Outdoor"
+                  "title": "Outdoor",
+                  "hours_to_show": 168
                 }
               ]
             },
@@ -92,7 +92,7 @@
                     }
                   ],
                   "title": "Indoor",
-                  "hours_to_show": 48
+                  "hours_to_show": 168
                 },
                 {
                   "type": "history-graph",
@@ -108,7 +108,7 @@
                     }
                   ],
                   "title": "Outdoor",
-                  "hours_to_show": 48
+                  "hours_to_show": 168
                 }
               ]
             },
@@ -134,7 +134,7 @@
                     }
                   ],
                   "title": "Indoor/Outdoor",
-                  "hours_to_show": 48
+                  "hours_to_show": 168
                 }
               ]
             }

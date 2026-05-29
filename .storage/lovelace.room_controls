@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.room_controls",
+  "data": {
+    "config": {
+      "title": "Room Controls",
+      "views": [
+        {
+          "title": "Primary Suite",
+          "path": "primary-suite",
+          "type": "sections",
+          "header": {
+            "card": {
+              "type": "markdown",
+              "text_only": true,
+              "content": "## Primary Suite Controls"
+            }
+          },
+          "sections": [
+            {
+              "type": "grid",
+              "column_span": 1,
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "name": "White",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(255, 220, 180)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "Black"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 255,
+                      "green": 220,
+                      "blue": 180,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 12
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Warm White",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(255, 140, 50)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "black"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 255,
+                      "green": 140,
+                      "blue": 50,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 12
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Red",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(139, 0, 0)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "white"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.custom_bedroom_lamps_on",
+                    "service_data": {
+                      "red": 139,
+                      "green": 0,
+                      "blue": 0,
+                      "brightness": "[[[ \n  const brightness = states['light.primary_bedroom_lamps_group'].attributes.brightness;\n  return brightness ? Math.round((brightness / 255) * 100) : 50;\n]]]\n",
+                      "transition": 0.5
+                    }
+                  },
+                  "grid_options": {
+                    "columns": 12
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Journalling",
+                  "styles": {
+                    "card": [
+                      {
+                        "background-color": "rgb(60, 0, 0)"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "white"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.primary_suite_journalling_mode"
+                  },
+                  "grid_options": {
+                    "columns": 12
+                  }
+                },
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.primary_bedroom_lamps_group",
+                  "name": "Bedroom Lamps",
+                  "icon": "mdi:lightbulb-group",
+                  "show_brightness_control": true,
+                  "use_light_color": true,
+                  "layout": "vertical",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 3
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.primary_bedroom_fan",
+                  "name": "Primary Bedroom Fan",
+                  "icon": "mdi:ceiling-fan",
+                  "show_state": true,
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "entities",
+                  "title": "Molly Wake Up Schedule",
+                  "entities": [
+                    {
+                      "type": "section",
+                      "label": "Monday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_monday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_monday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Tuesday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_tuesday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_tuesday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Wednesday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_wednesday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_wednesday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Thursday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_thursday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_thursday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Friday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_friday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_friday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Saturday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_saturday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_saturday",
+                      "name": "Time"
+                    },
+                    {
+                      "type": "section",
+                      "label": "Sunday"
+                    },
+                    {
+                      "entity": "input_boolean.wake_sunday_enabled",
+                      "name": "Enabled"
+                    },
+                    {
+                      "entity": "input_datetime.wake_sunday",
+                      "name": "Time"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "cards": []
+        },
+        {
+          "title": "Kitchen & Dining",
+          "path": "kitchen-dining",
+          "type": "sections",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Lighting"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.kitchen_counter_lamp",
+                  "name": "Counter Lamp",
+                  "icon": "mdi:lamp",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.china_hutch_socket_1",
+                  "name": "China Cabinet",
+                  "icon": "mdi:glass-cocktail",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.discus_tank_lights",
+                  "name": "Discus Lights",
+                  "icon": "mdi:ceiling-light",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_lamp",
+                  "name": "Armoire Lamp",
+                  "icon": "mdi:lamp-outline",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.back_deck_splitter_socket_1",
+                  "name": "Christmas Tree",
+                  "icon": "mdi:pine-tree",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.landing_chandelier",
+                  "name": "Chandelier",
+                  "icon": "mdi:chandelier",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Electronics"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.back_deck_light",
+                  "name": "Back Deck",
+                  "icon": "mdi:wall-sconce",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.attic_vents",
+                  "name": "Attic Vents",
+                  "icon": "mdi:fan",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_tv",
+                  "name": "TV",
+                  "icon": "mdi:television",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.tv_armoire_record_player",
+                  "name": "Record Player",
+                  "icon": "mdi:disc-player",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Quick Actions"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "name": "All Lights On",
+                  "icon": "mdi:lightbulb-group",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "homeassistant.turn_on",
+                    "target": {
+                      "entity_id": [
+                        "switch.landing_chandelier",
+                        "switch.kitchen_counter_lamp",
+                        "switch.china_hutch_socket_1",
+                        "switch.kitchen_counter_lamp",
+                        "switch.tv_armoire_lamp",
+                        "switch.back_deck_splitter_socket_1",
+                        "switch.kitchen_tree_light"
+                      ]
+                    }
+                  },
+                  "color": "accent"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "name": "All Lights Off",
+                  "icon": "mdi:lightbulb-group",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "homeassistant.turn_off",
+                    "target": {
+                      "entity_id": [
+                        "switch.back_deck_light",
+                        "switch.landing_chandelier",
+                        "switch.counter_lamp",
+                        "switch.china_hutch_socket_1",
+                        "switch.back_deck_splitter_socket_1",
+                        "switch.tv_armoire_lamp",
+                        "switch.kitchen_counter_lamp",
+                        "switch.kitchen_tree_light"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "column_span": 1
+            }
+          ]
+        },
+        {
+          "title": "Office",
+          "path": "office",
+          "type": "sections",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "custom:mushroom-chips-card",
+                  "chips": [
+                    {
+                      "type": "entity",
+                      "entity": "switch.ben_s_office_lamps",
+                      "icon": "mdi:lightbulb-group",
+                      "content_info": "name",
+                      "tap_action": {
+                        "action": "toggle"
+                      }
+                    }
+                  ],
+                  "alignment": "center"
+                },
+                {
+                  "type": "custom:mushroom-entity-card",
+                  "entity": "switch.ship_lights",
+                  "name": "Boat Display",
+                  "icon": "mdi:sail-boat",
+                  "fill_container": true,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "layout": "vertical",
+                  "primary_info": "name",
+                  "secondary_info": "none",
+                  "icon_color": "blue"
+                },
+                {
+                  "type": "custom:mushroom-entity-card",
+                  "entity": "switch.desk_lamps",
+                  "name": "Desk Lamps",
+                  "icon": "mdi:lamps-outline",
+                  "fill_container": true,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "layout": "vertical",
+                  "primary_info": "name",
+                  "secondary_info": "none"
+                },
+                {
+                  "type": "custom:mushroom-entity-card",
+                  "entity": "switch.star_destroyer_lamp",
+                  "name": "Star Destroyer",
+                  "icon": "mdi:death-star-variant",
+                  "fill_container": true,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "layout": "vertical",
+                  "primary_info": "name",
+                  "secondary_info": "none"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

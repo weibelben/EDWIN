@@ -1,0 +1,2868 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.system_controls",
+  "data": {
+    "config": {
+      "title": "System Controls",
+      "views": [
+        {
+          "title": "Sprinklers",
+          "path": "irrigation",
+          "panel": true,
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "name": "Stop All",
+                  "icon": "mdi:stop-circle-outline",
+                  "show_icon": true,
+                  "show_name": true,
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "rachio.stop_watering",
+                    "data": {}
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "rgba(226,75,74,0.15)"
+                      },
+                      {
+                        "border": "1px solid rgba(226,75,74,0.3)"
+                      },
+                      {
+                        "border-radius": "12px"
+                      },
+                      {
+                        "padding": "14px 18px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "#f87171"
+                      },
+                      {
+                        "width": "20px"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "color": "#f87171"
+                      },
+                      {
+                        "font-size": "14px"
+                      },
+                      {
+                        "font-weight": "500"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Manifold A — Zones 1–4",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.1_hydrant_herbs",
+                      "name": "Hydrant",
+                      "label": "Zone 1",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:water-pump",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.1_hydrant_herbs",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "transition": "border-color 0.2s"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.2_capped",
+                      "name": "Capped",
+                      "label": "Zone 2",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:close-circle",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.2_capped",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.3_capped",
+                      "name": "Capped",
+                      "label": "Zone 3",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:close-circle",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.3_capped",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.4_oak_knoll",
+                      "name": "Oak Knoll",
+                      "label": "Zone 4",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:tree",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.4_oak_knoll",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Manifold B — Zones 5–8",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.5_fountain",
+                      "name": "Fountain",
+                      "label": "Zone 5",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:fountain",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.5_fountain",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.6_blueberries",
+                      "name": "Blueberries",
+                      "label": "Zone 6",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:fruit-cherries",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.6_blueberries",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.7_elderberries",
+                      "name": "Elderberries",
+                      "label": "Zone 7",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:tree",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.7_elderberries",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.8_strawberry_rhubarb",
+                      "name": "Rhubarb",
+                      "label": "Zone 8",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:flower",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.8_strawberry_rhubarb",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Manifold C — Zones 9–12",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.9_back_wall",
+                      "name": "Back Wall",
+                      "label": "Zone 9",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:leaf-maple",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.9_back_wall",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.10_aspens",
+                      "name": "Aspens",
+                      "label": "Zone 10",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:tree-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.10_aspens",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.11_salmonberries",
+                      "name": "Salmonberries",
+                      "label": "Zone 11",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:fruit-grapes",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.zone_11",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.12_back_beds",
+                      "name": "Back Beds",
+                      "label": "Zone 12",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:sprinkler",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.12_back_beds",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Manifold D — Zones 13–16",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.13_raspberries",
+                      "name": "Raspberries",
+                      "label": "Zone 13",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:fruit-cherries",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.13_raspberries",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.14_south_ferns",
+                      "name": "Ferns",
+                      "label": "Zone 14",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:spa-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.14_south_ferns",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.zone_15",
+                      "name": "Driveway Beds",
+                      "label": "Zone 15",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:sprinkler-variant",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.zone_15",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.16_mailbox",
+                      "name": "Mailbox",
+                      "label": "Zone 16",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:tree",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "rachio.start_watering",
+                        "data": {
+                          "entity_id": "switch.16_mailbox",
+                          "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "name": "Run Duration",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "name": "−",
+                      "show_icon": false,
+                      "show_name": true,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_number.decrement",
+                        "data": {
+                          "entity_id": "input_number.irrigation_duration"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "flex-grow": 0
+                          },
+                          {
+                            "min-width": "60px"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "300"
+                          },
+                          {
+                            "color": "#6b7280"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_number.irrigation_duration",
+                      "show_name": true,
+                      "show_icon": false,
+                      "show_label": true,
+                      "label": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]",
+                      "show_state": false,
+                      "name": "minutes per zone",
+                      "tap_action": {
+                        "action": "more-info"
+                      },
+                      "unit": "none",
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"n\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "padding-top": "4px"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "name": "+",
+                      "show_icon": false,
+                      "show_name": true,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_number.increment",
+                        "data": {
+                          "entity_id": "input_number.irrigation_duration"
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "background": "#1c1f24"
+                          },
+                          {
+                            "border": "1px solid '#2a2d35'"
+                          },
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "flex-grow": 0
+                          },
+                          {
+                            "min-width": "60px"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "22px"
+                          },
+                          {
+                            "font-weight": "300"
+                          },
+                          {
+                            "color": "#6b7280"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Aquariums",
+          "path": "aquariums",
+          "type": "sections",
+          "max_columns": 4,
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading_style": "title",
+                  "heading": "Discus Tank",
+                  "icon": "mdi:fish"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.discus_tank_lights",
+                  "name": "Lights"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.discus_tank_ato",
+                  "name": "ATO",
+                  "icon": "mdi:water-pump",
+                  "show_state": false
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Endlers Tank",
+                  "heading_style": "title",
+                  "icon": "mdi:fishbowl-outline"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_nook_light",
+                  "name": "Left",
+                  "show_state": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_center_light",
+                  "name": "Center",
+                  "show_state": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.basement_aquarium_pendant_overflow_light",
+                  "name": "Right"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "switch.third_reality_inc_3rsp02028bz",
+                  "icon": "mdi:water-pump",
+                  "name": "ATO"
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "icon": "mdi:bucket-outline",
+                  "heading": "ATO Depth (Inches)",
+                  "heading_style": "title"
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.me201w_level_sensor_depth"
+                    }
+                  ],
+                  "min_y_axis": 0,
+                  "logarithmic_scale": false,
+                  "fit_y_data": false,
+                  "hours_to_show": 730
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,97 @@
     "config": {
       "views": [
         {
+          "title": "Water",
+          "header": {},
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "statistics-graph",
+                  "title": "Hourly Water Usage (7 Days)",
+                  "stat_types": [
+                    "change"
+                  ],
+                  "entities": [
+                    {
+                      "entity": "sensor.frizzlife_water_flow_meter_water"
+                    }
+                  ],
+                  "chart_type": "bar",
+                  "period": "hour",
+                  "days_to_show": 7
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "vertical-stack",
+                  "cards": [
+                    {
+                      "chart_type": "bar",
+                      "period": "day",
+                      "type": "statistics-graph",
+                      "title": "Daily Water Usage (90 Days)",
+                      "stat_types": [
+                        "change"
+                      ],
+                      "entities": [
+                        {
+                          "entity": "sensor.frizzlife_water_flow_meter_water"
+                        }
+                      ],
+                      "days_to_show": 90
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "chart_type": "bar",
+                  "period": "month",
+                  "type": "statistics-graph",
+                  "title": "Monthly Water Usage",
+                  "stat_types": [
+                    "change"
+                  ],
+                  "entities": [
+                    {
+                      "entity": "sensor.frizzlife_water_flow_meter_water"
+                    }
+                  ],
+                  "days_to_show": 2000
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "statistics-graph",
+                  "title": "Water Pressure (30 Days)",
+                  "stat_types": [
+                    "mean"
+                  ],
+                  "entities": [
+                    {
+                      "entity": "sensor.frizzlife_water_flow_meter_pressure"
+                    }
+                  ],
+                  "chart_type": "line",
+                  "period": "hour",
+                  "days_to_show": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
           "title": "Electricity",
           "header": {},
           "sections": [

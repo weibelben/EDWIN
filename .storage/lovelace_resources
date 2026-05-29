@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "id": "c715c62342d047c39a3ee5637c0aab6c",
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325701",
+        "type": "module"
+      },
+      {
+        "id": "e3989b59450348a992fdff243eae1340",
+        "url": "/hacsfiles/slider-button-card/slider-button-card.js?hacstag=4987940331130",
+        "type": "module"
+      },
+      {
+        "id": "a8d7d57fcc254251ab691590edf0c92b",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375511",
+        "type": "module"
+      },
+      {
+        "id": "5293a19b5acd484e9131707fbdb5500d",
+        "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152223",
+        "type": "module"
+      },
+      {
+        "id": "f0b6b95fd0074ad2a32372550924190b",
+        "url": "/hacsfiles/stack-in-card/stack-in-card.js?hacstag=248954055020",
+        "type": "module"
+      },
+      {
+        "id": "5942d197bc66459d9e923bf14c404795",
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037451",
+        "type": "module"
+      },
+      {
+        "id": "561f8d60424149a296a7b81cb3ccfb36",
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620130",
+        "type": "module"
+      }
+    ]
+  }
+}

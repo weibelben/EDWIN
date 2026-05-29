@@ -2764,87 +2764,1038 @@
         {
           "title": "Aquariums",
           "path": "aquariums",
-          "type": "sections",
-          "max_columns": 4,
-          "sections": [
+          "panel": true,
+          "cards": [
             {
-              "type": "grid",
+              "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "heading",
-                  "heading_style": "title",
-                  "heading": "Discus Tank",
-                  "icon": "mdi:fish"
+                  "type": "custom:button-card",
+                  "name": "Discus Tank",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.discus_tank_lights",
-                  "name": "Lights"
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.discus_tank_lights",
+                      "name": "Lights",
+                      "label": "Discus",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:lightbulb-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          },
+                          {
+                            "transition": "border-color 0.2s"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.discus_tank_ato",
+                      "name": "ATO",
+                      "label": "Discus",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:water-pump",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    }
+                  ]
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.discus_tank_ato",
-                  "name": "ATO",
-                  "icon": "mdi:water-pump",
-                  "show_state": false
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Endlers Tank",
-                  "heading_style": "title",
-                  "icon": "mdi:fishbowl-outline"
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
                 },
                 {
+                  "type": "custom:button-card",
+                  "name": "Endlers Tank",
+                  "show_icon": false,
                   "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.basement_aquarium_pendant_nook_light",
-                  "name": "Left",
-                  "show_state": false
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.basement_aquarium_pendant_center_light",
-                  "name": "Center",
-                  "show_state": false
+                  "type": "grid",
+                  "columns": 4,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.basement_aquarium_pendant_nook_light",
+                      "name": "Left",
+                      "label": "Endlers",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:lamp-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.basement_aquarium_pendant_center_light",
+                      "name": "Center",
+                      "label": "Endlers",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:lamp-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.basement_aquarium_pendant_overflow_light",
+                      "name": "Right",
+                      "label": "Endlers",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:lamp-outline",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.third_reality_inc_3rsp02028bz",
+                      "name": "ATO",
+                      "label": "Endlers",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:water-pump",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "16px 14px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "6px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "28px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "14px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "6px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    }
+                  ]
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.basement_aquarium_pendant_overflow_light",
-                  "name": "Right"
+                  "type": "custom:button-card",
+                  "show_name": false,
+                  "show_icon": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "#2a2d35"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "height": "1px"
+                      },
+                      {
+                        "padding": 0
+                      },
+                      {
+                        "margin": "4px 0"
+                      }
+                    ]
+                  }
                 },
                 {
+                  "type": "custom:button-card",
+                  "name": "ATO Depth (Inches)",
+                  "show_icon": false,
                   "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "switch.third_reality_inc_3rsp02028bz",
-                  "icon": "mdi:water-pump",
-                  "name": "ATO"
-                }
-              ],
-              "column_span": 1
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "icon": "mdi:bucket-outline",
-                  "heading": "ATO Depth (Inches)",
-                  "heading_style": "title"
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
                 },
                 {
                   "type": "history-graph",
@@ -2856,7 +3807,10 @@
                   "min_y_axis": 0,
                   "logarithmic_scale": false,
                   "fit_y_data": false,
-                  "hours_to_show": 730
+                  "hours_to_show": 730,
+                  "card_mod": {
+                    "style": "ha-card {\n  background: #1c1f24;\n  border: 1px solid #2a2d35;\n  border-radius: 12px;\n}\n"
+                  }
                 }
               ]
             }

@@ -1356,7 +1356,7 @@
         data: {}
   mode: single
 - id: '1771098031194'
-  alias: Discus ATO off when ATO level is low
+  alias: ATOs off when Discus ATO level is low
   description: Disable ATO pump when water level is low
   triggers:
   - entity_id: sensor.me201w_level_sensor_depth
@@ -1366,7 +1366,9 @@
     trigger: numeric_state
   actions:
   - target:
-      entity_id: switch.discus_tank_ato
+      entity_id:
+      - switch.discus_tank_ato
+      - switch.endlers_tank_ato
     action: switch.turn_off
   - data:
       title: Refill Discus Tank ATO
@@ -1445,3 +1447,85 @@
       - sensor.speedtest_download
       - sensor.speedtest_upload
       - sensor.speedtest_ping
+- id: '1780443532952'
+  alias: Molly's Office
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - event.molly_s_office_stateless_programmable_switch_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.molly_s_office_stateless_programmable_switch_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.molly_s_office_stateless_programmable_switch_3
+    trigger: state
+    id: button_3
+  - entity_id:
+    - switch.mollys_office_light
+    trigger: state
+    id: button_4
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.5 }}
+
+      '
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id:
+          - switch.molly_s_desk_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.molly_s_corner_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - target:
+          entity_id:
+          - switch.molly_s_desk_lamp
+          - switch.molly_s_corner_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_4
+      sequence:
+      - target:
+          entity_id: {}
+        action: switch.toggle
+        data: {}
+  mode: single
+- id: '1780878309487'
+  alias: Primary Bedroom Fan Toggle (Long Press)
+  description: Toggles bedroom fan on long press of clicker
+  triggers:
+  - trigger: event
+    event_type: zha_event
+    event_data:
+      device_ieee: 28:2c:02:bf:ff:ee:a6:06
+      command: hold
+      args:
+        value: 0
+  conditions: []
+  actions:
+  - action: switch.toggle
+    target:
+      entity_id: switch.primary_bedroom_fan
+  mode: single

@@ -3584,7 +3584,7 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.third_reality_inc_3rsp02028bz",
+                      "entity": "switch.endlers_tank_ato",
                       "name": "ATO",
                       "label": "Endlers",
                       "show_label": true,

@@ -162,7 +162,7 @@ primary_bedroom_lamp_color_selector:
     - conditions:
       - condition: time
         after: '21:00:00'
-        before: '22:00:00'
+        before: '21:30:00'
       sequence:
       - data:
           red: 139

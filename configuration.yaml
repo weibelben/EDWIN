@@ -8,11 +8,6 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-
 # HACS now authenticates using OAUTH instead of a hardcoded gh token
 # hacs:
 #   token: !secret github_token
-
-homeassistant:
-  packages:
-    water_usage: !include water_usage_parser.yaml

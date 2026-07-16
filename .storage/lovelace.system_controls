@@ -1677,7 +1677,7 @@
                         "action": "call-service",
                         "service": "rachio.start_watering",
                         "data": {
-                          "entity_id": "switch.zone_11",
+                          "entity_id": "switch.11_salmonberries",
                           "duration": "[[[ return parseInt(states['input_number.irrigation_duration'].state); ]]]"
                         }
                       },

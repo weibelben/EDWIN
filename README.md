@@ -57,16 +57,17 @@ apps other thatn Home Assistant. Here is the HA Companion App Server Connection 
 # Remote Tailscale URL
 Home Assistant URL: http://100.x.x.x:8123/
 
+# Below entries were removed May 2026. Connection to HA is now only via Tailscale
 # Home Network WiFi SSID
 Home Network: <Name of home WiFi network>
 
 # HA Internal URL (could be http://homeassistant.local:8123)
-Internal Connection URL: http://192.168.0.x:8123
+Internal Connection URL: http://192.168.0.236:8123
 ```
 
 ## Problem Child Integrations
 
-### Custom CSV Parser
+### (DEPRECATED) Custom CSV Parser
 
 I wrote a CSV parser and attached it as a homeassistant project to my
 configuration.yaml. It reads manually entered water usage and cost
@@ -79,7 +80,7 @@ receive a bill from Coal Creek Utility District.
 integration to gather water usage metrics but it requires that your
 local water provider upload data to BEACON Advanced Metering
 Analytics via a Badger Meter smart meter. I emailed CCUD Oct 2025.
-So far no response.
+They never responded. Installed a Frizzlife Water Sensor May 2026.
 
 ### Opower
 

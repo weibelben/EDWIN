@@ -131,11 +131,11 @@
       - switch.mudroom_deck_lights
   mode: single
 - id: '1707181435220'
-  alias: 00 Sunrise
+  alias: 00 Sunrise + 1h
   description: ''
   triggers:
   - event: sunrise
-    offset: -00:00
+    offset: +01:00
     trigger: sun
   conditions: []
   actions:
@@ -421,11 +421,11 @@
           entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718502183475'
-  alias: 01 Sunrise Plus 120 Lights Off
-  description: Turn off lights 120mins after the sun rises
+  alias: 01 Sunrise Plus 3h Lights Off
+  description: Turn off lights 3h after the sun rises
   triggers:
   - event: sunrise
-    offset: '2:00'
+    offset: '3:00'
     trigger: sun
   conditions: []
   actions:
@@ -1520,6 +1520,13 @@
     event_type: zha_event
     event_data:
       device_ieee: 28:2c:02:bf:ff:ee:a6:06
+      command: hold
+      args:
+        value: 0
+  - trigger: event
+    event_type: zha_event
+    event_data:
+      device_ieee: 28:2c:02:bf:ff:ee:a5:ca
       command: hold
       args:
         value: 0

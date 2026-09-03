@@ -8,6 +8,7 @@
       "views": [
         {
           "title": "Primary Suite",
+          "icon": "mdi:bed",
           "path": "primary-suite",
           "type": "sections",
           "header": {},
@@ -257,6 +258,7 @@
         },
         {
           "title": "Kitchen & Dining",
+          "icon": "mdi:silverware-fork-knife",
           "path": "kitchen-dining",
           "type": "sections",
           "sections": [
@@ -450,6 +452,7 @@
         },
         {
           "title": "Ben Office",
+          "icon": "mdi:sail-boat",
           "path": "ben_office",
           "panel": true,
           "cards": [
@@ -1057,6 +1060,7 @@
         },
         {
           "title": "Molly Office",
+          "icon": "mdi:pokeball",
           "path": "molly_office",
           "panel": true,
           "cards": [
@@ -1256,13 +1260,13 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "event.molly_s_office_stateless_programmable_switch_1",
-                      "name": "Switch 1",
+                      "entity": "switch.molly_s_desk_lamp",
+                      "name": "Desk Lamp",
                       "label": "Office",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:sail-boat",
+                      "icon": "mdi:lamp",
                       "state": [
                         {
                           "value": "on",
@@ -1390,13 +1394,13 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.desk_lamps",
-                      "name": "Desk Lamps",
+                      "entity": "switch.molly_s_corner_lamp",
+                      "name": "Corner Lamp",
                       "label": "Office",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:lamps-outline",
+                      "icon": "mdi:lamp",
                       "state": [
                         {
                           "value": "on",
@@ -1524,16 +1528,21 @@
                     },
                     {
                       "type": "custom:button-card",
-                      "entity": "switch.star_destroyer_lamp",
-                      "name": "Star Destroyer",
+                      "entity": "switch.molly_s_desk_lamp",
+                      "triggers_update": [
+                        "switch.molly_s_desk_lamp",
+                        "switch.molly_s_corner_lamp"
+                      ],
+                      "name": "Both Lamps",
                       "label": "Office",
                       "show_label": true,
                       "show_state": false,
                       "show_icon": true,
-                      "icon": "mdi:death-star-variant",
+                      "icon": "mdi:lamps",
                       "state": [
                         {
-                          "value": "on",
+                          "operator": "template",
+                          "value": "[[[\n  return states['switch.molly_s_desk_lamp'].state === 'on' ||\n         states['switch.molly_s_corner_lamp'].state === 'on';\n]]]\n",
                           "styles": {
                             "card": [
                               {
@@ -1556,7 +1565,8 @@
                           }
                         },
                         {
-                          "value": "off",
+                          "operator": "template",
+                          "value": "[[[\n  return states['switch.molly_s_desk_lamp'].state !== 'on' &&\n         states['switch.molly_s_corner_lamp'].state !== 'on';\n]]]\n",
                           "styles": {
                             "card": [
                               {
@@ -1575,7 +1585,14 @@
                         }
                       ],
                       "tap_action": {
-                        "action": "toggle"
+                        "action": "call-service",
+                        "service": "homeassistant.toggle",
+                        "target": {
+                          "entity_id": [
+                            "switch.molly_s_desk_lamp",
+                            "switch.molly_s_corner_lamp"
+                          ]
+                        }
                       },
                       "styles": {
                         "card": [

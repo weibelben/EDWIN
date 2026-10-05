@@ -50,7 +50,7 @@
       sequence:
       - action: homeassistant.turn_off
         target:
-          entity_id: switch.discus_tank_lights
+          entity_id: switch.discus_tank_light
   - action: retry.actions
     data:
       retries: 10
@@ -145,7 +145,7 @@
       sequence:
       - action: homeassistant.turn_on
         target:
-          entity_id: switch.discus_tank_lights
+          entity_id: switch.discus_tank_light
   - action: retry.actions
     data:
       retries: 10
@@ -401,7 +401,7 @@
       - action: homeassistant.turn_on
         target:
           entity_id:
-          - switch.discus_tank_lights
+          - switch.discus_tank_light
           - switch.basement_aquarium_pendant_nook_light
   - delay: 00:02:00
   - action: retry.actions
@@ -436,7 +436,7 @@
       - action: homeassistant.turn_off
         target:
           entity_id:
-          - switch.discus_tank_lights
+          - switch.discus_tank_light
           - switch.basement_aquarium_pendant_nook_light
   - delay: 00:02:00
   - action: retry.actions
@@ -970,7 +970,7 @@
         id: button_3
       sequence:
       - target:
-          entity_id: switch.discus_tank_lights
+          entity_id: switch.discus_tank_light
         action: switch.toggle
         data: {}
     - conditions:

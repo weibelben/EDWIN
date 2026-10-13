@@ -51,29 +51,6 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.discus_tank_light
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1707096432929'
   alias: Ben Wakeup Lamp
@@ -146,29 +123,6 @@
       - action: homeassistant.turn_on
         target:
           entity_id: switch.discus_tank_light
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1707181482752'
   alias: Sunset + 30 Off
@@ -402,23 +356,6 @@
         target:
           entity_id:
           - switch.discus_tank_light
-          - switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718502183475'
   alias: 01 Sunrise Plus 3h Lights Off
@@ -437,23 +374,6 @@
         target:
           entity_id:
           - switch.discus_tank_light
-          - switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718503016252'
   alias: Rec Room Grow Light

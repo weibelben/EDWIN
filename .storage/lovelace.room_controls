@@ -1678,6 +1678,627 @@
               ]
             }
           ]
+        },
+        {
+          "title": "Rec Room",
+          "icon": "mdi:television-classic",
+          "path": "rec_room",
+          "panel": true,
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "name": "Rec Room",
+                  "show_icon": false,
+                  "show_name": true,
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "styles": {
+                    "card": [
+                      {
+                        "background": "transparent"
+                      },
+                      {
+                        "border": "none"
+                      },
+                      {
+                        "border-bottom": "1px solid '#2a2d35'"
+                      },
+                      {
+                        "border-radius": 0
+                      },
+                      {
+                        "padding": "18px 4px 6px 4px"
+                      },
+                      {
+                        "justify-content": "flex-start"
+                      }
+                    ],
+                    "name": [
+                      {
+                        "font-size": "11px"
+                      },
+                      {
+                        "font-weight": "700"
+                      },
+                      {
+                        "color": "#4b5563"
+                      },
+                      {
+                        "letter-spacing": "1px"
+                      },
+                      {
+                        "text-transform": "uppercase"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "columns": 2,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.left_art_table_lamp",
+                      "triggers_update": [
+                        "switch.left_art_table_lamp",
+                        "switch.right_art_table_lamp"
+                      ],
+                      "name": "Art Table",
+                      "label": "Button 1",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:palette",
+                      "state": [
+                        {
+                          "operator": "template",
+                          "value": "[[[\n  return states['switch.left_art_table_lamp'].state === 'on' ||\n         states['switch.right_art_table_lamp'].state === 'on';\n]]]\n",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "operator": "template",
+                          "value": "[[[\n  return states['switch.left_art_table_lamp'].state !== 'on' &&\n         states['switch.right_art_table_lamp'].state !== 'on';\n]]]\n",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "switch.toggle",
+                        "target": {
+                          "entity_id": [
+                            "switch.left_art_table_lamp",
+                            "switch.right_art_table_lamp"
+                          ]
+                        }
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "24px 20px"
+                          },
+                          {
+                            "transition": "border-color 0.2s"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "8px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "36px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "15px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "8px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.rec_room_nook_lamp",
+                      "name": "Nook Lamp",
+                      "label": "Button 2",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:floor-lamp",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "24px 20px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "8px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "36px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "15px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "8px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.basement_grow_light",
+                      "name": "Grow Light",
+                      "label": "Button 3",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:sprout",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "24px 20px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "8px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "36px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "15px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "8px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "switch.rec_room_rec_room_switch",
+                      "name": "Room Switch",
+                      "label": "Button 4",
+                      "show_label": true,
+                      "show_state": false,
+                      "show_icon": true,
+                      "icon": "mdi:light-switch",
+                      "state": [
+                        {
+                          "value": "on",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "rgba(55,138,221,0.1)"
+                              },
+                              {
+                                "border": "1px solid rgba(55,138,221,0.4)"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#378ADD"
+                              }
+                            ],
+                            "name": [
+                              {
+                                "color": "#e2e4ea"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "off",
+                          "styles": {
+                            "card": [
+                              {
+                                "background": "#1c1f24"
+                              },
+                              {
+                                "border": "1px solid #2a2d35"
+                              }
+                            ],
+                            "icon": [
+                              {
+                                "color": "#4b5563"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "styles": {
+                        "card": [
+                          {
+                            "border-radius": "12px"
+                          },
+                          {
+                            "padding": "24px 20px"
+                          }
+                        ],
+                        "grid": [
+                          {
+                            "grid-template-areas": "\"l\" \"i\" \"n\" \"s\""
+                          },
+                          {
+                            "grid-template-rows": "min-content min-content min-content min-content"
+                          }
+                        ],
+                        "label": [
+                          {
+                            "font-size": "10px"
+                          },
+                          {
+                            "color": "#4b5563"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "letter-spacing": "0.6px"
+                          },
+                          {
+                            "text-transform": "uppercase"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-bottom": "8px"
+                          }
+                        ],
+                        "icon": [
+                          {
+                            "width": "36px"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ],
+                        "name": [
+                          {
+                            "font-size": "15px"
+                          },
+                          {
+                            "font-weight": "600"
+                          },
+                          {
+                            "color": "#e2e4ea"
+                          },
+                          {
+                            "justify-self": "start"
+                          },
+                          {
+                            "padding-top": "8px"
+                          }
+                        ],
+                        "state": [
+                          {
+                            "font-size": "11px"
+                          },
+                          {
+                            "color": "#6b7280"
+                          },
+                          {
+                            "justify-self": "start"
+                          }
+                        ]
+                      },
+                      "extra_styles": "state-badge { display: none; }\n"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

@@ -51,29 +51,6 @@
       - action: homeassistant.turn_off
         target:
           entity_id: switch.discus_tank_light
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1707096432929'
   alias: Ben Wakeup Lamp
@@ -146,29 +123,6 @@
       - action: homeassistant.turn_on
         target:
           entity_id: switch.discus_tank_light
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1707181482752'
   alias: Sunset + 30 Off
@@ -402,23 +356,6 @@
         target:
           entity_id:
           - switch.discus_tank_light
-          - switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_on
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718502183475'
   alias: 01 Sunrise Plus 3h Lights Off
@@ -437,23 +374,6 @@
         target:
           entity_id:
           - switch.discus_tank_light
-          - switch.basement_aquarium_pendant_nook_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_center_light
-  - delay: 00:02:00
-  - action: retry.actions
-    data:
-      retries: 10
-      sequence:
-      - action: homeassistant.turn_off
-        target:
-          entity_id: switch.basement_aquarium_pendant_overflow_light
   mode: single
 - id: '1718503016252'
   alias: Rec Room Grow Light
@@ -1535,4 +1455,68 @@
   - action: switch.toggle
     target:
       entity_id: switch.primary_bedroom_fan
+  mode: single
+- id: '1791947969292'
+  alias: Rec Room 4 Button Controller
+  description: Different actions for each button
+  triggers:
+  - entity_id:
+    - event.rec_room_button_1
+    trigger: state
+    id: button_1
+  - entity_id:
+    - event.rec_room_button_2
+    trigger: state
+    id: button_2
+  - entity_id:
+    - event.rec_room_button_3
+    trigger: state
+    id: button_3
+  - entity_id:
+    - switch.rec_room_rec_room_switch
+    trigger: state
+    id: button_4
+  conditions:
+  - condition: template
+    value_template: '{% set last = this.attributes.last_triggered %} {{ last is none
+      or (now() - last).total_seconds() > 0.25 }}
+
+      '
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_1
+      sequence:
+      - target:
+          entity_id:
+          - switch.right_art_table_lamp
+          - switch.left_art_table_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_2
+      sequence:
+      - target:
+          entity_id:
+          - switch.rec_room_nook_lamp
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_3
+      sequence:
+      - target:
+          entity_id: switch.basement_grow_light
+        action: switch.toggle
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: button_4
+      sequence:
+      - target:
+          entity_id: {}
+        action: switch.toggle
+        data: {}
   mode: single

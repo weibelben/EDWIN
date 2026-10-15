@@ -1520,3 +1520,29 @@
         action: switch.toggle
         data: {}
   mode: single
+- id: '1792090213692'
+  alias: Basement humidity equalization
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.third_reality_inc_3rths0224z_humidity
+    - sensor.third_reality_inc_3rths0224z_humidity_3
+  conditions:
+  - condition: template
+    value_template: "{{ is_number(states('sensor.third_reality_inc_3rths0224z_humidity'))\n
+      \  and is_number(states('sensor.third_reality_inc_3rths0224z_humidity_3'))\n
+      \  and states('sensor.third_reality_inc_3rths0224z_humidity') | float\n     -
+      states('sensor.third_reality_inc_3rths0224z_humidity_3') | float >= 5 }}\n"
+  actions:
+  - action: climate.set_fan_mode
+    target:
+      entity_id: climate.ecobee
+    data:
+      fan_mode: 'on'
+  - delay: 00:30:00
+  - action: climate.set_fan_mode
+    target:
+      entity_id: climate.ecobee
+    data:
+      fan_mode: auto
+  mode: single

@@ -1546,3 +1546,36 @@
     data:
       fan_mode: auto
   mode: single
+- id: '1792103469007'
+  alias: Water Alarm Low Battery Notification
+  description: Sends a notification to Ben's S22 if any water alarm battery drops
+    below 10%
+  triggers:
+  - entity_id:
+    - sensor.third_reality_inc_3rws18bz_battery
+    - sensor.third_reality_inc_3rws18bz_battery_2
+    - sensor.third_reality_inc_3rws18bz_battery_3
+    - sensor.third_reality_inc_3rws18bz_battery_4
+    below: 10
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
+      title: Water Alarm Low Battery
+      message: '{{ alarm_name }} battery is at {{ trigger.to_state.state }}%.
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:battery-alert
+        tag: water_alarm_battery_{{ trigger.entity_id.split('.')[1] }}
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
+  variables:
+    alarm_names:
+      sensor.third_reality_inc_3rws18bz_battery: Discus Tank Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_2: Endlers Tanks Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_3: Laundry Room Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_4: Kitchen Water Alarm
+    alarm_name: '{{ alarm_names[trigger.entity_id] }}'
+  mode: queued

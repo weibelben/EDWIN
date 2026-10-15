@@ -1520,3 +1520,62 @@
         action: switch.toggle
         data: {}
   mode: single
+- id: '1792090213692'
+  alias: Basement humidity equalization
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.third_reality_inc_3rths0224z_humidity
+    - sensor.third_reality_inc_3rths0224z_humidity_3
+  conditions:
+  - condition: template
+    value_template: "{{ is_number(states('sensor.third_reality_inc_3rths0224z_humidity'))\n
+      \  and is_number(states('sensor.third_reality_inc_3rths0224z_humidity_3'))\n
+      \  and states('sensor.third_reality_inc_3rths0224z_humidity') | float\n     -
+      states('sensor.third_reality_inc_3rths0224z_humidity_3') | float >= 5 }}\n"
+  actions:
+  - action: climate.set_fan_mode
+    target:
+      entity_id: climate.ecobee
+    data:
+      fan_mode: 'on'
+  - delay: 00:30:00
+  - action: climate.set_fan_mode
+    target:
+      entity_id: climate.ecobee
+    data:
+      fan_mode: auto
+  mode: single
+- id: '1792103469007'
+  alias: Water Alarm Low Battery Notification
+  description: Sends a notification to Ben's S22 if any water alarm battery drops
+    below 10%
+  triggers:
+  - entity_id:
+    - sensor.third_reality_inc_3rws18bz_battery
+    - sensor.third_reality_inc_3rws18bz_battery_2
+    - sensor.third_reality_inc_3rws18bz_battery_3
+    - sensor.third_reality_inc_3rws18bz_battery_4
+    below: 10
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
+      title: Water Alarm Low Battery
+      message: '{{ alarm_name }} battery is at {{ trigger.to_state.state }}%.
+
+        Time: {{ now().strftime(''%I:%M %p'') }}'
+      data:
+        notification_icon: mdi:battery-alert
+        tag: water_alarm_battery_{{ trigger.entity_id.split('.')[1] }}
+        priority: high
+        sticky: true
+    action: notify.mobile_app_benss22
+  variables:
+    alarm_names:
+      sensor.third_reality_inc_3rws18bz_battery: Discus Tank Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_2: Endlers Tanks Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_3: Laundry Room Water Alarm
+      sensor.third_reality_inc_3rws18bz_battery_4: Kitchen Water Alarm
+    alarm_name: '{{ alarm_names[trigger.entity_id] }}'
+  mode: queued

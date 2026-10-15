@@ -137,6 +137,82 @@
                   "hours_to_show": 168
                 }
               ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Humidity Sensor Batteries",
+                  "heading_style": "title",
+                  "icon": "mdi:battery"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_battery",
+                      "name": "Primary Bedroom Humidity Sensor"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_battery_2",
+                      "name": "Molly's Office Humidity Sensor"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_battery_3",
+                      "name": "Rec Room Humidity Sensor"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rths0224z_battery_4",
+                      "name": "Kitchen Humidity Sensor"
+                    },
+                    {
+                      "entity": "sensor.primary_closet_humidity_sensor_battery",
+                      "name": "Primary Closet Humidity Sensor"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_battery",
+                      "name": "Attic Humidity Sensor South"
+                    },
+                    {
+                      "entity": "sensor.attic_humidity_sensor_north_battery",
+                      "name": "Attic Humidity Sensor North"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Water Alarm Batteries",
+                  "heading_style": "title",
+                  "icon": "mdi:battery"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.third_reality_inc_3rws18bz_battery",
+                      "name": "Discus Tank Water Alarm"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rws18bz_battery_2",
+                      "name": "Endlers Tanks Water Alarm"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rws18bz_battery_3",
+                      "name": "Laundry Room Water Alarm"
+                    },
+                    {
+                      "entity": "sensor.third_reality_inc_3rws18bz_battery_4",
+                      "name": "Kitchen Water Alarm"
+                    }
+                  ]
+                }
+              ]
             }
           ],
           "header": {}

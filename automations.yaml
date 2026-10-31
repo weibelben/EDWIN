@@ -719,8 +719,7 @@
         data:
           message: TTS
           data:
-            tts_text: <speak> The water alarm notification has been cleared. <break
-              strength="medium"/> I will silence related alerts. </speak>
+            tts_text: <speak> The water alarm notification has been cleared. </speak>
             media_stream: alarm_stream
     else:
     - action: notify.mobile_app_benss22
@@ -769,27 +768,19 @@
       target:
         entity_id: input_boolean.water_alarm_active
       data: {}
-    - repeat:
-        while:
-        - condition: state
-          entity_id: input_boolean.water_alarm_active
-          state: 'on'
-        sequence:
-        - action: notify.mobile_app_benss22
-          metadata: {}
-          data:
-            message: TTS
-            data:
-              tts_text: '{% if trigger is defined and trigger.to_state is defined
-                %} Sir, a water leak has been detected by the {{ trigger.to_state.attributes.friendly_name
-                }}. Please check immediately! {% else %}
+    - action: notify.mobile_app_benss22
+      metadata: {}
+      data:
+        message: TTS
+        data:
+          tts_text: '{% if trigger is defined and trigger.to_state is defined %} Sir,
+            a water leak has been detected by the {{ trigger.to_state.attributes.friendly_name
+            }}. Please check immediately! {% else %}
 
-                <speak> Sir, there hasn''t been a water leak detection. This is a
-                test alert.  <break strength="x-strong"/> All TTS capabilities are
-                functioning properly. </speak> {% endif %}'
-              media_stream: alarm_stream
-        - delay:
-            seconds: 30
+            <speak> Sir, there hasn''t been a water leak detection. This is a test
+            alert.  <break strength="x-strong"/> All TTS capabilities are functioning
+            properly. </speak> {% endif %}'
+          media_stream: alarm_stream
   mode: restart
 - id: '1753550624378'
   alias: Water Alarm Acknowledgment Handler

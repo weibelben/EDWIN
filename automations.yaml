@@ -206,7 +206,7 @@
     below: 85
   actions:
   - repeat:
-      count: 12
+      count: 6
       sequence:
       - action: switch.turn_on
         target:
@@ -1529,23 +1529,25 @@
     - sensor.third_reality_inc_3rths0224z_humidity_3
   conditions:
   - condition: template
-    value_template: "{{ is_number(states('sensor.third_reality_inc_3rths0224z_humidity'))\n
-      \  and is_number(states('sensor.third_reality_inc_3rths0224z_humidity_3'))\n
-      \  and states('sensor.third_reality_inc_3rths0224z_humidity') | float\n     -
-      states('sensor.third_reality_inc_3rths0224z_humidity_3') | float >= 5 }}\n"
+    value_template: '{% set a = states(''sensor.third_reality_inc_3rths0224z_humidity'')
+      %} {% set b = states(''sensor.third_reality_inc_3rths0224z_humidity_3'') %}
+      {{ is_number(a) and is_number(b) and (a | float - b | float) | abs >= 5 }}
+
+      '
   actions:
   - action: climate.set_fan_mode
     target:
-      entity_id: climate.ecobee
+      entity_id: climate.living_room
     data:
       fan_mode: 'on'
   - delay: 00:30:00
   - action: climate.set_fan_mode
     target:
-      entity_id: climate.ecobee
+      entity_id: climate.living_room
     data:
       fan_mode: auto
   mode: single
+  max_exceeded: silent
 - id: '1792103469007'
   alias: Water Alarm Low Battery Notification
   description: Sends a notification to Ben's S22 if any water alarm battery drops
@@ -1556,7 +1558,7 @@
     - sensor.third_reality_inc_3rws18bz_battery_2
     - sensor.third_reality_inc_3rws18bz_battery_3
     - sensor.third_reality_inc_3rws18bz_battery_4
-    below: 10
+    below: 25
     trigger: numeric_state
   conditions: []
   actions:

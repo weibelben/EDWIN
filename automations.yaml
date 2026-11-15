@@ -1522,7 +1522,7 @@
   - condition: template
     value_template: '{% set a = states(''sensor.third_reality_inc_3rths0224z_humidity'')
       %} {% set b = states(''sensor.third_reality_inc_3rths0224z_humidity_3'') %}
-      {{ is_number(a) and is_number(b) and (a | float - b | float) | abs >= 5 }}
+      {{ is_number(a) and is_number(b) and (a | float - b | float) | abs >= 10}}
 
       '
   actions:

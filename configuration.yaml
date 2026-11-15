@@ -11,3 +11,5 @@ scene: !include scenes.yaml
 # HACS now authenticates using OAUTH instead of a hardcoded gh token
 # hacs:
 #   token: !secret github_token
+
+rest: !include rest.yaml

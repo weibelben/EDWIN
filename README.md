@@ -65,6 +65,10 @@ Home Network: <Name of home WiFi network>
 Internal Connection URL: http://192.168.0.236:8123
 ```
 
+## Intervals.icu
+
+TODO
+
 ## Problem Child Integrations
 
 ### (DEPRECATED) Custom CSV Parser
@@ -117,3 +121,4 @@ unreachable. To solve this, I added a DHCP reservation on my router, assigning
 the ZigBee coordinator's MAC address the static IP of `192.168.0.40`. 
 
 While I was at it, I added a reservation pinning Home Assistant to `192.168.0.236`.
+

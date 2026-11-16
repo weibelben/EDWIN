@@ -1572,3 +1572,11 @@
       sensor.third_reality_inc_3rws18bz_battery_4: Kitchen Water Alarm
     alarm_name: '{{ alarm_names[trigger.entity_id] }}'
   mode: queued
+- id: intervals_backfill
+  alias: Intervals Backfill
+  triggers:
+  - trigger: time_pattern
+    hours: /12
+    minutes: 5
+  actions:
+  - action: shell_command.intervals_backfill

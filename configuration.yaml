@@ -12,4 +12,5 @@ scene: !include scenes.yaml
 # hacs:
 #   token: !secret github_token
 
-rest: !include rest.yaml
+shell_command:
+  intervals_backfill: "python3 /config/scripts/intervals_to_ha.py"

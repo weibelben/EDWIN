@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.health_stats",
+  "data": {
+    "config": {
+      "title": "Health Stats",
+      "views": [
+        {
+          "title": "Health Stats",
+          "path": "health-stats",
+          "icon": "mdi:heart-pulse",
+          "cards": [
+            {
+              "type": "statistics-graph",
+              "title": "Resting and Sleeping Heart Rate",
+              "chart_type": "line",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:resting_hr",
+                "intervals:avg_sleeping_hr"
+              ]
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Heart Rate Variability",
+              "chart_type": "line",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:hrv"
+              ]
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Sleep",
+              "chart_type": "bar",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:sleep"
+              ]
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Steps",
+              "chart_type": "bar",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:steps"
+              ]
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Drinks",
+              "chart_type": "bar",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:drinks"
+              ]
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Weight",
+              "chart_type": "line",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:weight"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

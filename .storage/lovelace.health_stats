@@ -79,6 +79,19 @@
             },
             {
               "type": "statistics-graph",
+              "title": "Sodas",
+              "chart_type": "bar",
+              "period": "day",
+              "days_to_show": 30,
+              "stat_types": [
+                "mean"
+              ],
+              "entities": [
+                "intervals:sodas"
+              ]
+            },
+            {
+              "type": "statistics-graph",
               "title": "Weight",
               "chart_type": "line",
               "period": "day",

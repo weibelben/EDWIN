@@ -1576,7 +1576,7 @@
   alias: Intervals Backfill
   triggers:
   - trigger: time_pattern
-    hours: /12
+    hours: /3
     minutes: 5
   actions:
   - action: shell_command.intervals_backfill

@@ -22,6 +22,7 @@ METRICS = [
     {"field": "steps", "id": "steps", "name": "Steps", "unit": "steps", "unit_class": None},
     {"field": "weight", "id": "weight", "name": "Weight", "unit": "kg", "unit_class": "mass"},
     {"field": "AlcoholicDrinks", "id": "drinks", "name": "Drinks", "unit": "drinks", "unit_class": None, "default": 0},
+    {"field": "Sodas", "id": "sodas", "name": "Sodas", "unit": "drinks", "unit_class": None, "default": 0},
 ]
 
 
